@@ -1,0 +1,23 @@
+{
+  "name": "上海国际赛车场（2022·普通模式）",
+  "description": "上海国际赛车场 Shanghai International Circuit 2022<br><br>normal 普通模式：关闭赛道部分细节，适合普通电脑配置，对稳定性和速度有要求的玩家，刷圈、电竞赛事体验！<br><br>advanced 高级模式：赛道所有细节全开，适合电脑配置较高，对画质有要求的玩家，拍照、模拟驾驶体验！<br><br>支持换人模式：需要服务器配合支持！<br><br>注：本MOD“仅限个人学习交流，不能用于商业用途”，未经作者同意不得复制和传播，如有其它特殊需求，请务必联系作者:BUG3721 QQ:114405013，谢谢！<br><br>创作者联盟：http://www.trmod.top",
+  "tags": [
+    "circuit",
+    "F1",
+    "Shanghai"
+  ],
+  "geotags": [
+    "31° 20′ 21″ N",
+    "121° 13′ 13″ E"
+  ],
+  "country": "China",
+  "city": "Shanghai",
+  "length": "5.451m",
+  "width": "14m",
+  "pitboxes": "60",
+  "run": "clockwise",
+  "author": "Bug3721",
+  "version": "v1.6",
+  "url": "http://www.trmod.top",
+  "year": 2022
+}

@@ -1,0 +1,15 @@
+ {
+	"name": "天津武清V1汽车世界（短道组合）",
+	"description": "天津武清V1汽车公园组合赛道2.3公里",
+	"tags": ["circuit"],
+	"geotags": "Unknow",
+	"country": "china",
+	"city": "tianjing",
+	"length": "2378.9",
+	"width": "12",
+	"pitboxes": "27",
+	"run": "anti-clockwise",
+	"year": "2019",
+	"author": "PolyCode"
+}
+ 

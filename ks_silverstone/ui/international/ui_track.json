@@ -1,0 +1,12 @@
+{
+	"name": "银石赛道（国际布局）",
+	"description": "银石国际赛段布局，全长约3.619公里，顺时针，适合房车与统规赛。",
+	"tags" : ["circuit","original","drift","Great Britain"],
+	"geotags": ["lat", "lon"],
+	"country": "Great Britain",
+	"city": "Silverstone",
+	"length": "3619",
+	"width": "14",
+	"pitboxes": "24",
+	"run": "clockwise"
+}

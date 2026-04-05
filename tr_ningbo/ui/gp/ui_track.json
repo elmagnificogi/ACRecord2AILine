@@ -1,0 +1,23 @@
+{
+  "name": "宁波国际赛道（GP·TR版）",
+  "description": "宁波国际赛道2020增强版大奖赛布局，约4.01公里，逆时针，作者 Bug3721。",
+  "tags": [
+    "circuit",
+    "original",
+    "Ningbo"
+  ],
+  "geotags": [
+    "lat",
+    "lon"
+  ],
+  "country": "China",
+  "city": "Ningbo",
+  "length": "4.01km",
+  "width": "12-18m",
+  "pitboxes": "36",
+  "run": "anti-clockwise",
+  "author": "Bug3721",
+  "version": "0.95",
+  "url": null,
+  "year": 2020
+}

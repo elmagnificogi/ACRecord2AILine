@@ -1,0 +1,12 @@
+{
+	"name": "瓦莱伦加赛道（完整布局）",
+	"description": "意大利罗马以北瓦莱伦加皮耶罗·塔鲁菲赛车场完整布局，全长约4.085公里，顺时针，适合房车与GT。",
+	"tags" : ["circuit","original","drift","Italy"],
+	"geotags": ["lat", "lon"],
+	"country": "Italy",
+	"city": "Rome",
+	"length": "4085",
+	"width": "14",
+	"pitboxes": "24",
+	"run": "clockwise"
+}

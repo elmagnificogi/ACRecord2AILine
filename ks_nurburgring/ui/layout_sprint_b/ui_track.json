@@ -1,0 +1,12 @@
+{
+	"name": "纽博格林冲刺赛布局（GT）",
+	"description": "纽博格林冲刺GT变体，全长约3.618公里，适合GT赛车短赛。",
+	"tags" : ["original","circuit","Germany"],
+	"geotags": ["lat", "lon"],
+	"country": "Germany",
+	"city": "Nurburg",
+	"length": "3618",
+	"width": "14",
+	"pitboxes": "24",
+	"run": "clockwise"
+}

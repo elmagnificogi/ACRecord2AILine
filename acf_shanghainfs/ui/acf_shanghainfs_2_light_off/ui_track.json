@@ -1,0 +1,24 @@
+{
+  "name": "上海街区（极品飞车Shift·2·灯光关·stflow开）",
+  "description": "同上赛道，本预设：环境灯光关闭、stflow开，夜间氛围不同。",
+  "tags": [
+    "circuit",
+    "original",
+    "drift",
+    "motorfaq",
+    "NfS Shift"
+  ],
+  "geotags": [
+    "lat",
+    "lon"
+  ],
+  "country": "China",
+  "city": "Shanghai",
+  "length": "1.4 km",
+  "width": "10-12m",
+  "pitboxes": "14",
+  "run": "hacia adelante",
+  "author": "Slightly Mad Studios",
+  "version": null,
+  "url": null
+}

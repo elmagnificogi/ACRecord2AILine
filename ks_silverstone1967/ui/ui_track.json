@@ -1,0 +1,12 @@
+{
+	"name": "银石赛道（1967年历史布局）",
+	"description": "英国银石赛道在1967年前后使用的经典大奖赛布局复刻，全长约4.71公里，顺时针。相比现代银石，该版本弯角更开放、部分路段更接近“机场跑道”风格的高速特性，适合驾驶经典方程式与老爷赛车，体验上世纪大奖赛的高速滑流与制动挑战。",
+	"tags" : ["circuit","original","historic","Great Britain"],
+	"geotags": ["lat", "lon"],
+	"country": "Great Britain",
+	"city": "Silverstone",
+	"length": "4710",
+	"width": "14",
+	"pitboxes": "20",
+	"run": "clockwise"
+}

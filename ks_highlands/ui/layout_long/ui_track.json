@@ -1,0 +1,12 @@
+ {
+	"name": "苏格兰高地赛道（长布局）",
+	"description": "《神力科莎》虚构苏格兰高地环境的长布局，全长约12.2公里，起伏与景观变化丰富，适合公路与GT漫游。",
+	"tags" : ["circuit","original","Scotland"],
+	"geotags": ["lat", "lon"],
+	"country": "Scotland",
+	"city": "Fantasy",
+	"length": "12191",
+	"width": "10",
+	"pitboxes": "24",
+	"run": "clockwise"
+}

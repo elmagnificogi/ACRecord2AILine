@@ -1,0 +1,12 @@
+{
+	"name": "蒙扎赛道（1966完整圈·含椭圆）",
+	"description": "1966年前后蒙扎历史布局中的“完整”组合，含高速椭圆与公路赛段，总长约10公里量级，极具历史速度感。",
+	"tags" : ["circuit","original","historic","Italy"],
+	"geotags": ["lat", "lon"],
+	"country": "Italy",
+	"city": "Monza (MI)",
+	"length": "10000",
+	"width": "12",
+	"pitboxes": "25",
+	"run": "clockwise"
+}

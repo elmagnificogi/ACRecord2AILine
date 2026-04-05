@@ -1,0 +1,26 @@
+{
+  "name": "上海胜道酷野卡丁车公园（学院布局）",
+  "description": "胜道酷野卡丁公园备用学院布局，长约680米，路宽约7米，与主布局略有区别；嗨跑合作MOD。",
+  "tags": [
+    "circuit",
+    "original",
+    "China",
+    "kart",
+    "Academy",
+    "HiPole"
+  ],
+  "geotags": [
+    "lat",
+    "lon"
+  ],
+  "country": "China",
+  "city": "Shanghai",
+  "length": "680m",
+  "width": "7m",
+  "pitboxes": "16",
+  "run": "clockwise",
+  "year": 2022,
+  "author": "HiPole",
+  "url": null,
+  "version": "1.0.0"
+}

@@ -1,0 +1,12 @@
+{
+	"name": "襄阳DCV赛道",
+	"description": "面向大学生方程式（FSC）等赛事练习场景的虚构/简化赛道，位于湖北襄阳（作者 LightNMagic）。全长约1.46公里，顺时针，路宽约10至12米，维修区8车位。布局短、弯角密，适合小型方程式与轻量赛车调校与绕桩节奏训练。",
+	"tags" : ["original","circuit","China"],
+	"geotags": ["lat", "lon"],
+	"country": "China",
+	"city": "襄阳",
+	"length": "1460m",
+	"width": "10m-12m",
+	"pitboxes": "8",
+	"run": "clockwise"
+}

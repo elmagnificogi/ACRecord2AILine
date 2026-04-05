@@ -1,0 +1,24 @@
+{
+  "name": "上海街区（极品飞车Shift·1·灯光开·stflow开）",
+  "description": "以上海为背景的《极品飞车：变速》风格街区赛道。本预设：灯光开、stflow开。含社区作者对AI、护墙、树木、理想线、灯光与TV镜头等增强。",
+  "tags": [
+    "circuit",
+    "original",
+    "drift",
+    "motorfaq",
+    "NfS Shift"
+  ],
+  "geotags": [
+    "lat",
+    "lon"
+  ],
+  "country": "China",
+  "city": "Shanghai",
+  "length": "1.4 km",
+  "width": "10-12m",
+  "pitboxes": "14",
+  "run": "hacia adelante",
+  "author": "Slightly Mad Studios",
+  "version": null,
+  "url": null
+}

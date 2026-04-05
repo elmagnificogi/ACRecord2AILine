@@ -1,0 +1,12 @@
+{
+	"name": "纽博格林GP赛道（A布局）",
+	"description": "纽博格林大奖赛赛道布局之一，全长约5.148公里，顺时针，现代F1与房车赛常用GP赛段。",
+	"tags" : ["original","circuit","Germany"],
+	"geotags": ["lat", "lon"],
+	"country": "Germany",
+	"city": "Nurburg",
+	"length": "5148",
+	"width": "14",
+	"pitboxes": "24",
+	"run": "clockwise"
+}

@@ -1,0 +1,23 @@
+{
+  "name": "北京金港国际赛车场（增强版）",
+  "description": "北京金港国际赛车场社区增强版（Bug3721），赛道全长约3.3公里，逆时针，维修区约24车位。金港布局以流畅中高速弯与相对宽敞的赛道宽度著称，适合房车与GT大量练习；本版在材质与环境上相对原版有强化，具体改动见作者说明。",
+  "tags": [
+    "circuit",
+    "BeiJing",
+    "China"
+  ],
+  "geotags": [
+    "40.0168° N",
+    "116.5660° E"
+  ],
+  "country": "China",
+  "city": "北京",
+  "length": "3.300m",
+  "width": "m",
+  "pitboxes": "24",
+  "run": "anti-clockwise",
+  "year": 2020,
+  "author": "Bug3721",
+  "version": "1.1",
+  "url": null
+}

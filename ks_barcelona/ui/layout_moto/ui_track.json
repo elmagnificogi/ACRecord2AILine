@@ -1,0 +1,12 @@
+{
+	"name": "巴塞罗那-加泰罗尼亚赛道（Moto布局）",
+	"description": "加泰罗尼亚赛道摩托车大奖赛布局，全长约4.727公里，顺时针，与GP版线路略有不同，强调两轮走线。",
+	"tags" : ["circuit","original","drift","Spain"],
+	"geotags": ["lat", "lon"],
+	"country": "Spain",
+	"city": "Montmelo'",
+	"length": "4727",
+	"width": "11",
+	"pitboxes": "24",
+	"run": "clockwise"
+}

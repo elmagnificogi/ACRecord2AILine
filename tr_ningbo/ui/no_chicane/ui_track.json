@@ -1,0 +1,23 @@
+{
+  "name": "宁波国际赛道（摩托布局·无减速弯）",
+  "description": "去除部分减速弯的摩托取向布局，约4.01公里，顺时针，作者 Bug3721。",
+  "tags": [
+    "original",
+    "circuit",
+    "Ningbo"
+  ],
+  "geotags": [
+    "",
+    ""
+  ],
+  "country": "China",
+  "city": "Ningbo",
+  "length": "4.01km",
+  "width": "12-18m",
+  "pitboxes": "36",
+  "run": "clockwise",
+  "author": "Bug3721",
+  "version": "0.95",
+  "url": null,
+  "year": 2020
+}

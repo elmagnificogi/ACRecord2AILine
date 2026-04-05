@@ -1,0 +1,12 @@
+ {
+	"name": "苏格兰高地赛道（标准布局）",
+	"description": "高地原版中等长度布局，全长约8.2公里，平衡高速与技术弯。",
+	"tags" : ["circuit","original","Scotland"],
+	"geotags": ["lat", "lon"],
+	"country": "Scotland",
+	"city": "Fantasy",
+	"length": "8152",
+	"width": "10",
+	"pitboxes": "24",
+	"run": "clockwise"
+}

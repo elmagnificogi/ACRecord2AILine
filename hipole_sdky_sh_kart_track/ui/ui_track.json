@@ -1,0 +1,25 @@
+{
+  "name": "上海胜道酷野卡丁车公园",
+  "description": "上海胜道酷野国际卡丁车公园（与嗨跑赛车合作MOD）。园区整体占地约300亩，卡丁一期运营面积约20亩，其中赛道约18亩，配套建筑约1300平方米。卡丁赛道全长约680米，直线宽约9米、弯道宽约12米，共12个弯，由留美设计师 Jesse.li 设计。MOD仅供个人练习与联机，请勿商用或未经授权二次创作。",
+  "tags": [
+    "circuit",
+    "original",
+    "China",
+    "kart",
+    "HiPole"
+  ],
+  "geotags": [
+    "lat",
+    "lon"
+  ],
+  "country": "China",
+  "city": "上海",
+  "length": "680m",
+  "width": "10m",
+  "pitboxes": "16",
+  "run": "clockwise",
+  "year": 2022,
+  "author": "HiPole",
+  "url": null,
+  "version": "1.1"
+}

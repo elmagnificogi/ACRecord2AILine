@@ -1,0 +1,23 @@
+{
+  "name": "澳门东望洋赛道（格兰披治）",
+  "description": "澳门格兰披治大赛车使用的东望洋街道赛（Circuito da Guia），环绕澳门半岛东南沿海与市区道路，全长约6.1公里，顺时针，路宽随路段在约5至20米间变化。赛道以极窄弯角、护墙贴近与长直道接急弯著称，容错率极低，是房车与GT赛事中最具挑战性的街道赛之一。本MOD源自RaceRoom等素材转换。",
+  "tags": [
+    "Circuit",
+    "China",
+    "circuit"
+  ],
+  "geotags": [
+    "22° 12′ 14″ N",
+    "113° 33′ 15″ E"
+  ],
+  "country": "China",
+  "city": "澳门",
+  "length": "6102m",
+  "width": "5m-20m",
+  "pitboxes": "30",
+  "run": "clockwise",
+  "author": "Reboot Team",
+  "url": null,
+  "version": "1.0",
+  "year": 2019
+}

@@ -1,0 +1,12 @@
+{
+	"name": "马焦内翁布里亚赛道",
+	"description": "位于意大利翁布里亚马焦内（Magione）的翁布里亚赛车场（Autodromo dell'Umbria），全长约2.507公里，顺时针，路面相对较窄。布局紧凑、弯角多样，既适合房车与初级方程式训练，也常用于漂移与赛道日活动，是AC原版中代表性的中小型场地赛道之一。",
+	"tags" : ["circuit","original","drift","Italy"],
+	"geotags": ["lat", "lon"],
+	"country": "Italy",
+	"city": "Magione",
+	"length": "2507",
+	"width": "11",
+	"pitboxes": "18",
+	"run": "clockwise"
+}

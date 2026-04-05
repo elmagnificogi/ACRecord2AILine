@@ -1,0 +1,12 @@
+ {
+	"name": "直线加速赛（2000米）",
+	"description": "直线加速超长布局，长约2000米，适合极高尾速车辆测试。",
+	"tags" : ["drag","original"],
+	"geotags": ["lat", "lon"],
+	"country": "Italy",
+	"city": "Imola",
+	"length": "2000",
+	"width": "15",
+	"pitboxes": "2",
+	"run": "dragstrip"
+}

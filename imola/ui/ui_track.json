@@ -1,0 +1,12 @@
+ {
+	"name": "伊莫拉恩佐与迪诺·法拉利赛道",
+	"description": "位于意大利伊莫拉的恩佐与迪诺·法拉利国际赛道（Autodromo Enzo e Dino Ferrari），全长约4.909公里，逆时针行驶。赛道以塔姆布雷罗（Tamburello）、里瓦扎（Rivazza）等技术弯与相对狭窄的路宽著称，对赛车平衡与轮胎温度管理要求严格，曾长期作为圣马力诺大奖赛举办地。",
+	"tags" : ["circuit","original","Italy"],
+	"geotags": ["lat", "lon"],
+	"country": "Italy",
+	"city": "Imola",
+	"length": "4909",
+	"width": "15",
+	"pitboxes": "24",
+	"run": "anti-clockwise"
+}

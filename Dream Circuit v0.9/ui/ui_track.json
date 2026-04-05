@@ -1,0 +1,12 @@
+{
+	"name": "襄阳梦想赛道",
+	"description": "与襄阳地区FSC练习向MOD同系列的“梦想赛道”布局（Dream Circuit，作者 LightNMagic）。全长约1.46公里，顺时针，路宽约10至12米，维修区8车位。适合大学生方程式与轻量赛车在短赛道上的操控与设定对比，强调低速弯与牵引力控制。",
+	"tags" : ["original","circuit","China"],
+	"geotags": ["lat", "lon"],
+	"country": "China",
+	"city": "襄阳",
+	"length": "1460m",
+	"width": "10m-12m",
+	"pitboxes": "8",
+	"run": "clockwise"
+}

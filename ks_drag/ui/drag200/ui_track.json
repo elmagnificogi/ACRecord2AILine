@@ -1,0 +1,12 @@
+ {
+	"name": "直线加速赛（200米）",
+	"description": "《神力科莎》原版直线加速场地，长约200米，用于短距加速与弹射练习。",
+	"tags" : ["drag","original"],
+	"geotags": ["lat", "lon"],
+	"country": "Italy",
+	"city": "Imola",
+	"length": "200",
+	"width": "15",
+	"pitboxes": "2",
+	"run": "dragstrip"
+}

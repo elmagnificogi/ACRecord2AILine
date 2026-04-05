@@ -1,0 +1,12 @@
+{
+	"name": "大鹏湾国际赛车场",
+	"description": "位于台湾屏东县车城乡大鹏湾滨的鹏湾国际赛车场（Penbay International Circuit，PIC），全长约3.527公里，顺时针，路宽约在12至20米之间，维修区约21车位。赛道临海、可眺望海湾，弯角组合兼顾高速与制动区，适合GT与房车赛事风格的驾驶体验。",
+	"tags" : ["circuit","motor sport circuit","Taiwan"],
+	"geotags": ["lat", "lon"],
+	"country": "Taiwan",
+	"city": "垦丁",
+	"length": "3.527 km",
+	"width": "12m-20m",
+	"pitboxes": "21",
+	"run": "clockwise"
+}

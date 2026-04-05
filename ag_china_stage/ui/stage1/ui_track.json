@@ -1,0 +1,21 @@
+{
+  "name": "中国拉力赛段（第1段）",
+  "description": "中国拉力赛段包中的第1段，路面宽度变化较大，适合拉力与砂石体验。",
+  "tags": [
+    "rally",
+    "Stage"
+  ],
+  "geotags": [
+    "lat",
+    "lon"
+  ],
+  "country": "China",
+  "city": "Pekin",
+  "length": "Km",
+  "width": "2.862m-4.300m",
+  "pitboxes": "14",
+  "run": "push for fun",
+  "author": null,
+  "version": null,
+  "url": null
+}

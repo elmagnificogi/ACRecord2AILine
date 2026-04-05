@@ -1,0 +1,21 @@
+{
+  "name": "中国拉力赛段（第2段）",
+  "description": "中国拉力赛段包中的第2段，节奏与第1段不同，适合连续赛段练习。",
+  "tags": [
+    "rally",
+    "Stage"
+  ],
+  "geotags": [
+    "lat",
+    "lon"
+  ],
+  "country": "China",
+  "city": "Pekin",
+  "length": "Km",
+  "width": "2.862m-4.300m",
+  "pitboxes": "14",
+  "run": "push for fun",
+  "author": null,
+  "version": null,
+  "url": null
+}

@@ -1,0 +1,12 @@
+{
+	"name": "上海国际赛车场（2021 Fab版）",
+	"description": "上海国际赛车场大奖赛布局的2021 Fab改版MOD，单圈长约5.451公里，顺时针，维修区约26车位。赛道特征与官方上赛一致：高速直道、复合减速弯与需要良好牵引力出弯的路段，适合F1与原型车；具体视觉更新以作者版本说明为准。",
+	"tags" : ["Grand Prix Circuit"],
+	"geotags": ["lat", "lon"],
+	"country": "China",
+	"city": "上海",
+	"length": "5.451m",
+	"width": "14m",
+	"pitboxes": "26",
+	"run": "clockwise"
+}

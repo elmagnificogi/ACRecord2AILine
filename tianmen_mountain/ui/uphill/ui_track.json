@@ -1,0 +1,15 @@
+ {
+	"name": "张家界天门山（上山）",
+	"description": "湖南张家界天门山盘山公路爬坡线，全长约11公里量级（以MOD为准），路窄弯急，适合山路与爬山赛；作者 permZ。",
+	"tags" : ["hillclimb","touge","mountain","original","china"],
+	"geotags": ["29.0597953° N", "110.4879427° E"],
+	"country": "China",
+	"city": "Zhangjiajie",
+        "length": "11km",
+        "width": "7.5m",
+        "pitboxes": "32",
+        "year": 2022,
+        "author": "permZ",
+	
+	
+}

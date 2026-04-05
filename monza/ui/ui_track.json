@@ -1,0 +1,12 @@
+{
+	"name": "蒙扎国家赛车场",
+	"description": "意大利蒙扎的国家赛车场（Autodromo Nazionale di Monza），始建于1922年，以长直道与高速弯组合闻名，被称为“速度殿堂”。大奖赛布局全长约5.793公里，顺时针，包含著名的莱斯莫（Lesmo）弯与帕拉波利卡（Parabolica）等弯角，极度考验极速、制动与燃油管理，是F1历史最悠久的分站场地之一。",
+	"tags" : ["circuit","original","Italy"],
+	"geotags": ["lat", "lon"],
+	"country": "Italy",
+	"city": "Monza (MI)",
+	"length": "5793",
+	"width": "12",
+	"pitboxes": "26",
+	"run": "clockwise"
+}

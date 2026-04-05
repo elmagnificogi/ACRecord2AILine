@@ -1,0 +1,12 @@
+{
+	"name": "台湾大尖山龙潭国际赛车场",
+	"description": "台湾龙潭地区的台湾国际赛车场（Taiwan International Speedway，简称TIS），位于桃园市龙潭区一带（大尖山）。赛道全长约1.85公里，顺时针，路宽约10至15米，维修区13车位。布局以技术弯与坡度变化为主，适合房车与统规赛体验台湾地区赛道风格。",
+	"tags" : ["TIS","Longtan","Taiwan"],
+	"geotags": ["lat", "lon"],
+	"country": "Taiwan",
+	"city": "龙潭",
+	"length": "1850m",
+	"width": "10m-15m",
+	"pitboxes": "13",
+	"run": "clockwise"
+}

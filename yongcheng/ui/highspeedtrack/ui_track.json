@@ -1,0 +1,22 @@
+{
+  "name": "甬城国际赛车场（高速布局）",
+  "description": "甬城高速取向布局，约3.55公里，强调长直道与高速弯组合。",
+  "tags": [
+    "circuit",
+    "original",
+    "yongcheng"
+  ],
+  "geotags": [
+    "lat",
+    "lon"
+  ],
+  "country": "China",
+  "city": "Ningbo",
+  "length": "3550m",
+  "width": "m",
+  "pitboxes": "12",
+  "run": "anti-clockwise",
+  "author": "GTPlanet forum members",
+  "version": "beta",
+  "url": null
+}

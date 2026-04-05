@@ -1,0 +1,24 @@
+{
+  "name": "鄂尔多斯国际赛车场",
+  "description": "位于内蒙古鄂尔多斯市的国际赛车场（本MOD标注为2020版，作者 Bug3721）。赛道全长约3.751公里，顺时针，路宽约15至25米，维修区约32车位。布局包含长直道与组合弯，曾承办多项国家级房车与方程式活动，适合高速赛车与耐力赛风格练习。",
+  "tags": [
+    "circuit",
+    "china",
+    "F3",
+    "Ordos"
+  ],
+  "geotags": [
+    "lat",
+    "lon"
+  ],
+  "year": 2020,
+  "author": "Bug3721",
+  "country": "China",
+  "city": "鄂尔多斯",
+  "length": "3751m",
+  "width": "15m-25m",
+  "pitboxes": "32",
+  "run": "clockwise",
+  "version": "v0.95",
+  "url": null
+}

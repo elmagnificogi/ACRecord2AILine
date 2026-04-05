@@ -1,0 +1,24 @@
+{
+  "name": "巴音布鲁克（砂石·无扬尘）",
+  "description": "砂石路面版本，关闭扬尘特效，能见度更好，便于练习走线。",
+  "tags": [
+    "China",
+    "rally",
+    "Xinjiang",
+    "circuit"
+  ],
+  "geotags": [
+    "25° 58′ 42″ N",
+    "108° 48′ 09″ E"
+  ],
+  "country": "China",
+  "city": "Bayingolin",
+  "length": "18km",
+  "width": "6",
+  "pitboxes": "9",
+  "run": "DRIFT",
+  "year": 2024,
+  "author": "Arcbang",
+  "version": "1.2.1",
+  "url": null
+}

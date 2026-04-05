@@ -1,0 +1,12 @@
+{
+	"name": "纽博格林GP赛道（GT布局）",
+	"description": "纽博格林GP赛道GT赛常用变体，全长约5.137公里，与A布局略有差异，适合GT与耐力赛。",
+	"tags" : ["original","circuit","Germany"],
+	"geotags": ["lat", "lon"],
+	"country": "Germany",
+	"city": "Nurburg",
+	"length": "5137",
+	"width": "14",
+	"pitboxes": "24",
+	"run": "clockwise"
+}

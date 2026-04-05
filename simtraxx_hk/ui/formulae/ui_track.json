@@ -1,0 +1,12 @@
+{
+	"name": "香港电动方程式街道赛（SIM Traxx v1.0 RC）",
+	"description": "香港风格电动方程式街道赛布局（SIM Traxx），长约2公里量级，顺时针，路宽约12米；虚构/半虚构场景以MOD为准。",
+	"tags" : ["circuit","Hong Kong"],
+	"geotags": ["", ""],
+	"country": "Hong Kong",
+	"city": "Hong Kong",
+	"length": " 2000m",
+	"width": "12m",
+	"pitboxes": "10",
+	"run": "clockwise"
+}

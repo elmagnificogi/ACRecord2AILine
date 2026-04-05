@@ -1,0 +1,25 @@
+{
+  "name": "武汉极速联盟WSK卡丁车俱乐部",
+  "description": "武汉极速联盟WSK卡丁车俱乐部位于武汉市蔡甸区江城大道附近。本MOD仅供娱乐，与现实场地线路、抓地力与安全设施不完全一致，真实驾驶请遵守场地规则并接受指导。MOD仍在完善中，后续可能继续更新模型与物理周边内容。",
+  "tags": [
+    "#wuhan",
+    "wuhan",
+    "test track",
+    "circuit",
+    "original",
+    "china"
+  ],
+  "geotags": [
+    "30° 29′ 14.93″ N",
+    "114° 11′ 03.46″ E"
+  ],
+  "country": "China",
+  "city": "武汉",
+  "length": "905",
+  "width": "15",
+  "pitboxes": "18",
+  "run": "DRIFT",
+  "author": "晓晗QQ576890236",
+  "version": 1.1,
+  "url": null
+}

@@ -1,0 +1,12 @@
+{
+	"name": "\u7ebd\u535a\u683c\u6797\u5317\u73af",
+	"description": "\u5fb7\u56fd\u7ebd\u535a\u683c\u6797\u5317\u73af\u5355\u5708\uff0c\u5168\u957f\u7ea620.8\u516c\u91cc\uff0c\u987a\u65f6\u9488\uff0c\u8d77\u4f0f\u4e0e\u5f2f\u89d2\u6781\u4e3a\u4e30\u5bcc\uff0c\u9002\u5408\u8010\u529b\u4e0e\u9ad8\u6027\u80fd\u8857\u8f66\u5237\u5708\u3002",
+	"tags" : ["original","circuit","Germany"],
+	"geotags": ["50.3356 N", "6.9475 E"],
+	"country": "Germany",
+	"city": "Nurburg",
+	"length": "20832",
+	"width": "15",
+	"pitboxes": "24",
+	"run": "clockwise"
+}

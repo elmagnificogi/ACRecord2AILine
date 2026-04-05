@@ -1,0 +1,14 @@
+{
+	"name": "鄂尔多斯国际赛车场",
+	"description": "内蒙古鄂尔多斯市的国际赛车场（GTSUPREME 版，曾承办FIA GT1世界锦标赛等赛事）。赛道全长约3.751公里，顺时针，路宽约15至25米，维修区14车位（以本MOD数据为准）。布局包含长直道与宽慢弯，适合GT与原型车高速驾驶训练。",
+	"tags" : ["circuit","china","fia gt1"],
+	"geotags": ["lat", "lon"],
+	"year": "2010",
+	"author": "GTSUPREME.COM and TonyB",
+	"country": "China",
+	"city": "鄂尔多斯",
+	"length": " 3751m",
+	"width": "15m-25m",
+	"pitboxes": "14",
+	"run": "clockwise"
+}

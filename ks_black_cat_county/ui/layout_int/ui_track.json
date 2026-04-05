@@ -1,0 +1,12 @@
+ {
+	"name": "黑猫县公路（标准布局）",
+	"description": "黑猫县标准长度开放公路布局，全长约6.5公里，逆时针。",
+	"tags" : ["circuit","drift","original","usa"],
+	"geotags": ["lat", "lon"],
+	"country": "U.S.A.",
+	"city": "Los Angeles",
+	"length": "6478",
+	"width": "15",
+	"pitboxes": "24",
+	"run": "anti-clockwise"
+}

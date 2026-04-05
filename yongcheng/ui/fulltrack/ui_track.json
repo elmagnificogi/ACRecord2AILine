@@ -1,0 +1,21 @@
+{
+  "name": "甬城国际赛车场（全程）",
+  "description": "甬城国际赛车场MOD（2020测试版），全程布局约4.015公里，顺时针，适合房车练习；城市标注为宁波，具体以MOD为准。",
+  "tags": [
+    "",
+    "circuit"
+  ],
+  "geotags": [
+    "lat",
+    "lon"
+  ],
+  "country": "China",
+  "city": "Ningbo",
+  "length": "4015m",
+  "width": "m",
+  "pitboxes": "26",
+  "run": "clockwise",
+  "author": "GTPlanet forum members",
+  "version": "beta",
+  "url": null
+}

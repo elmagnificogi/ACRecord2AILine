@@ -1,0 +1,12 @@
+{
+	"name": "纽博格林冲刺赛布局（A）",
+	"description": "纽博格林冲刺短布局，全长约3.629公里，弯角紧凑，适合短距离竞速。",
+	"tags" : ["original","circuit","Germany"],
+	"geotags": ["lat", "lon"],
+	"country": "Germany",
+	"city": "Nurburg",
+	"length": "3629",
+	"width": "14",
+	"pitboxes": "24",
+	"run": "clockwise"
+}

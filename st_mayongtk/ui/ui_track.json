@@ -1,0 +1,20 @@
+{
+  "name": "麻涌赛车场",
+  "description": "位于广东省东莞市麻涌镇，是华南地区首个符合国际汽联FIA认证的赛车场。赛道全长1.53公里，宽度12-15米，共设有12个弯道，包括高速弯、发卡弯等多种类型。赛道设计完全符合国际汽联标准，配套设施完善，是举办各类赛车比赛、赛道日、驾驶培训等活动的理想场所。",
+  "tags": [
+    "circuit"
+  ],
+  "geotags": [
+    "154.144527", "502.968483"
+  ],
+  "country": "China",
+  "city": "DongGuan",
+  "length": "1530",
+  "width": "12-15",
+  "pitboxes": "12",
+  "run": "clockwise",
+  "year": "2022",
+  "author": "skyten",
+  "url": "http://www.trmod.top",
+  "version": "1.0"
+}

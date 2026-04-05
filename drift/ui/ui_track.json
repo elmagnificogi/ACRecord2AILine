@@ -1,0 +1,12 @@
+ {
+	"name": "漂移测试赛道",
+	"description": "《神力科莎》原版附带的虚构漂移场地，设定风格偏向日本场地赛/漂移练习场。赛道全长约905米，路面较宽，布局强调连续横滑与跟趾节奏，适合后驱漂移车与赛道日调校练习；维修区车位较多，便于多人绕桩或追走热身。",
+	"tags" : ["#drift","drift","test track","circuit","original","Japan"],
+	"geotags": ["lat", "lon"],
+	"country": "Japan",
+	"city": "Tokyo",
+	"length": "905",
+	"width": "15",
+	"pitboxes": "18",
+	"run": "DRIFT"
+}

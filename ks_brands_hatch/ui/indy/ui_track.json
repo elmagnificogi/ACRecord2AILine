@@ -1,0 +1,12 @@
+{
+	"name": "布兰兹哈奇赛道（Indy布局）",
+	"description": "布兰兹哈奇赛车场Indy短布局，全长约1.929公里，顺时针，弯角密集，适合短距离竞速与漂移练习。",
+	"tags" : ["circuit","original","drift","Great Britain"],
+	"geotags": ["lat", "lon"],
+	"country": "Great Britain",
+	"city": "Fawkham",
+	"length": "1929",
+	"width": "11",
+	"pitboxes": "24",
+	"run": "clockwise"
+}

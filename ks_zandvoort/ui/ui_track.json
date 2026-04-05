@@ -1,0 +1,12 @@
+{
+	"name": "赞德福特赛道",
+	"description": "荷兰北海沿岸赞德福特的赞德福特赛车场（Circuit Zandvoort），近年经现代化改造后重新承办一级方程式等赛事。赛道全长约4.307公里，顺时针，弯角密集、路肩与坡度运用充分，最后一弯银行倾斜设计独特，强调刹车点精度与出弯牵引力，是典型的“短圈高速技术型”布局。",
+	"tags" : ["circuit","original","Netherlands"],
+	"geotags": ["lat", "lon"],
+	"country": "Netherlands",
+	"city": "Zandvoort",
+	"length": "4307",
+	"width": "13",
+	"pitboxes": "18",
+	"run": "clockwise"
+}

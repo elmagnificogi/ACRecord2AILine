@@ -1,0 +1,12 @@
+{
+	"name": "银石赛道（国家布局）",
+	"description": "银石国家短布局，全长约2.638公里，顺时针，紧凑技术型赛道。",
+	"tags" : ["circuit","original","Great Britain"],
+	"geotags": ["lat", "lon"],
+	"country": "Great Britain",
+	"city": "Silverstone",
+	"length": "2638",
+	"width": "14",
+	"pitboxes": "24",
+	"run": "clockwise"
+}

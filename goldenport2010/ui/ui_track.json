@@ -1,0 +1,21 @@
+{
+  "name": "北京金港国际赛车场（2010版）",
+  "description": "北京金港国际赛车场2010时期布局的社区重制版（NeelJ、Rainmaker 等制作，Assetto-fr.tk 等更新）。赛道全长约3.3公里，逆时针，维修区约24车位。布局以中高速弯与相对宽敞的缓冲区为特点，适合房车与GT练习；本版相对早期版本更新了着色器、3D草与VAO等视觉效果。",
+  "tags": [
+    "circuit"
+  ],
+  "geotags": [
+    "40.0168° N",
+    "116.5660° E"
+  ],
+  "country": "China",
+  "city": "北京",
+  "length": "3.300m",
+  "width": "m",
+  "pitboxes": "24",
+  "run": "anti-clockwise",
+  "year": 2010,
+  "author": "NeelJ and Rainmaker / Updated by Assetto-fr.tk",
+  "version": "1.1",
+  "url": null
+}

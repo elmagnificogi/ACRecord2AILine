@@ -1,0 +1,12 @@
+{
+	"name": "拉古纳塞卡（马自达赛道）",
+	"description": "美国加利福尼亚州蒙特雷附近的拉古纳塞卡赛道（WeatherTech Raceway Laguna Seca，曾用名马自达赛道），以逆时针方向与著名的“软木塞弯”（Corkscrew）连续下坡弯闻名。布局强调制动点与坡度变化中的车辆重心转移，适合GT与原型车驾驶；游戏内数据长度字段约为3.602公里量级，请以实际MOD为准。",
+	"tags" : ["circuit","original","drift","Usa"],
+	"geotags": ["lat", "lon"],
+	"country": "USA",
+	"city": "Monterey",
+	"length": "3.602",
+	"width": "11",
+	"pitboxes": "24",
+	"run": "anti-clockwise"
+}

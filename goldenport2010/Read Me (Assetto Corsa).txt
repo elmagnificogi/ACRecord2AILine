@@ -1,0 +1,23 @@
+Goldenport 2010 presented by schwarzbierbude.de
+
+
+This 3D-track was made by Raceking and NeelJ for rFactor/GTR2. It was converted and enhanced to Assetto Corsa by Rainmaker and members of schwarzbierbude.de.
+The track is a project of schwarzbierbude.de your friendly AC-Server.
+
+Features:
+-replay cameras
+-working track map
+-support for hot lap mode
+-support for time attack mode
+-competitive AI
+-24 pit boxes with working pit lane
+
+Known Issues:
+-because of the U-turn pit out, there will be a wrong way sign and yellow flags in training
+
+
+Get always the latest version here:
+https://www.mediafire.com/file/6vcfn4n5l137a6f/goldenport.7z
+
+If you like it you can send a donation here:
+https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=RRGJ6TV8PFL8Q

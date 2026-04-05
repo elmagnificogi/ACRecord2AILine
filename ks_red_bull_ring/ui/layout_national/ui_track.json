@@ -1,0 +1,12 @@
+{
+	"name": "红牛环赛道（国家布局）",
+	"description": "红牛环短布局（国家赛段），全长约2.336公里，顺时针，适合房车与统规赛及短赛道日。",
+	"tags" : ["circuit","original","drift","Austria"],
+	"geotags": ["lat", "lon"],
+	"country": "Austria",
+	"city": "Spielberg",
+	"length": "2336",
+	"width": "12",
+	"pitboxes": "24",
+	"run": "clockwise"
+}

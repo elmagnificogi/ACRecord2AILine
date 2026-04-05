@@ -1,0 +1,12 @@
+{
+	"name": "穆杰罗赛道",
+	"description": "意大利托斯卡纳大区斯卡尔佩里亚附近的穆杰罗赛车场（Autodromo del Mugello），长约5.245公里，顺时针，路面宽约14米。赛道以流畅的高速弯、明显的高低落差和极佳的观赛视野著称，常年举办MotoGP等两轮与四轮顶级赛事，对车手节奏与赛车高速稳定性要求很高。",
+	"tags" : ["circuit","original","Italy"],
+	"geotags": ["lat", "lon"],
+	"country": "Italy",
+	"city": "Scarperia",
+	"length": "5245",
+	"width": "14",
+	"pitboxes": "24",
+	"run": "clockwise"
+}

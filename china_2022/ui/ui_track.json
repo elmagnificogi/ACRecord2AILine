@@ -1,0 +1,12 @@
+{
+	"name": "上海国际赛车场（2022布局）",
+	"description": "上海国际赛车场F1大奖赛布局，单圈长约5.451公里，顺时针，维修区约26车位，路宽约14米。赛道上字形组合弯、长直道与重刹区交替，适合现代方程式与GT；本条目标注为2022版本，具体路面与广告以MOD为准。",
+	"tags" : ["Grand Prix"],
+	"geotags": ["lat", "lon"],
+	"country": "China",
+	"city": "上海",
+	"length": "5.451m",
+	"width": "14m",
+	"pitboxes": "26",
+	"run": "clockwise"
+}

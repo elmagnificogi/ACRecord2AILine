@@ -1,0 +1,12 @@
+{
+	"name": "特伦托-邦多内爬山赛",
+	"description": "意大利著名的山地爬坡赛段，从特伦托（Trento）附近蜿蜒上至邦多内山区，全长约17.6公里，路面较窄、落差与弯角变化极大。作为A2B类爬山/山路赛布局，强调对向车流少时的连续弯道与坡度控制，适合体验拉力与山路驾驶节奏，与常规封闭赛道驾驶风格差异明显。",
+	"tags" : ["A2B","Hillclimb","touge","original","Italy"],
+	"geotags": ["lat", "lon"],
+	"country": "Italy",
+	"city": "Trento",
+	"length": "17619",
+	"width": "8",
+	"pitboxes": "4",
+	"run": "clockwise"
+}

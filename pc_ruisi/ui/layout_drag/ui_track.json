@@ -1,0 +1,15 @@
+ {
+	"name": "北京锐思赛车场（直线500米）",
+	"description": "锐思场地直线加速段，长约500米，用于弹射与尾速测试。",
+	"tags" : ["drag","original"],
+	"geotags": ["40.254150", "116.692398"],
+	"country": "China",
+	"city": "BeiJing",
+	"length": "500",
+	"width": "15",
+	"pitboxes": "2",
+	"run": "dragstrip",
+	"year": "2002",
+	"author": "PolyCode 2020/4/4 18:00",
+	"version": 1.0819
+}

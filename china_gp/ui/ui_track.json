@@ -1,0 +1,23 @@
+{
+  "name": "上海国际赛车场（大奖赛布局·增强版）",
+  "description": "位于上海嘉定区的上海国际赛车场（Shanghai International Circuit）F1大奖赛布局增强MOD，单圈长约5.451公里，顺时针，维修区约32车位。赛道以上海字形的组合弯、长直道尾端重刹与1号弯的多线路选择闻名，适合现代方程式与GT赛车；本版本为社区增强，作者Bug3721。",
+  "tags": [
+    "circuit",
+    "F1",
+    "Shanghai"
+  ],
+  "geotags": [
+    "lat",
+    "lon"
+  ],
+  "country": "China",
+  "city": "上海",
+  "length": "5.451m",
+  "width": "14m",
+  "pitboxes": "32",
+  "run": "clockwise",
+  "author": "Bug3721",
+  "version": "v1.2",
+  "url": null,
+  "year": 2020
+}

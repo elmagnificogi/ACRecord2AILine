@@ -1,0 +1,12 @@
+{
+	"name": "银石赛道（大奖赛布局）",
+	"description": "英国银石现代大奖赛布局，全长约5.9公里，顺时针，高速弯与长直道结合，F1经典场地。",
+	"tags" : ["circuit","original","Great Britain"],
+	"geotags": ["lat", "lon"],
+	"country": "Great Britain",
+	"city": "Silverstone",
+	"length": "5901",
+	"width": "14",
+	"pitboxes": "24",
+	"run": "clockwise"
+}

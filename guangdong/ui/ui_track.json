@@ -1,0 +1,14 @@
+{
+	"name": "肇庆赛车场-GIC",
+	"description": "肇庆赛车场(GIC)是位于中国广东省肇庆市的一座国际标准赛车场，于2009年建成。赛道全长2.82公里，拥有14个弯道，是广东省内唯一一座符合FIA国际标准的赛车场。这里曾举办过CTCC中国房车锦标赛、亚洲勒芒系列赛等重要赛事。",
+	"tags" : ["#Race","ZhaoQing","circuit","original","GuangDong","ver 1.01"],
+	"geotags": ["lat", "lon"],
+	"country": "China",
+	"city": "GuangDong",
+	"year": "2019",
+	"author": "Paulmarc/WestLin西林/LRAC",
+	"length": "2820",
+	"width": "20",
+	"pitboxes": "20",
+	"run": "Race"
+}

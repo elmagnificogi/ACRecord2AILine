@@ -1,0 +1,20 @@
+﻿{
+  "name": "浙江国际赛车场（逆向布局）",
+  "description": "浙江国际赛车场逆向跑法，与主赛道镜像，弯角节奏与视线与正向不同，适合对比练习。",
+  "tags": [
+    "circuit"
+  ],
+  "geotags": [
+    "25.144527", "102.968483"
+  ],
+  "country": "China",
+  "city": "zhejiang keqiao",
+  "length": "3400",
+  "width": "10-12",
+  "pitboxes": "16",
+  "run": "clockwise",
+  "year": "2019",
+  "author": "\u70b9\u51fb\u8d5e\u52a9\u4f5c\u8005skyten",
+  "url": "http://m.qpic.cn/psc?/V12tQrtG4fJAu4/45NBuzDIW489QBoVep5mcYLOttev6qeSIZFVQVA*9nUeXRrj4I3h00kIg5RctSSQ0sys*iVt62toaZ*HT8Hb7Wmb7ktzjMsf5z54a.wyuEE!/b&bo=AAQABAAEAAQBFzA!&rf=viewer_4",
+  "version": "1.0"
+}

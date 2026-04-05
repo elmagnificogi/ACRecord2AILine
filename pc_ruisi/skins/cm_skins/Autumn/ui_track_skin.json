@@ -1,0 +1,17 @@
+{
+  "name": "Autumn",
+  "description": "本赛道由神力科莎MOD团队 PolyCode 研发制作，感谢您的支持，祝玩得愉快。<br>欢迎关注我们微信公众号获取更多信息，微信公众号搜索&quot;多边形代码&quot;,期待您的加入。<br>This track is developed and produced by the AssettoCorsa MOD Team PolyCode . Thank you for your support and have a good time!",
+  "track": "pc_ruisi",
+  "id": "Autumn",
+  "tags": [
+    "season"
+  ],
+  "country": "",
+  "author": "PolyCode 2020/4/4 18:00",
+  "version": 1.0819,
+  "url": null,
+  "categories": [
+    "season"
+  ],
+  "priority": 0.0
+}

@@ -1,0 +1,12 @@
+{
+	"name": "巴塞罗那-加泰罗尼亚赛道（GP）",
+	"description": "西班牙蒙特梅洛加泰罗尼亚赛道大奖赛布局，全长约4.655公里，顺时针，F1与MotoGP常用测试赛道。",
+	"tags" : ["circuit","original","drift","Spain"],
+	"geotags": ["lat", "lon"],
+	"country": "Spain",
+	"city": "Montmelo'",
+	"length": "4655",
+	"width": "11",
+	"pitboxes": "24",
+	"run": "clockwise"
+}

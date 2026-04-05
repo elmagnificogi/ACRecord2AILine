@@ -1,0 +1,12 @@
+ {
+	"name": "苏格兰高地赛道（漂移布局）",
+	"description": "专为横滑调校的高地漂移布局，全长约5.2公里，适合后驱漂移与追走练习。",
+	"tags" : ["circuit","original","drift","Scotland"],
+	"geotags": ["lat", "lon"],
+	"country": "Scotland",
+	"city": "Fantasy",
+	"length": "5167",
+	"width": "10",
+	"pitboxes": "24",
+	"run": "clockwise"
+}

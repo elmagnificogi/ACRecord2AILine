@@ -1,0 +1,12 @@
+{
+	"name": "蒙扎赛道（1966公路赛布局）",
+	"description": "1966蒙扎公路赛布局（不含完整椭圆组合），长约5.793公里，顺时针，经典高速弯与长直道。",
+	"tags" : ["circuit","original","historic","Italy"],
+	"geotags": ["lat", "lon"],
+	"country": "Italy",
+	"city": "Monza (MI)",
+	"length": "5793",
+	"width": "12",
+	"pitboxes": "25",
+	"run": "clockwise"
+}

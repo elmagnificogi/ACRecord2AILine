@@ -1,0 +1,24 @@
+{
+  "name": "巴音布鲁克（铺装路面）",
+  "description": "新疆巴音郭楞一带山地公路风格的铺装路面布局，长约18公里，适合拉力与山路漫游；作者 Arcbang。",
+  "tags": [
+    "China",
+    "rally",
+    "Xinjiang",
+    "circuit"
+  ],
+  "geotags": [
+    "25° 58′ 42″ N",
+    "108° 48′ 09″ E"
+  ],
+  "country": "China",
+  "city": "Bayingolin",
+  "length": "18km",
+  "width": "6",
+  "pitboxes": "9",
+  "run": "DRIFT",
+  "year": 2024,
+  "author": "Arcbang",
+  "version": "1.2.1",
+  "url": null
+}

@@ -1,0 +1,15 @@
+ {
+	"name": "北京凯泽赛车体验中心",
+	"description": "位于北京市的凯泽汽车运动体验中心（Keizer Motorsport Experience Center）赛道，全长约1.613公里，逆时针，路宽约12至15米，维修区14车位。布局紧凑，适合房车、性能车与驾驶培训向练习；本MOD由 PolyCode 于2020年发布。",
+	"tags": ["circuit", "original"],
+	"geotags": ["40.207344", "116.163672"],
+	"country": "China",
+	"city": "北京",
+	"length": "1613",
+	"width": "12-15",
+	"pitboxes": "14",
+	"run": "anti-clockwise",
+	"year": "2020",
+	"author": "PolyCode 2020/7/2 22:54"
+}
+ 

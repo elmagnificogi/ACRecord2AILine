@@ -1,0 +1,12 @@
+ {
+	"name": "苏格兰高地赛道（短布局）",
+	"description": "高地短布局，全长约1.7公里，紧凑刺激，适合漂移与短距离对决。",
+	"tags" : ["circuit","original","drift","Scotland"],
+	"geotags": ["lat", "lon"],
+	"country": "Scotland",
+	"city": "Fantasy",
+	"length": "1714",
+	"width": "10",
+	"pitboxes": "24",
+	"run": "clockwise"
+}

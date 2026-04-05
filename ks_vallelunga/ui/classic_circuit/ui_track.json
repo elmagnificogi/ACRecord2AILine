@@ -1,0 +1,12 @@
+{
+	"name": "瓦莱伦加赛道（经典布局）",
+	"description": "瓦莱伦加经典中距离布局，全长约3.222公里，兼顾中高速弯与技术路段。",
+	"tags" : ["circuit","original","drift","Italy"],
+	"geotags": ["lat", "lon"],
+	"country": "Italy",
+	"city": "Rome",
+	"length": "3222",
+	"width": "14",
+	"pitboxes": "24",
+	"run": "clockwise"
+}

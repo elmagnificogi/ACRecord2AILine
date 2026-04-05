@@ -1,0 +1,22 @@
+{
+  "name": "襄阳梦想方程式赛道（锥桶练习版）",
+  "description": "同场地锥桶/绕桩练习布局，长约1.46公里，适合低速操控与绕桩训练，作者 Bug3721。",
+  "tags": [
+    "original",
+    "circuit",
+    "China"
+  ],
+  "geotags": [
+    "lat",
+    "lon"
+  ],
+  "country": "China",
+  "city": "Xiangyang",
+  "length": "1460m",
+  "width": "10m-12m",
+  "pitboxes": "24",
+  "run": "clockwise",
+  "author": "Bug3721",
+  "version": "1.1",
+  "url": null
+}

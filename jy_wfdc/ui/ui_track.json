@@ -1,0 +1,21 @@
+{
+  "name": "西安沣东汽车文化园赛道",
+  "description": "位于陕西省西安市沣东新城一带的汽车主题园区赛道（WFDC / West Fengdong Car），全长约1.7公里，路宽约12米，维修区约26车位。布局适合房车与体验驾驶，作者标注为 Jarod.Yi；行驶方向字段在原文件中的表述非标准，建议以游戏内实际发车方向为准。",
+  "tags": [
+    "FD",
+    "circuit"
+  ],
+  "geotags": [
+    "XiAn",
+    ""
+  ],
+  "country": "China",
+  "city": "西安",
+  "length": "1700m",
+  "width": "12m",
+  "pitboxes": "26",
+  "run": "clockwise",
+  "author": null,
+  "version": null,
+  "url": null
+}

@@ -1,0 +1,12 @@
+ {
+	"name": "直线加速赛（500米）",
+	"description": "直线加速布局，长约500米，经典四分之一英里量级体验。",
+	"tags" : ["drag","original"],
+	"geotags": ["lat", "lon"],
+	"country": "Italy",
+	"city": "Imola",
+	"length": "500",
+	"width": "15",
+	"pitboxes": "2",
+	"run": "dragstrip"
+}

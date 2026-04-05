@@ -1,0 +1,22 @@
+{
+  "name": "北京锐思赛车场",
+  "description": "位于北京的锐思赛车场MOD，全长约1.49公里，逆时针，适合房车与性能车练习；PolyCode 制作。",
+  "tags": [
+    "circuit",
+    "original"
+  ],
+  "geotags": [
+    "40.254150",
+    "116.692398"
+  ],
+  "country": "China",
+  "city": "BeiJing",
+  "length": "1494.07",
+  "width": "10",
+  "pitboxes": "20",
+  "run": "anti-clockwise",
+  "year": 2002,
+  "author": "PolyCode 2020/4/4 18:00",
+  "version": 1.0819,
+  "url": null
+}

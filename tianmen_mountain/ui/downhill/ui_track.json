@@ -1,0 +1,13 @@
+ {
+	"name": "张家界天门山（下山）",
+	"description": "天门山盘山公路下山方向布局，强调制动与连续弯节奏；作者 permZ。",
+	"tags" : ["hillclimb","touge","mountain","original","china","circuit"],
+	"geotags": ["29.0597953° N", "110.4879427° E"],
+	"country": "China",
+	"city": "Zhangjiajie",
+        "length": "11km",
+        "width": "7.5m",
+        "pitboxes": "32",
+        "year": 2022,
+        "author": "permZ",
+}

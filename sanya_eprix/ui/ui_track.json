@@ -1,0 +1,23 @@
+{
+  "name": "三亚海棠湾电动方程式赛道",
+  "description": "三亚海棠湾滨海区域的街道/半街道赛布局，常用于电动方程式（ePrix）风格赛事想象或历史MOD还原。赛道全长约2.236公里，顺时针，路宽约10米，维修区约22车位。弯角多依托道路宽度变化，强调制动精度与出弯加速，原作者为LFT rFactor赛道并由 shin956 转换。",
+  "tags": [
+    "",
+    "ePrix",
+    "circuit"
+  ],
+  "country": "China",
+  "city": "三亚",
+  "length": "2236m",
+  "width": "10m",
+  "pitboxes": "22",
+  "run": "clockwise",
+  "author": "Original: LFT rFactor Tracks, Convert: shin956",
+  "version": "1.0",
+  "url": null,
+  "year": 2019,
+  "geotags": [
+    "18° 17′ 53″ N",
+    "109° 30′ 54″ E"
+  ]
+}

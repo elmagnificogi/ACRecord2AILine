@@ -1,0 +1,20 @@
+{
+  "name": "香港街道赛（GRID2 转换）",
+  "description": "基于《GRID 2》香港赛道由作者 skyten 转换至《神力科莎》的街道赛布局，全长约12.7公里量级（以MOD数据为准），顺时针，路宽约10至12米。场景为高密度城市街道与维港沿岸风格，弯角多变、视线受建筑遮挡，适合GT与房车体验电影化城市竞速氛围。",
+  "tags": [
+    "circuit"
+  ],
+  "geotags": [
+    "154.144527", "502.968483"
+  ],
+  "country": "China",
+  "city": "香港",
+  "length": "12740",
+  "width": "10-12",
+  "pitboxes": "16",
+  "run": "clockwise",
+  "year": "2021",
+  "author": "Grid2 DMby skyten",
+  "url": "http://14.18.116.199:7642/mod/%e8%b5%9b%e9%81%93%e5%88%b6%e4%bd%9c",
+  "version": "1.0"
+}

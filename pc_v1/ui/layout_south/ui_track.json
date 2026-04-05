@@ -1,0 +1,16 @@
+ {
+	"name": "天津武清V1汽车世界（南区赛道）",
+	"description": "天津武清V1汽车公园南区赛道3.7公里",
+	"tags": ["circuit"],
+	"geotags": ["CHN", "TianJing"],
+	"country": "china",
+	"city": "tianjing",
+	"length": "3681",
+	"width": "12",
+	"pitboxes": "27",
+	"run": "anti-clockwise",
+	"year": "2019",
+	"author": "PolyCode"
+}
+ 
+ 

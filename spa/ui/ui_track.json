@@ -1,0 +1,12 @@
+ {
+	"name": "斯帕-弗朗科尔尚赛道",
+	"description": "位于比利时阿登山区的世界级大奖赛赛道，以长距离、大起伏与多变天气闻名。全长约7.004公里，顺时针布局，包含著名的拉苏尔斯（Raidillon）上坡组合弯与普洪（Pouhon）等高速弯角，对车辆下压力、轮胎与燃油策略要求极高，是耐力赛与方程式赛事的经典场地。",
+	"tags" : ["circuit","original","Belgium"],
+	"geotags": ["lat", "lon"],
+	"country": "Belgium",
+	"city": "Francorchamps",
+	"length": "7004",
+	"width": "15",
+	"pitboxes": "24",
+	"run": "clockwise"
+}

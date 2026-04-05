@@ -1,0 +1,14 @@
+ {
+	"name": "长沙捞刀河赛车场",
+	"description": "位于湖南省长沙市捞刀河片区的赛车场地（雷霆捞刀河系列MOD）。赛道全长约2.0公里，逆时针行驶，路宽约12米，维修区约18车位。布局适合中低速房车与统规赛训练，具体景观与附属设施以MOD模型为准。",
+	"tags": ["circuit", "original"],
+	"geotags": "ChangSha",
+	"country": "China",
+	"city": "长沙",
+	"length": "2000",
+	"width": "12",
+	"pitboxes": "18",
+	"run": "anti-clockwise"
+}
+ 
+ 

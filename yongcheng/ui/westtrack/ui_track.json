@@ -1,0 +1,22 @@
+{
+  "name": "甬城国际赛车场（西环）",
+  "description": "甬城西环布局，约1.87公里，逆时针。",
+  "tags": [
+    "circuit",
+    "original",
+    "yongcheng"
+  ],
+  "geotags": [
+    "lat",
+    "lon"
+  ],
+  "country": "China",
+  "city": "Ningbo",
+  "length": "1870m",
+  "width": "m",
+  "pitboxes": "12",
+  "run": "anti-clockwise",
+  "author": "GTPlanet forum members",
+  "version": "beta",
+  "url": null
+}

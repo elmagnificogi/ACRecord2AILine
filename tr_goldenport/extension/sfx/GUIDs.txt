@@ -1,0 +1,4 @@
+
+{3ba09e76-de17-4da9-a6b0-807142f0af18} event:/racetrack/Helicopter
+{fb39ca3f-ce3c-492b-8274-f1ef55f22f87} event:/racetrack/Planeprop
+{5a0d4fea-06cc-4ddd-aa7e-0338f280f1f2} bank:/tr_goldenport

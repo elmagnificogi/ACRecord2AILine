@@ -1,0 +1,12 @@
+ {
+	"name": "直线加速赛（1000米）",
+	"description": "直线加速长距布局，长约1000米，考验尾速与齿比设定。",
+	"tags" : ["drag","original"],
+	"geotags": ["lat", "lon"],
+	"country": "Italy",
+	"city": "Imola",
+	"length": "1000",
+	"width": "15",
+	"pitboxes": "2",
+	"run": "dragstrip"
+}

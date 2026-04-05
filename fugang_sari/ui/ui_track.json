@@ -1,0 +1,12 @@
+{
+	"name": "惠州福岗赛车场",
+	"description": "惠州福岗赛车场位于广东省惠州市，是华南地区重要的赛车运动基地。赛道全长1.2公里，宽度12米，采用逆时针方向行驶。赛道设计符合国际汽联标准，配备完善的维修站设施，适合举办各类赛车赛事和赛道日活动。",
+	"tags" : ["circuit","original","China"],
+	"geotags": ["lat", "lon"],
+	"country": "China",
+	"city": "Hui Zhou",
+	"length": "1200",
+	"width": "12",
+	"pitboxes": "1",
+	"run": "anti-clockwise"
+}

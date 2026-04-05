@@ -1,0 +1,12 @@
+{
+	"name": "红牛环赛道（大奖赛布局）",
+	"description": "奥地利施皮尔堡红牛环赛车场大奖赛布局，全长约4.326公里，顺时针。弯角节奏紧凑，适合现代F1、房车与GT练习。",
+	"tags" : ["circuit","original","drift","Austria"],
+	"geotags": ["lat", "lon"],
+	"country": "Austria",
+	"city": "Spielberg",
+	"length": "4326",
+	"width": "12",
+	"pitboxes": "24",
+	"run": "clockwise"
+}

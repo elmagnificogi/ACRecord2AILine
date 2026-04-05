@@ -1,0 +1,12 @@
+{
+	"name": "布兰兹哈奇赛道（GP布局）",
+	"description": "英国肯特郡布兰兹哈奇赛车场大奖赛布局，全长约3.908公里，顺时针，经典房车与方程式场地。",
+	"tags" : ["circuit","original","drift","Great Britain"],
+	"geotags": ["lat", "lon"],
+	"country": "Great Britain",
+	"city": "Fawkham",
+	"length": "3908",
+	"width": "11",
+	"pitboxes": "24",
+	"run": "clockwise"
+}

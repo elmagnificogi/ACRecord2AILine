@@ -1,0 +1,20 @@
+{
+  "name": "浙江武义赛车场",
+  "description": "位于浙江省金华市武义县一带的赛车场MOD（作者 Skyten）。赛道全长约2.7公里，顺时针，路宽约10至12米，维修区10车位。布局适合房车与初级方程式练习，原描述提及F3风格路段；具体线位以游戏内模型为准。",
+  "tags": [
+    "circuit"
+  ],
+  "geotags": [
+    "25.144527", "102.968483"
+  ],
+  "country": "China",
+  "city": "武义",
+  "length": "2700",
+  "width": "10-12",
+  "pitboxes": "10",
+  "run": "clockwise",
+  "year": "2019",
+  "author": "Skyten(pay it)",
+  "url": "https://www.bilibili.com/video/BV1wK411P7uU",
+  "version": "1.0"
+}

@@ -1,0 +1,23 @@
+{
+  "name": "巴音布鲁克（砂石·尘土）",
+  "description": "同区域砂石路面版本，带尘土效果，强调低抓地力与拉力驾驶。",
+  "tags": [
+    "China",
+    "rally",
+    "Xinjiang"
+  ],
+  "geotags": [
+    "25° 58′ 42″ N",
+    "108° 48′ 09″ E"
+  ],
+  "country": "China",
+  "city": "Bayingolin",
+  "length": "18km",
+  "width": "6",
+  "pitboxes": "9",
+  "run": "DRIFT",
+  "year": 2024,
+  "author": "Arcbang",
+  "version": "1.2.1",
+  "url": null
+}

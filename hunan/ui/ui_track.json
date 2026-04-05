@@ -1,0 +1,16 @@
+ {
+	"name": "株洲国际赛车场",
+	"description": "位于湖南省株洲市的专业赛车场（MOD标注为湖南地区）。赛道全长约3.773公里，顺时针，路宽约12至19米，维修区约18车位。布局兼顾中高速弯与制动区，适合房车与统规赛练习；具体几何以本MOD为准。",
+	"tags": ["circuit", "original"],
+	"geotags": ["25.144527", "102.968483"],
+	"country": "China",
+	"city": "株洲",
+	"length": "3773",
+	"width": "12-19",
+	"pitboxes": "18",
+	"run": "clockwise",
+	"year": "2019",
+	"author": "skyten",
+	"customer":"every"
+}
+ 

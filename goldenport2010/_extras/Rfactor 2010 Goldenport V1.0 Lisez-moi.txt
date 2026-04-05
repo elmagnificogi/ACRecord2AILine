@@ -1,0 +1,37 @@
+Rfactor 2010 Goldenport V1.0
+
+Original auteur pour Rfactor Raceking,
+ amélioration et modification par Neel Jani,
+
+Merci à Raceking pour l’autorisation,
+
+Converti à partir de ma version GTR2,
+
+J’ai constaté que le circuit en vrai et depuis 2006, avais eu plusieurs modification au niveau des stands et gradin, et que plusieurs infrastructure avais été construite, et d’autre bâtiment modifié,
+
+J’ai donc décidé de faire ces modifications et de vous proposer ce circuit en version 2010, ces modifications sont faite à partir de plusieurs vidéo du Porsche Carrera Cup Asia 2010 et d’une vidéo privée de bonne qualité, et de plusieurs photos,
+
+Pour l’update du circuit et pour une partie des nouveaux objets (3D) Une ou plusieurs textures  ont été créées avec des images de CGTEXTURES.COM. Ces images ne peuvent pas être redistribuées par défaut, visitez s'il vous plaît www.cgtextures.com pour plus d'informations
+
+Je remercie Thierry81 qui à fait un nouvel AIW d’un maximum de 35 voitures et pour sont dévouement,
+
+Je remercie également Boblebric pour le montage vidéo des écrans TV,
+Et merci à Luigi pour ces excellentes caméras, 
+
+Et merci aux bêtas testeurs, Tarkus07, Boblebric & Thierry81,
+
+Cette version ! Ne rentre pas en conflit avec la version d’origine Goldenport06 de Raceking, et ne la remplace pas.
+
+Remerciement ;
+
+ISI pour Rfactor
+3DSIMED
+Photoshop
+
+Contact;
+
+Alaindavid57@hotmail.com
+
+Bonne amusement,
+
+Neel Jani  

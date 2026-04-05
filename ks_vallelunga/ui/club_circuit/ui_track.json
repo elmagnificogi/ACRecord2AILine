@@ -1,0 +1,12 @@
+{
+	"name": "瓦莱伦加赛道（俱乐部布局）",
+	"description": "瓦莱伦加俱乐部短布局，全长约1.746公里，适合初级方程式与赛道日短圈练习。",
+	"tags" : ["circuit","original","drift","Italy"],
+	"geotags": ["lat", "lon"],
+	"country": "Italy",
+	"city": "Rome",
+	"length": "1746",
+	"width": "14",
+	"pitboxes": "24",
+	"run": "clockwise"
+}

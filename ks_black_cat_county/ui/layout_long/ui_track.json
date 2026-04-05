@@ -1,0 +1,12 @@
+ {
+	"name": "黑猫县公路（长布局）",
+	"description": "虚构美国西海岸风格的开放公路长布局，全长约11.2公里，逆时针，适合肌肉车与漂移漫游。",
+	"tags" : ["circuit","drift","original","usa"],
+	"geotags": ["lat", "lon"],
+	"country": "U.S.A.",
+	"city": "Los Angeles",
+	"length": "11244",
+	"width": "15",
+	"pitboxes": "24",
+	"run": "anti-clockwise"
+}

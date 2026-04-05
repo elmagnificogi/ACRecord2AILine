@@ -1,0 +1,18 @@
+{
+  "name": "Displacement",
+  "tags": [
+    "custom shaders patch",
+    "displacement"
+  ],
+  "country": "",
+  "description": "Adds displacement maps to normal textures, requires Custom Shaders Patch and special config to work.",
+  "author": null,
+  "version": null,
+  "url": null,
+  "categories": [
+    "displacement"
+  ],
+  "priority": 0.0,
+  "id": "displacement",
+  "track": "tianmenreskinedv1"
+}

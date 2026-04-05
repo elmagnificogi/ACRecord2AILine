@@ -1,0 +1,16 @@
+{
+  "name": "江苏万驰国际赛车场",
+  "description": "位于江苏省南京市的万驰国际赛车场（江苏万驰），赛道全长约2.16公里，逆时针，路宽约12至15米，维修区约20车位。布局紧凑、弯角多样，适合房车、统规赛与赛道日训练；本MOD由 PolyCode 于2020年前后发布。",
+  "tags": ["circuit"],
+  "country": "China",
+  "city": "南京",
+  "geotags": ["31.67337172592242", "119.0333407940222"],
+  "length": "2160",
+  "width": "12-15",
+  "pitboxes": "20",
+  "run": "anti-clockwise",
+  "author": "PolyCode 2021/7/19 18:12",
+  "version": 0.90,
+  "url": null,
+  "year":2020
+}
