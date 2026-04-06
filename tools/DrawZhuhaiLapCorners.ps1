@@ -6,7 +6,7 @@
 #>
 param(
     [string]$JsonPath = '',
-    [string]$TrackFolder = (Join-Path (Split-Path $PSScriptRoot -Parent) 'zhuhai'),
+    [string]$TrackFolder = '',
     [string]$CornersJson = '',
     [string]$ReplayPath = '',
     [string]$AcRpPath = '',
@@ -38,9 +38,34 @@ param(
 )
 
 $ErrorActionPreference = 'Stop'
+# PS2EXE 嵌入执行时 $PSScriptRoot / $PSCommandPath 可能为空；
+# 优先使用进程主模块路径，确保在“当前目录不等于exe目录”时也能稳定定位工具目录。
+$toolDir = $null
+if ($PSCommandPath) {
+    $toolDir = Split-Path -LiteralPath $PSCommandPath
+} elseif ($PSScriptRoot) {
+    $toolDir = $PSScriptRoot
+} else {
+    try {
+        $exePath = [System.Diagnostics.Process]::GetCurrentProcess().MainModule.FileName
+        if ($exePath -and (Test-Path -LiteralPath $exePath)) {
+            $toolDir = Split-Path -LiteralPath $exePath
+        }
+    } catch { }
+    if (-not $toolDir) {
+        $a0 = [Environment]::GetCommandLineArgs()[0]
+        if ($a0 -and (Test-Path -LiteralPath $a0)) {
+            $toolDir = Split-Path -LiteralPath $a0
+        } else {
+            $toolDir = (Get-Location).Path
+        }
+    }
+}
+if (-not $toolDir) { throw 'Cannot resolve tool directory (expected exe or .ps1 path).' }
+if (-not $TrackFolder) { $TrackFolder = Join-Path (Split-Path $toolDir -Parent) 'zhuhai' }
 Add-Type -AssemblyName System.Drawing
 
-$capPath = Join-Path $PSScriptRoot 'draw_trajectory_captions.json'
+$capPath = Join-Path $toolDir 'draw_trajectory_captions.json'
 $cap = [pscustomobject]@{ sf = 'S/F'; titlePrefix = 'Replay Lap Analysis'; legend = 'Blue=track Orange=S/F Red=brake Green=throttle' }
 if (Test-Path -LiteralPath $capPath) {
     $cj = Get-Content -LiteralPath $capPath -Raw -Encoding UTF8 | ConvertFrom-Json
@@ -308,15 +333,15 @@ function New-CjkDrawingFont([float]$emSize, [System.Drawing.FontStyle]$style) {
 
 function Ensure-ReplayJson([string]$TargetJsonPath, [string]$ReplayPathIn, [string]$AcRpPathIn, [string]$DriverNameIn) {
     if (Test-Path -LiteralPath $TargetJsonPath) { return }
-    $acrp = if ([string]::IsNullOrWhiteSpace($AcRpPathIn)) { Join-Path $PSScriptRoot 'acrp.exe' } else { Resolve-FsPath $AcRpPathIn }
+    $acrp = if ([string]::IsNullOrWhiteSpace($AcRpPathIn)) { Join-Path $toolDir 'acrp.exe' } else { Resolve-FsPath $AcRpPathIn }
     if (-not (Test-Path -LiteralPath $acrp)) {
         throw "Replay JSON missing and acrp.exe not found: $acrp"
     }
 
     $replay = $ReplayPathIn
     if ([string]::IsNullOrWhiteSpace($replay)) {
-        $rp = @(Get-ChildItem -LiteralPath $PSScriptRoot -Filter *.acreplay -File | Sort-Object LastWriteTime -Descending)
-        if ($rp.Count -lt 1) { throw "Replay JSON missing and no .acreplay found in $PSScriptRoot" }
+        $rp = @(Get-ChildItem -LiteralPath $toolDir -Filter *.acreplay -File | Sort-Object LastWriteTime -Descending)
+        if ($rp.Count -lt 1) { throw "Replay JSON missing and no .acreplay found in $toolDir" }
         $replay = $rp[0].FullName
     } else {
         $replay = Resolve-FsPath $replay
@@ -442,8 +467,8 @@ function Build-CornerJsonFromReplay($j, [string]$TargetPath, [int]$LapVal, [doub
 }
 
 $ReplayPath = Resolve-FsPath $ReplayPath
-$legacyJson = Join-Path $PSScriptRoot 'zhuhai_replay_out_elmagnifico.json'
-$legacyCorners = Join-Path $PSScriptRoot 'zhuhai_t1_t14_apex_fractions.json'
+$legacyJson = Join-Path $toolDir 'zhuhai_replay_out_elmagnifico.json'
+$legacyCorners = Join-Path $toolDir 'zhuhai_t1_t14_apex_fractions.json'
 
 if ([string]::IsNullOrWhiteSpace($JsonPath)) {
     if (-not [string]::IsNullOrWhiteSpace($ReplayPath)) {

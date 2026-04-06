@@ -1,4 +1,4 @@
-﻿#Requires -Version 5.1
+#Requires -Version 5.1
 <#
 .SYNOPSIS
   用 acrp 解析录像，将轨迹写入任意赛道的 data\ideal_line.ai（版本 7）。
@@ -82,7 +82,28 @@ function Show-Usage {
 "@
 }
 
-$scriptDir = $PSScriptRoot
+$scriptDir = $null
+if ($PSCommandPath) {
+    $scriptDir = Split-Path -LiteralPath $PSCommandPath
+} elseif ($PSScriptRoot) {
+    $scriptDir = $PSScriptRoot
+} else {
+    try {
+        $exePath = [System.Diagnostics.Process]::GetCurrentProcess().MainModule.FileName
+        if ($exePath -and (Test-Path -LiteralPath $exePath)) {
+            $scriptDir = Split-Path -LiteralPath $exePath
+        }
+    } catch { }
+    if (-not $scriptDir) {
+        $a0 = [Environment]::GetCommandLineArgs()[0]
+        if ($a0 -and (Test-Path -LiteralPath $a0)) {
+            $scriptDir = Split-Path -LiteralPath $a0
+        } else {
+            $scriptDir = (Get-Location).Path
+        }
+    }
+}
+if (-not $scriptDir) { throw 'Cannot resolve script directory (expected exe or .ps1 path).' }
 if (-not $AcRpPath -or [string]::IsNullOrWhiteSpace($AcRpPath)) {
     $AcRpPath = Join-Path $scriptDir 'acrp.exe'
 } else {
@@ -105,14 +126,11 @@ if ($Replay) {
         throw "赛道目录不存在: $trackFull"
     }
     if (-not $IdealLinePath) {
-        $IdealLinePath = Resolve-FsPath (Join-Path $trackFull 'data\ideal_line.ai')
+        # "指定在哪里就在哪里"：默认不再强制落到 data 子目录。
+        $IdealLinePath = Resolve-FsPath (Join-Path $trackFull 'ideal_line.ai')
     } else {
-        $ilRaw = $IdealLinePath.Trim()
-        if ($ilRaw.StartsWith('~') -or [IO.Path]::IsPathRooted($ilRaw)) {
-            $IdealLinePath = Resolve-FsPath $ilRaw
-        } else {
-            $IdealLinePath = Resolve-FsPath (Join-Path $trackFull $ilRaw)
-        }
+        # 相对路径按当前工作目录解析，不再强制挂到 TrackFolder。
+        $IdealLinePath = Resolve-FsPath $IdealLinePath
     }
 
     $tempWork = Join-Path ([IO.Path]::GetTempPath()) ('ac_ideal_' + [guid]::NewGuid().ToString('N'))
@@ -165,21 +183,12 @@ if ($Replay) {
                 throw "使用 -JsonPath/-CsvPath 且未指定 -IdealLinePath 时，需要 -TrackFolder。"
             }
         } else {
-            $IdealLinePath = Resolve-FsPath (Join-Path (Resolve-FsPath $TrackFolder) 'data\ideal_line.ai')
+            # "指定在哪里就在哪里"：默认不再强制落到 data 子目录。
+            $IdealLinePath = Resolve-FsPath (Join-Path (Resolve-FsPath $TrackFolder) 'ideal_line.ai')
         }
     } else {
-        $ilRaw = $IdealLinePath.Trim()
-        if ($ilRaw.StartsWith('~') -or [IO.Path]::IsPathRooted($ilRaw)) {
-            $IdealLinePath = Resolve-FsPath $ilRaw
-        } else {
-            if (-not $TrackFolder) {
-                if (-not $ShowLapHints) {
-                    throw "相对路径的 -IdealLinePath 需要同时指定 -TrackFolder 作为基准目录。"
-                }
-            } else {
-                $IdealLinePath = Resolve-FsPath (Join-Path (Resolve-FsPath $TrackFolder) $ilRaw)
-            }
-        }
+        # 相对路径按当前工作目录解析，不再依赖 TrackFolder 作为基准。
+        $IdealLinePath = Resolve-FsPath $IdealLinePath
     }
 } else {
     Show-Usage
@@ -187,6 +196,18 @@ if ($Replay) {
 }
 
 if (-not $ShowLapHints) {
+    if (-not (Test-Path -LiteralPath $IdealLinePath) -and $TrackFolder) {
+        $trackBase = Resolve-FsPath $TrackFolder
+        $fallbackTemplate = Join-Path $trackBase 'data\ideal_line.ai'
+        if (Test-Path -LiteralPath $fallbackTemplate) {
+            $outDir = Split-Path -Parent $IdealLinePath
+            if ($outDir -and -not (Test-Path -LiteralPath $outDir)) {
+                New-Item -ItemType Directory -Path $outDir -Force | Out-Null
+            }
+            Copy-Item -LiteralPath $fallbackTemplate -Destination $IdealLinePath -Force
+            Write-Host "未找到目标 ideal_line.ai，已从模板复制: $fallbackTemplate -> $IdealLinePath"
+        }
+    }
     if (-not (Test-Path -LiteralPath $IdealLinePath)) {
         if ($tempWork -and -not $KeepTempJson) { Remove-Item -LiteralPath $tempWork -Recurse -Force -ErrorAction SilentlyContinue }
         throw "找不到 ideal_line.ai: $IdealLinePath"

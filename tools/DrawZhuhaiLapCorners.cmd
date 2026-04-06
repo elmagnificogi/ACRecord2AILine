@@ -1,2 +1,4 @@
 @echo off
-powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0DrawZhuhaiLapCorners.ps1" %*
+setlocal
+"%~dp0DrawZhuhaiLapCorners.exe" %*
+exit /b %ERRORLEVEL%
