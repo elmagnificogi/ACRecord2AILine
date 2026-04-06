@@ -156,3 +156,9 @@ powershell -ExecutionPolicy Bypass -File ".\Package-ToolsWithPs2exe.ps1"
 
 - `tools\BuildIdealLineFromReplay.exe`
 - `tools\DrawZhuhaiLapCorners.exe`
+
+
+
+## Quote
+
+> https://elmagnifico.tech/2026/04/06/AC-Replay2AILine/
