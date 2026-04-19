@@ -57,6 +57,38 @@ function Resolve-FsPath([string]$Path) {
     return [IO.Path]::GetFullPath($p)
 }
 
+# acrp 等工具可能输出 UTF-8 无 BOM / UTF-16 / 或中文 Windows 下的本地编码；
+# 仅用 Get-Content -Encoding UTF8 可能把 UTF-16 或 GBK 误判，导致含中文字段（如 carSkinId）乱码或 ConvertFrom-Json 失败。
+function Get-JsonTextFromBytes([byte[]]$bytes) {
+    if ($null -eq $bytes -or $bytes.Length -eq 0) { return [string]::Empty }
+    if ($bytes.Length -ge 3 -and $bytes[0] -eq 0xEF -and $bytes[1] -eq 0xBB -and $bytes[2] -eq 0xBF) {
+        return [Text.Encoding]::UTF8.GetString($bytes, 3, $bytes.Length - 3)
+    }
+    if ($bytes.Length -ge 2 -and $bytes[0] -eq 0xFF -and $bytes[1] -eq 0xFE) {
+        return [Text.Encoding]::Unicode.GetString($bytes, 2, $bytes.Length - 2)
+    }
+    if ($bytes.Length -ge 2 -and $bytes[0] -eq 0xFE -and $bytes[1] -eq 0xFF) {
+        return [Text.Encoding]::BigEndianUnicode.GetString($bytes, 2, $bytes.Length - 2)
+    }
+    return [Text.Encoding]::UTF8.GetString($bytes)
+}
+
+function ConvertFrom-JsonFile([string]$LiteralPath) {
+    $bytes = [IO.File]::ReadAllBytes($LiteralPath)
+    $text = Get-JsonTextFromBytes $bytes
+    try {
+        return ($text | ConvertFrom-Json)
+    } catch {
+        $errUtf = $_.Exception.Message
+        try {
+            $gb = [Text.Encoding]::GetEncoding(936)
+            return ($gb.GetString($bytes) | ConvertFrom-Json)
+        } catch {
+            throw "JSON 解析失败（已按 UTF-8/UTF-16 解码后再试 CP936）: $LiteralPath — $errUtf"
+        }
+    }
+}
+
 function Show-Usage {
     Write-Host @"
 用法:
@@ -299,7 +331,7 @@ function Select-TimingSegment($j, [int]$Lap, [double]$MinSegmentMeters) {
 
 if ($ShowLapHints) {
     if (-not $useJson) { throw "-ShowLapHints 仅支持 JSON（-Replay 或 -JsonPath），不支持 CSV。" }
-    $jh = Get-Content -LiteralPath $JsonPath -Raw -Encoding UTF8 | ConvertFrom-Json
+    $jh = ConvertFrom-JsonFile $JsonPath
     if (-not $jh.currentLap -or -not $jh.currentLapTime) {
         throw "JSON 缺少 currentLap 或 currentLapTime，无法分析计时线。"
     }
@@ -332,7 +364,7 @@ $pts = New-Object System.Collections.Generic.List[object]
 $hasPedals = $false
 $timingMode = 'n/a'
 if ($useJson) {
-    $j = Get-Content -LiteralPath $JsonPath -Raw -Encoding UTF8 | ConvertFrom-Json
+    $j = ConvertFrom-JsonFile $JsonPath
     if (-not $j.x -or -not $j.y -or -not $j.z) { throw "JSON 缺少 x/y/z 数组（请确认为 acrp 导出）。" }
     if (-not $j.currentLap) { throw "JSON 缺少 currentLap 数组。" }
     $nF = $j.x.Count

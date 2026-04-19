@@ -68,7 +68,7 @@ Add-Type -AssemblyName System.Drawing
 $capPath = Join-Path $toolDir 'draw_trajectory_captions.json'
 $cap = [pscustomobject]@{ sf = 'S/F'; titlePrefix = 'Replay Lap Analysis'; legend = 'Blue=track Orange=S/F Red=brake Green=throttle' }
 if (Test-Path -LiteralPath $capPath) {
-    $cj = Get-Content -LiteralPath $capPath -Raw -Encoding UTF8 | ConvertFrom-Json
+    $cj = ConvertFrom-JsonFile $capPath
     if ($cj.sf) { $cap.sf = [string]$cj.sf }
     if ($cj.titlePrefix) { $cap.titlePrefix = [string]$cj.titlePrefix }
     if ($cj.legend) { $cap.legend = [string]$cj.legend }
@@ -88,6 +88,36 @@ function Resolve-FsPath([string]$Path) {
         $p = if ($rest) { Join-Path $HOME $rest } else { $HOME }
     }
     return [IO.Path]::GetFullPath($p)
+}
+
+function Get-JsonTextFromBytes([byte[]]$bytes) {
+    if ($null -eq $bytes -or $bytes.Length -eq 0) { return [string]::Empty }
+    if ($bytes.Length -ge 3 -and $bytes[0] -eq 0xEF -and $bytes[1] -eq 0xBB -and $bytes[2] -eq 0xBF) {
+        return [Text.Encoding]::UTF8.GetString($bytes, 3, $bytes.Length - 3)
+    }
+    if ($bytes.Length -ge 2 -and $bytes[0] -eq 0xFF -and $bytes[1] -eq 0xFE) {
+        return [Text.Encoding]::Unicode.GetString($bytes, 2, $bytes.Length - 2)
+    }
+    if ($bytes.Length -ge 2 -and $bytes[0] -eq 0xFE -and $bytes[1] -eq 0xFF) {
+        return [Text.Encoding]::BigEndianUnicode.GetString($bytes, 2, $bytes.Length - 2)
+    }
+    return [Text.Encoding]::UTF8.GetString($bytes)
+}
+
+function ConvertFrom-JsonFile([string]$LiteralPath) {
+    $bytes = [IO.File]::ReadAllBytes($LiteralPath)
+    $text = Get-JsonTextFromBytes $bytes
+    try {
+        return ($text | ConvertFrom-Json)
+    } catch {
+        $errUtf = $_.Exception.Message
+        try {
+            $gb = [Text.Encoding]::GetEncoding(936)
+            return ($gb.GetString($bytes) | ConvertFrom-Json)
+        } catch {
+            throw "JSON parse failed (UTF-8/UTF-16 then CP936): $LiteralPath — $errUtf"
+        }
+    }
 }
 
 function Get-FileStem([string]$pathOrName, [string]$fallback) {
@@ -370,8 +400,9 @@ function Ensure-ReplayJson([string]$TargetJsonPath, [string]$ReplayPathIn, [stri
         [void]$argList.Add($replay)
 
         Write-Host "Generating replay JSON via acrp: $replay"
-        $proc = Start-Process -FilePath $acrp -ArgumentList $argList.ToArray() -Wait -PassThru -NoNewWindow
-        if ($proc.ExitCode -ne 0) { throw "acrp.exe exit code $($proc.ExitCode)" }
+        & $acrp @argList
+        $acrpExitCode = $LASTEXITCODE
+        if ($acrpExitCode -ne 0) { throw "acrp.exe exit code $acrpExitCode" }
 
         $jsonFiles = @(Get-ChildItem -LiteralPath $tempWork -Filter *.json -File | Sort-Object LastWriteTime -Descending)
         if ($jsonFiles.Count -lt 1) { throw "acrp generated no JSON in: $tempWork" }
@@ -518,12 +549,12 @@ $OutputPath = Resolve-FsPath $OutputPath
 $DebugOutputPath = Resolve-FsPath $DebugOutputPath
 Ensure-ReplayJson $JsonPath $ReplayPath $AcRpPath $DriverName
 
-$j = Get-Content -LiteralPath $JsonPath -Raw -Encoding UTF8 | ConvertFrom-Json
+$j = ConvertFrom-JsonFile $JsonPath
 if (-not (Test-Path -LiteralPath $CornersJson)) {
     Build-CornerJsonFromReplay $j $CornersJson $Lap $MinSegmentMeters 28.0 $AutoFastestLap
 }
 
-$apexObj = Get-Content -LiteralPath $CornersJson -Raw -Encoding UTF8 | ConvertFrom-Json
+$apexObj = ConvertFrom-JsonFile $CornersJson
 if (-not $apexObj.segmentEndFraction) { throw 'CornersJson needs segmentEndFraction[14] ending with 1.0' }
 $se = @([double[]]@($apexObj.segmentEndFraction))
 $boundaries = Get-BoundariesFromSegmentEnds $se
