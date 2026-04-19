@@ -15,11 +15,11 @@
 
 - 默认会调用同目录下的 `acrp.exe` 解析 `.acreplay`
 - 目标输出由 `-IdealLinePath` 决定
-- 若未指定 `-IdealLinePath`，默认输出为 `<TrackFolder>\ideal_line.ai`
+- 若未指定 `-IdealLinePath`，默认输出为 `<TrackFolder>\data\ideal_line.ai`
 
-### DrawZhuhaiLapCorners.exe
+### DrawReplayLapTelemetry.exe
 
-用途：从回放或 JSON 计算刹车/油门事件，输出轨迹标注图（PNG）。
+用途：从回放或 JSON 计算走线上的刹车/油门/速度关键点，输出轨迹标注图（PNG）。
 
 - 可自动生成 `<replay>_replay.json` / `<replay>_corners.json`
 - 主要输出为 `<replay>_brake_throttle_points.png`
@@ -28,7 +28,7 @@
 
 - `acrp.exe`
   - 用途：将 `.acreplay` 解析为 JSON（核心依赖工具）。
-  - 被 `BuildIdealLineFromReplay.exe` 与 `DrawZhuhaiLapCorners.exe` 自动调用。
+  - 被 `BuildIdealLineFromReplay.exe` 与 `DrawReplayLapTelemetry.exe` 自动调用。
   - 建议与上述两个 exe 放在同一目录，避免额外传 `-AcRpPath`。
 
 ## 运行前准备
@@ -37,7 +37,7 @@
 2. `exe` 与 `acrp.exe` 放在同一目录（推荐）
 3. 回放文件（`.acreplay`）可读
 
-> 说明：`DrawZhuhaiLapCorners.exe` 运行本身不依赖 `.ps1`。  
+> 说明：`DrawReplayLapTelemetry.exe` 运行本身不依赖 `.ps1`。  
 > `BuildIdealLineFromReplay.exe` 如果要写 `ideal_line.ai`，需要有可写目标路径；若目标文件不存在，会尝试从 `TrackFolder\data\ideal_line.ai` 复制模板（若存在）。
 
 ## BuildIdealLineFromReplay.exe 用法
@@ -54,7 +54,8 @@
 `ideal_line.ai` 模板来源规则：
 
 - 若 `-IdealLinePath` 指向的文件已存在：直接在该文件上改写
-- 若 `-IdealLinePath` 不存在：会尝试从 `TrackFolder\data\ideal_line.ai` 复制模板到目标路径
+- 若 `-IdealLinePath` 不存在：会优先从 `TrackFolder\data\ideal_line.ai` 复制模板到目标路径
+- 若 `TrackFolder\data\ideal_line.ai` 不存在：会回退尝试 `TrackFolder\data\idle_line.ai`
 - 若两者都不存在：工具会报错（无法从 0 生成）
 
 使用 `-JsonPath` / `-CsvPath` 时：
@@ -101,23 +102,23 @@ BuildIdealLineFromReplay.exe -JsonPath ".\1.01_replay.json" -ShowLapHints
 - `-DriverName`：多车手回放时指定车手
 - `-AcRpPath`：指定 `acrp.exe` 路径
 
-## DrawZhuhaiLapCorners.exe 用法
+## DrawReplayLapTelemetry.exe 用法
 
 ### 1) 从回放直接出图（自动补齐 json/corners）
 
 ```bat
-DrawZhuhaiLapCorners.exe -ReplayPath ".\1.01.acreplay" -OutputPath ".\1.01_brake_throttle_points.png"
+DrawReplayLapTelemetry.exe -ReplayPath ".\1.01.acreplay" -OutputPath ".\1.01_brake_throttle_points.png"
 ```
 
 ### 2) 用现有 JSON/Corners 快速出图
 
 ```bat
-DrawZhuhaiLapCorners.exe -JsonPath ".\1.01_replay.json" -CornersJson ".\1.01_corners.json" -OutputPath ".\1.01_brake_throttle_points.png"
+DrawReplayLapTelemetry.exe -JsonPath ".\1.01_replay.json" -CornersJson ".\1.01_corners.json" -OutputPath ".\1.01_brake_throttle_points.png"
 ```
 
 示例输出图：
 
-![DrawZhuhaiLapCorners 示例输出](docs/drawzhuhai_example.png)
+![DrawReplayLapTelemetry 示例输出](docs/drawzhuhai_example.png)
 
 ### 常见参数
 
@@ -132,7 +133,7 @@ DrawZhuhaiLapCorners.exe -JsonPath ".\1.01_replay.json" -CornersJson ".\1.01_cor
 如果在新目录（例如 `G:\tt`）使用，建议至少放这些文件：
 
 - `BuildIdealLineFromReplay.exe`
-- `DrawZhuhaiLapCorners.exe`
+- `DrawReplayLapTelemetry.exe`
 - `acrp.exe`
 - 回放文件（如 `1.01.acreplay`）
 
@@ -140,7 +141,7 @@ DrawZhuhaiLapCorners.exe -JsonPath ".\1.01_replay.json" -CornersJson ".\1.01_cor
 
 ```bat
 cd /d G:\tt
-DrawZhuhaiLapCorners.exe -ReplayPath ".\1.01.acreplay" -OutputPath ".\test_points.png"
+DrawReplayLapTelemetry.exe -ReplayPath ".\1.01.acreplay" -OutputPath ".\test_points.png"
 BuildIdealLineFromReplay.exe -Replay ".\1.01.acreplay" -TrackFolder "G:\ACRecord2AILine\zhuhai" -IdealLinePath ".\ideal_line.ai"
 ```
 
@@ -155,7 +156,7 @@ powershell -ExecutionPolicy Bypass -File ".\Package-ToolsWithPs2exe.ps1"
 会重新生成：
 
 - `tools\BuildIdealLineFromReplay.exe`
-- `tools\DrawZhuhaiLapCorners.exe`
+- `tools\DrawReplayLapTelemetry.exe`
 
 
 

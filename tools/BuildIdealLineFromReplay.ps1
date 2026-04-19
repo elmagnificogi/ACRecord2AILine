@@ -1,4 +1,4 @@
-#Requires -Version 5.1
+﻿#Requires -Version 5.1
 <#
 .SYNOPSIS
   用 acrp 解析录像，将轨迹写入任意赛道的 data\ideal_line.ai（版本 7）。
@@ -161,8 +161,8 @@ if ($Replay) {
         throw "赛道目录不存在: $trackFull"
     }
     if (-not $IdealLinePath) {
-        # "指定在哪里就在哪里"：默认不再强制落到 data 子目录。
-        $IdealLinePath = Resolve-FsPath (Join-Path $trackFull 'ideal_line.ai')
+        # 默认输出到赛道 data 子目录，保持与 AC 赛道结构一致。
+        $IdealLinePath = Resolve-FsPath (Join-Path $trackFull 'data\ideal_line.ai')
     } else {
         # 相对路径按当前工作目录解析，不再强制挂到 TrackFolder。
         $IdealLinePath = Resolve-FsPath $IdealLinePath
@@ -220,8 +220,8 @@ if ($Replay) {
                 throw "使用 -JsonPath/-CsvPath 且未指定 -IdealLinePath 时，需要 -TrackFolder。"
             }
         } else {
-            # "指定在哪里就在哪里"：默认不再强制落到 data 子目录。
-            $IdealLinePath = Resolve-FsPath (Join-Path (Resolve-FsPath $TrackFolder) 'ideal_line.ai')
+            # 默认输出到赛道 data 子目录，保持与 AC 赛道结构一致。
+            $IdealLinePath = Resolve-FsPath (Join-Path (Resolve-FsPath $TrackFolder) 'data\ideal_line.ai')
         }
     } else {
         # 相对路径按当前工作目录解析，不再依赖 TrackFolder 作为基准。
@@ -235,8 +235,18 @@ if ($Replay) {
 if (-not $ShowLapHints) {
     if (-not (Test-Path -LiteralPath $IdealLinePath) -and $TrackFolder) {
         $trackBase = Resolve-FsPath $TrackFolder
-        $fallbackTemplate = Join-Path $trackBase 'data\ideal_line.ai'
-        if (Test-Path -LiteralPath $fallbackTemplate) {
+        $fallbackCandidates = @(
+            (Join-Path $trackBase 'data\ideal_line.ai'),
+            (Join-Path $trackBase 'data\idle_line.ai')
+        )
+        $fallbackTemplate = $null
+        foreach ($candidate in $fallbackCandidates) {
+            if (Test-Path -LiteralPath $candidate) {
+                $fallbackTemplate = $candidate
+                break
+            }
+        }
+        if ($fallbackTemplate) {
             $outDir = Split-Path -Parent $IdealLinePath
             if ($outDir -and -not (Test-Path -LiteralPath $outDir)) {
                 New-Item -ItemType Directory -Path $outDir -Force | Out-Null

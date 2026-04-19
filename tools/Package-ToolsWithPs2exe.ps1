@@ -1,5 +1,5 @@
 #Requires -Version 5.1
-# 将 BuildIdealLineFromReplay.ps1 / DrawZhuhaiLapCorners.ps1 打成 exe。
+# 将 BuildIdealLineFromReplay.ps1 / DrawReplayLapTelemetry.ps1 打成 exe。
 # 先输出到 %TEMP% 再复制到 tools，避免目标 exe 被占用时 PS2EXE 无法删除旧文件导致打包失败。
 $ErrorActionPreference = 'Stop'
 $here = $PSScriptRoot
@@ -17,7 +17,7 @@ function Copy-ExeToTools {
 
 $targets = @(
     @{ In = 'BuildIdealLineFromReplay.ps1'; Out = 'BuildIdealLineFromReplay.exe'; Title = 'BuildIdealLineFromReplay'; ConHost = $true },
-    @{ In = 'DrawZhuhaiLapCorners.ps1'; Out = 'DrawZhuhaiLapCorners.exe'; Title = 'DrawZhuhaiLapCorners'; ConHost = $false }
+    @{ In = 'DrawReplayLapTelemetry.ps1'; Out = 'DrawReplayLapTelemetry.exe'; Title = 'DrawReplayLapTelemetry'; ConHost = $true }
 )
 foreach ($t in $targets) {
     $inPath = Join-Path $here $t.In
@@ -27,7 +27,7 @@ foreach ($t in $targets) {
     Start-Sleep -Milliseconds 400
     $tmp = Join-Path $env:TEMP ('ps2exe_' + [guid]::NewGuid().ToString('N') + '_' + $t.Out)
     try {
-        # Draw：System.Drawing 用 -STA；-conHost 会导致脚本未跑完、PNG 不落盘。
+        # Draw：当前采用 -conHost，避免在部分环境中出现 exe 进程不退出的挂起问题。
         # BuildIdealLine：-conHost 便于无控制台/部分自动化场景结束等待。
         if ($t.ConHost) {
             Invoke-ps2exe -inputFile $inPath -outputFile $tmp -conHost -title $t.Title
