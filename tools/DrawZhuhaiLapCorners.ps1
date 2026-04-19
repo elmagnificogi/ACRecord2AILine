@@ -77,7 +77,10 @@ if (Test-Path -LiteralPath $capPath) {
 function Resolve-FsPath([string]$Path) {
     if ([string]::IsNullOrWhiteSpace($Path)) { return $Path }
     $p = $Path.Trim()
-    while ($p.Length -ge 2 -and $p.StartsWith('"') -and $p.EndsWith('"')) {
+    while ($p.Length -ge 2 -and (
+        ($p.StartsWith('"') -and $p.EndsWith('"')) -or
+        ($p.StartsWith("'") -and $p.EndsWith("'"))
+    )) {
         $p = $p.Substring(1, $p.Length - 2).Trim()
     }
     if ($p.StartsWith('~')) {
