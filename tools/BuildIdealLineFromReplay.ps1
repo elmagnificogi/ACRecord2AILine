@@ -150,10 +150,12 @@ if ($Replay) {
     [void]$argList.Add($replayFull)
 
     Write-Host "运行 acrp: $AcRpPath"
-    $proc = Start-Process -FilePath $AcRpPath -ArgumentList $argList.ToArray() -Wait -PassThru -NoNewWindow
-    if ($proc.ExitCode -ne 0) {
+    # 用调用运算符传递参数数组，带空格路径仍为单一参数（Start-Process -ArgumentList 易失配引号）
+    & $AcRpPath @argList
+    $acrpExitCode = $LASTEXITCODE
+    if ($acrpExitCode -ne 0) {
         if (-not $KeepTempJson) { Remove-Item -LiteralPath $tempWork -Recurse -Force -ErrorAction SilentlyContinue }
-        throw "acrp.exe 退出码 $($proc.ExitCode)"
+        throw "acrp.exe 退出码 $acrpExitCode"
     }
 
     $jsonFiles = @(Get-ChildItem -LiteralPath $tempWork -Filter *.json -File | Sort-Object LastWriteTime -Descending)
