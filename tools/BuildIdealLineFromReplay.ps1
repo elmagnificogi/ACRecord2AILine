@@ -15,9 +15,9 @@
   路径可为绝对路径（如 C:\...\x.acreplay）、相对当前目录、或 ~ 开头（用户主目录）；首尾引号会自动去掉。
 
   轨迹与赛道：ideal_line 只按录像里的世界坐标 x/y/z 重采样，与「目标赛道文件夹」无自动校验，
-  请自行保证录像对应该赛道。计时线模式：在起点 currentLap 等于 -Lap 的若干区间中，直接取弧长最长的一段作为一圈（出场短段自然被排除）。
+  请自行保证录像对应该赛道。默认自动选最快圈（需计时线分段可用）；关闭 -AutoFastestLap 后按 -Lap 选圈。
 
-  -Lap 对应录像 JSON 里的 currentLap 整型（通常第 1 圈=0，第 2 圈=1 …），不限于 0/1；第 N 圈飞行一般传 N-1。
+  -Lap 对应录像 JSON 里的 currentLap 整型（通常第 1 圈=0，第 2 圈=1 …）；仅在 -AutoFastestLap:$false 时生效。
   不确定时用 -ShowLapHints 列出每个计时区间起点的 currentLap。
 #>
 [CmdletBinding()]
@@ -30,6 +30,7 @@ param(
     [string]$CsvPath,
     [string]$IdealLinePath,
     [int]$Lap = 0,
+    [bool]$AutoFastestLap = $true,
     [bool]$UseTimingLine = $true,
     [double]$MinSegmentMeters = 50.0,
     [double]$DedupePlanarMin = 0.05,
@@ -105,7 +106,8 @@ function Show-Usage {
   -DriverName      多车时指定车手名（传给 acrp --driver-name）
   -AcRpPath        默认: 脚本所在目录\acrp.exe
   -IdealLinePath   默认: <TrackFolder>\data\ideal_line.ai
-  -Lap             与录像 currentLap 一致（第 2 圈多为 1，第 3 圈多为 2，依此类推）
+  -AutoFastestLap  默认:$true，自动选择最快圈（推荐）
+  -Lap             固定圈号（仅在 -AutoFastestLap:$false 时生效；第 2 圈多为 1，第 3 圈多为 2）
   -ShowLapHints    只打印计时线分段与每段起点 currentLap，不写 ideal_line（仅需 JSON）
   -MinSegmentMeters  计时线模式下，若「该 Lap 最长区间」弧长仍小于此值(m)则放弃切段（防数据损坏），默认 50
   -UseTimingLine:`$false  关闭计时线截取
@@ -339,6 +341,57 @@ function Select-TimingSegment($j, [int]$Lap, [double]$MinSegmentMeters) {
     return @{ Start = $bestA; End = $bestB; Length = $bestLen; Mode = 'longest_for_lap' }
 }
 
+function Get-FrameDtSeconds($j) {
+    if ($j.PSObject.Properties.Name -contains 'recordingInterval') {
+        $ri = [double]$j.recordingInterval
+        if ($ri -gt 0 -and $ri -le 100.0) { return $ri / 1000.0 }
+        if ($ri -gt 100.0) { return 1.0 / $ri }
+    }
+    return (1.0 / 60.0)
+}
+
+function Select-FastestTimingSegment($j, [double]$MinSegmentMeters) {
+    $cross = Get-SfCrossingIndices $j
+    if ($cross.Count -lt 2) {
+        return @{ Start = -1; End = -1; Length = 0.0; Mode = 'no_crossings'; Lap = -1; TimeMs = -1 }
+    }
+    $best = $null
+    for ($k = 0; $k -lt $cross.Count - 1; $k++) {
+        $a = $cross[$k]
+        $b = $cross[$k + 1]
+        $lapVal = [int]$j.currentLap[$a]
+        $len = Measure-ArcJson $j $a $b
+        if ($len -lt $MinSegmentMeters) { continue }
+
+        $timeMs = -1
+        if ($j.PSObject.Properties.Name -contains 'currentLapTime') {
+            $ti = [int]$j.currentLapTime[[Math]::Max($a, $b - 1)]
+            if ($ti -gt 0) { $timeMs = $ti }
+        }
+        if ($timeMs -le 0) {
+            $dt = Get-FrameDtSeconds $j
+            $timeMs = [int][Math]::Round(($b - $a) * $dt * 1000.0)
+        }
+
+        $cand = @{
+            Start = $a
+            End = $b
+            Length = $len
+            Mode = 'ok'
+            Lap = $lapVal
+            TimeMs = $timeMs
+        }
+        if ($null -eq $best -or $cand.TimeMs -lt $best.TimeMs) {
+            $best = $cand
+        }
+    }
+
+    if ($null -eq $best) {
+        return @{ Start = -1; End = -1; Length = 0.0; Mode = 'no_valid_segment'; Lap = -1; TimeMs = -1 }
+    }
+    return $best
+}
+
 if ($ShowLapHints) {
     if (-not $useJson) { throw "-ShowLapHints 仅支持 JSON（-Replay 或 -JsonPath），不支持 CSV。" }
     $jh = ConvertFrom-JsonFile $JsonPath
@@ -362,7 +415,11 @@ if ($ShowLapHints) {
         $lapAtStart = [int]$jh.currentLap[$a]
         Write-Host ("  区间 frame {0}..{1}: 起点 currentLap={2}  弧长约 {3:F1} m  （同 Lap 多段时脚本取最长段）" -f $a, $b, $lapAtStart, $alen)
     }
-    Write-Host "当前默认 -Lap=$Lap；若飞行圈是「第 3 圈」且 AC 从 0 编号，多为 -Lap 2。"
+    if ($AutoFastestLap) {
+        Write-Host "当前默认启用 -AutoFastestLap:`$true（自动选最快圈）。如需固定圈号，可传 -AutoFastestLap:`$false -Lap N。"
+    } else {
+        Write-Host "当前使用固定圈号 -Lap=$Lap；若飞行圈是「第 3 圈」且 AC 从 0 编号，多为 -Lap 2。"
+    }
     if ($tempWork -and (Test-Path -LiteralPath $tempWork) -and -not $KeepTempJson) {
         Remove-Item -LiteralPath $tempWork -Recurse -Force -ErrorAction SilentlyContinue
     }
@@ -373,6 +430,7 @@ try {
 $pts = New-Object System.Collections.Generic.List[object]
 $hasPedals = $false
 $timingMode = 'n/a'
+$effectiveLap = $Lap
 if ($useJson) {
     $j = ConvertFrom-JsonFile $JsonPath
     if (-not $j.x -or -not $j.y -or -not $j.z) { throw "JSON 缺少 x/y/z 数组（请确认为 acrp 导出）。" }
@@ -391,20 +449,35 @@ if ($useJson) {
     if (-not $UseTimingLine) {
         $timingMode = 'timing_disabled'
     } elseif ($j.currentLapTime -and ($j.currentLapTime.Count -eq $nF)) {
-        $seg = Select-TimingSegment $j $Lap $MinSegmentMeters
-        if ($seg.Start -ge 0) {
-            $iStart = $seg.Start
-            $iEnd = $seg.End
-            $timingUsed = $true
-            $timingMode = $seg.Mode
-        } elseif ($seg.Mode -eq 'segment_too_short') {
-            $timingMode = 'segment_too_short'
-            Write-Warning ("计时线切段: 该 Lap 下最长区间仅 {0:F1} m，低于 -MinSegmentMeters ({1} m)，已放弃切段。可调小 -MinSegmentMeters 或检查录像。" -f $seg.Length, $MinSegmentMeters)
-        } elseif ($seg.Mode -eq 'no_crossings') {
-            $timingMode = 'no_crossings'
-            Write-Warning "录像中未检测到计时线交叉（currentLapTime/圈数变化），已按整段 -Lap 过滤取点。"
+        if ($AutoFastestLap) {
+            $seg = Select-FastestTimingSegment $j $MinSegmentMeters
+            if ($seg.Start -ge 0) {
+                $iStart = $seg.Start
+                $iEnd = $seg.End
+                $timingUsed = $true
+                $timingMode = 'fastest_lap'
+                $effectiveLap = [int]$seg.Lap
+                Write-Host ("计时线切段(自动最快圈): lap={0} time_ms={1} frames {2}..{3} length_m={4:F1}" -f $effectiveLap, $seg.TimeMs, $seg.Start, $seg.End, $seg.Length)
+            } else {
+                $timingMode = $seg.Mode
+                Write-Warning "自动最快圈选择失败（$($seg.Mode)），将回退为按 -Lap 过滤。"
+            }
         } else {
-            $timingMode = 'lap_filter_pending'
+            $seg = Select-TimingSegment $j $Lap $MinSegmentMeters
+            if ($seg.Start -ge 0) {
+                $iStart = $seg.Start
+                $iEnd = $seg.End
+                $timingUsed = $true
+                $timingMode = $seg.Mode
+            } elseif ($seg.Mode -eq 'segment_too_short') {
+                $timingMode = 'segment_too_short'
+                Write-Warning ("计时线切段: 该 Lap 下最长区间仅 {0:F1} m，低于 -MinSegmentMeters ({1} m)，已放弃切段。可调小 -MinSegmentMeters 或检查录像。" -f $seg.Length, $MinSegmentMeters)
+            } elseif ($seg.Mode -eq 'no_crossings') {
+                $timingMode = 'no_crossings'
+                Write-Warning "录像中未检测到计时线交叉（currentLapTime/圈数变化），已按整段 -Lap 过滤取点。"
+            } else {
+                $timingMode = 'lap_filter_pending'
+            }
         }
     } else {
         $timingMode = 'no_currentLapTime'
@@ -413,7 +486,7 @@ if ($useJson) {
 
     for ($i = $iStart; $i -lt $iEnd; $i++) {
         if (-not $timingUsed) {
-            if ([int]$j.currentLap[$i] -ne $Lap) { continue }
+            if ([int]$j.currentLap[$i] -ne $effectiveLap) { continue }
         }
         $g = if ($hasPedals) { [int]$j.gas[$i] } else { 0 }
         $bk = if ($hasPedals) { [int]$j.brake[$i] } else { 0 }
@@ -429,7 +502,7 @@ if ($useJson) {
     }
     if ($UseTimingLine -and -not $timingUsed) {
         if ($timingMode -eq 'lap_filter_pending') { $timingMode = 'no_segment_for_lap' }
-        Write-Warning "未找到起点 currentLap=$Lap 的计时区间（或交叉点不足），已回退为整段 Lap 过滤。可运行 -ShowLapHints 查看每段起点应对的 -Lap，或 -UseTimingLine:`$false。"
+        Write-Warning "未找到可用计时区间（或交叉点不足），已回退为整段 Lap 过滤。可运行 -ShowLapHints 查看每段起点对应圈号，或 -UseTimingLine:`$false。"
     }
 } else {
     $timingMode = 'csv'
@@ -454,7 +527,7 @@ if ($useJson) {
             if ($c.Count -le [Math]::Max($ixX, [Math]::Max($ixY, [Math]::Max($ixZ, $ixLap)))) { continue }
             $lapVal = 0
             [void][int]::TryParse($c[$ixLap].Trim(), [ref]$lapVal)
-            if ($lapVal -ne $Lap) { continue }
+            if ($lapVal -ne $effectiveLap) { continue }
             $x = [double]::Parse($c[$ixX].Trim(), [Globalization.CultureInfo]::InvariantCulture)
             $y = [double]::Parse($c[$ixY].Trim(), [Globalization.CultureInfo]::InvariantCulture)
             $z = [double]::Parse($c[$ixZ].Trim(), [Globalization.CultureInfo]::InvariantCulture)
@@ -568,7 +641,7 @@ if ($oldMax -lt 1.0) { throw "原线累计长度异常。" }
 
 if ($WhatIf) {
     $pedalNote = if ($hasPedals) { "写入 Gas/Brake" } else { "无油门刹车数据，不改颜色" }
-    Write-Host "WhatIf: $IdealLinePath | $n 点 | Lap=$Lap | timing=$timingMode | 采样 $($pts.Count) | 弧长 $replayTotal m | 原线长 $oldMax m | $pedalNote"
+    Write-Host "WhatIf: $IdealLinePath | $n 点 | Lap=$effectiveLap | timing=$timingMode | 采样 $($pts.Count) | 弧长 $replayTotal m | 原线长 $oldMax m | $pedalNote"
     exit 0
 }
 

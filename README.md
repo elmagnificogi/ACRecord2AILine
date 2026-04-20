@@ -80,6 +80,7 @@ BuildIdealLineFromReplay.exe -Replay ".\1.01.acreplay" -TrackFolder "G:\ACRecord
 
 - 生成/更新当前目录下 `ideal_line.ai`
 - 自动生成备份：`ideal_line.ai.bak_yyyyMMdd_HHmmss`
+- 默认启用 `-AutoFastestLap:$true`，自动按计时线分段选择最快圈
 
 ### 2) 只检查参数与流程（不写文件）
 
@@ -98,9 +99,16 @@ BuildIdealLineFromReplay.exe -JsonPath ".\1.01_replay.json" -ShowLapHints
 - `-Replay`：输入回放文件
 - `-TrackFolder`：赛道目录（用于定位模板/默认输出）
 - `-IdealLinePath`：目标输出文件（建议显式传入）
-- `-Lap`：圈编号（常见第 1 圈=0，第 2 圈=1）
+- `-AutoFastestLap`：是否自动选择最快圈（默认 `true`）
+- `-Lap`：固定圈编号（仅 `-AutoFastestLap:$false` 时生效；常见第 1 圈=0，第 2 圈=1）
 - `-DriverName`：多车手回放时指定车手
 - `-AcRpPath`：指定 `acrp.exe` 路径
+
+固定圈号示例（关闭自动最快圈）：
+
+```bat
+BuildIdealLineFromReplay.exe -Replay ".\1.01.acreplay" -TrackFolder "G:\ACRecord2AILine\zhuhai" -IdealLinePath ".\ideal_line.ai" -AutoFastestLap:$false -Lap 1
+```
 
 ## DrawReplayLapTelemetry.exe 用法
 
