@@ -34,7 +34,8 @@ param(
     [string]$DebugOutputPath = '',
     [switch]$HideCornerCenterLabel,
     [switch]$NoVerticalFlip,
-    [switch]$FlipWorldZ
+    [switch]$FlipWorldZ,
+    [switch]$KeepIntermediateFiles
 )
 
 $ErrorActionPreference = 'Stop'
@@ -227,6 +228,12 @@ function Get-FrameDtSeconds($j) {
     return (1.0 / 60.0)
 }
 
+function Format-LapTime([int]$timeMs) {
+    if ($timeMs -lt 0) { return 'N/A' }
+    $ts = [TimeSpan]::FromMilliseconds($timeMs)
+    return ('{0:D2}:{1:D2}.{2:D3}' -f [int]$ts.Minutes, [int]$ts.Seconds, [int]$ts.Milliseconds)
+}
+
 function Get-BoundariesFromSegmentEnds([double[]]$ends) {
     if ($ends.Count -ne 14) { throw 'segmentEndFraction must have 14 elements, last=1.0' }
     if ([Math]::Abs($ends[13] - 1.0) -gt 0.001) { throw 'segmentEndFraction[13] must be 1.0' }
@@ -364,8 +371,8 @@ function New-CjkDrawingFont([float]$emSize, [System.Drawing.FontStyle]$style) {
     return [System.Drawing.Font]::new('Segoe UI', $emSize, $style, $unit)
 }
 
-function Ensure-ReplayJson([string]$TargetJsonPath, [string]$ReplayPathIn, [string]$AcRpPathIn, [string]$DriverNameIn) {
-    if (Test-Path -LiteralPath $TargetJsonPath) { return }
+function Ensure-ReplayJson([string]$TargetJsonPath, [string]$ReplayPathIn, [string]$AcRpPathIn, [string]$DriverNameIn, [bool]$ForceRegenerate) {
+    if ((-not $ForceRegenerate) -and (Test-Path -LiteralPath $TargetJsonPath)) { return }
     $acrp = if ([string]::IsNullOrWhiteSpace($AcRpPathIn)) { Join-Path $toolDir 'acrp.exe' } else { Resolve-FsPath $AcRpPathIn }
     if (-not (Test-Path -LiteralPath $acrp)) {
         throw "Replay JSON missing and acrp.exe not found: $acrp"
@@ -500,6 +507,8 @@ function Build-CornerJsonFromReplay($j, [string]$TargetPath, [int]$LapVal, [doub
     Write-Host "Generated: $TargetPath"
 }
 
+$userProvidedJson = -not [string]::IsNullOrWhiteSpace($JsonPath)
+$userProvidedCorners = -not [string]::IsNullOrWhiteSpace($CornersJson)
 $ReplayPath = Resolve-FsPath $ReplayPath
 $legacyJson = Join-Path $toolDir 'zhuhai_replay_out_elmagnifico.json'
 $legacyCorners = Join-Path $toolDir 'zhuhai_t1_t14_apex_fractions.json'
@@ -547,10 +556,16 @@ $JsonPath = Resolve-FsPath $JsonPath
 $CornersJson = Resolve-FsPath $CornersJson
 $OutputPath = Resolve-FsPath $OutputPath
 $DebugOutputPath = Resolve-FsPath $DebugOutputPath
-Ensure-ReplayJson $JsonPath $ReplayPath $AcRpPath $DriverName
+$forceReplayJson = (-not [string]::IsNullOrWhiteSpace($ReplayPath)) -and (-not $userProvidedJson)
+$forceReplayCorners = (-not [string]::IsNullOrWhiteSpace($ReplayPath)) -and (-not $userProvidedCorners)
+$cleanupPaths = New-Object System.Collections.Generic.List[string]
+if ((-not $KeepIntermediateFiles) -and $forceReplayJson) { [void]$cleanupPaths.Add($JsonPath) }
+if ((-not $KeepIntermediateFiles) -and $forceReplayCorners) { [void]$cleanupPaths.Add($CornersJson) }
+
+Ensure-ReplayJson $JsonPath $ReplayPath $AcRpPath $DriverName $forceReplayJson
 
 $j = ConvertFrom-JsonFile $JsonPath
-if (-not (Test-Path -LiteralPath $CornersJson)) {
+if ($forceReplayCorners -or (-not (Test-Path -LiteralPath $CornersJson))) {
     Build-CornerJsonFromReplay $j $CornersJson $Lap $MinSegmentMeters 28.0 $AutoFastestLap
 }
 
@@ -620,6 +635,16 @@ for ($k = 0; $k -lt $m; $k++) {
 
 $lapLen = $s[$m - 1]
 if ($lapLen -lt 100.0) { throw "Lap length abnormal: $lapLen" }
+$lapTimeMs = -1
+if ($j.currentLapTime -and ($j.currentLapTime.Count -eq $nF)) {
+    $lastIdx = [int]$idx[$idx.Count - 1]
+    $ct = [int]$j.currentLapTime[$lastIdx]
+    if ($ct -gt 0) { $lapTimeMs = $ct }
+}
+if ($lapTimeMs -le 0) {
+    $lapTimeMs = [int][Math]::Round($idx.Count * $dt * 1000.0)
+}
+$lapTimeText = Format-LapTime $lapTimeMs
 
 $xmin = ($xs | Measure-Object -Minimum).Minimum
 $xmax = ($xs | Measure-Object -Maximum).Maximum
@@ -1101,7 +1126,7 @@ if ($DebugEventTrace.IsPresent) {
 }
 
 $sub = ('dt={0}ms brake>={1}s thr={2} gas>={3} expand={4}m' -f [int]($dt * 1000), $BrakeMinSeconds, $ThrottleMinSeconds, $GasPedalThreshold, $SectorExpandMeters)
-$title = $cap.titlePrefix + '  Lap=' + $Lap + '  L=' + [math]::Round($lapLen, 0) + 'm  ' + $sub + '  ' + (Get-Date -Format 'yyyy-MM-dd HH:mm')
+$title = $cap.titlePrefix + '  Lap=' + $Lap + '  Time=' + $lapTimeText + '  L=' + [math]::Round($lapLen, 0) + 'm  ' + $sub
 $g.DrawString($title, $fontTitle, $brushTxt, 10.0, 8.0)
 $leg = $cap.legend + '  |  ' + $sub
 $g.DrawString($leg, $fontMk, $brushTxt, 10.0, [float]($bmpH - 42))
@@ -1112,6 +1137,19 @@ $penTrace.Dispose(); $penLeader.Dispose()
 $brushRed.Dispose(); $brushGreen.Dispose(); $brushTxt.Dispose(); $brushSf.Dispose()
 $fontTitle.Dispose(); $fontMk.Dispose()
 Write-Host "Saved: $OutputPath"
+if (-not $KeepIntermediateFiles) {
+    $deleted = New-Object System.Collections.Generic.List[string]
+    foreach ($p in $cleanupPaths) {
+        if ([string]::IsNullOrWhiteSpace($p)) { continue }
+        if (Test-Path -LiteralPath $p) {
+            Remove-Item -LiteralPath $p -Force -ErrorAction SilentlyContinue
+            if (-not (Test-Path -LiteralPath $p)) { [void]$deleted.Add($p) }
+        }
+    }
+    if ($deleted.Count -gt 0) {
+        Write-Host ("Cleaned intermediate files: " + ($deleted -join '; '))
+    }
+}
 
 # PS2EXE 的 draw 宿主在部分环境会在脚本结束后悬挂不退出；
 # 打包为独立 exe 时强制结束进程，保证命令返回。

@@ -151,6 +151,9 @@ $useJson = $false
 $tempWork = $null
 
 if ($Replay) {
+    if ($JsonPath -or $CsvPath) {
+        Write-Warning "已指定 -Replay：将始终重新解析回放，-JsonPath/-CsvPath 输入会被忽略。"
+    }
     if (-not $TrackFolder) { throw "使用 -Replay 时必须同时指定 -TrackFolder（赛道根目录）。" }
     if (-not (Test-Path -LiteralPath $AcRpPath)) {
         throw "找不到 acrp.exe: $AcRpPath （可设置 -AcRpPath，或把 acrp.exe 放在脚本同目录）"
@@ -686,5 +689,8 @@ Write-Host "完成: $IdealLinePath"
 finally {
     if ($tempWork -and (Test-Path -LiteralPath $tempWork) -and -not $KeepTempJson) {
         Remove-Item -LiteralPath $tempWork -Recurse -Force -ErrorAction SilentlyContinue
+        if (-not (Test-Path -LiteralPath $tempWork)) {
+            Write-Host "已清理临时中间文件目录。"
+        }
     }
 }
