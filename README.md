@@ -55,8 +55,9 @@
 
 - 若 `-IdealLinePath` 指向的文件已存在：直接在该文件上改写
 - 若 `-IdealLinePath` 不存在：会优先从 `TrackFolder\data\ideal_line.ai` 复制模板到目标路径
-- 若 `TrackFolder\data\ideal_line.ai` 不存在：会回退尝试 `TrackFolder\data\idle_line.ai`
-- 若两者都不存在：工具会报错（无法从 0 生成）
+- 若 `TrackFolder\data\ideal_line.ai` 不存在：会回退尝试 `TrackFolder\data\fast_lane.ai`
+- 若 `fast_lane.ai` 也不存在：再回退尝试 `TrackFolder\data\idle_line.ai`
+- 若三者都不存在：工具会报错（无法从 0 生成）
 
 使用 `-JsonPath` / `-CsvPath` 时：
 

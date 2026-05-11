@@ -242,6 +242,7 @@ if (-not $ShowLapHints) {
         $trackBase = Resolve-FsPath $TrackFolder
         $fallbackCandidates = @(
             (Join-Path $trackBase 'data\ideal_line.ai'),
+            (Join-Path $trackBase 'data\fast_lane.ai'),
             (Join-Path $trackBase 'data\idle_line.ai')
         )
         $fallbackTemplate = $null
