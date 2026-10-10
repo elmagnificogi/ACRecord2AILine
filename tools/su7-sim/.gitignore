@@ -1,13 +1,4 @@
 .runtime/
 _downloads/
 __pycache__/
-/csp-shadow/
 /csp-active-bench/
-/outputs/simulation.json
-/outputs/yaw-ablation/ablation.json
-/references/csp-0.2.11-ac_car_cphys-lib.lua
-/references/csp-0.2.11-ac_car_cphys-README.md
-/references/csp-0.2.11-physics-api-excerpts.lua
-/references/upstream-ac_car_cphys.lua
-/references/upstream-ac_car_cphys_enums.lua
-/references/official-physics-scripts.md

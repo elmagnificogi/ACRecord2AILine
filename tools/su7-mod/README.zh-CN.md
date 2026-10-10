@@ -1,6 +1,6 @@
 # SU7 Ultra 可配置量产 mod：开发版 0.2
 
-已生成两辆独立车型，位于 [dist/content/cars](E:/Github/ACRecord2AILine/tools/su7-mod/dist/content/cars)：
+已生成两辆独立车型，位于 [dist/content/cars](dist/content/cars)：
 
 - acr_su7_ultra_air：普通量产空悬等效版，默认升降尾翼和 P ZERO 5。
 - acr_su7_ultra_coilover：赛道绞牙实验版，默认固定碳纤维大尾翼和 Trofeo RS。
@@ -9,7 +9,7 @@
 
 ## 使用
 
-1. 双击 [Configure_SU7.cmd](E:/Github/ACRecord2AILine/tools/su7-mod/Configure_SU7.cmd)，选择悬架车型、尾翼、默认轮胎、实验阻尼档、车高偏移，以及 ESC / TC / TVC 整数档位，点击“生成所选车型”。不修改原 mod 或游戏安装。这个配置器需要 Python 3/Tk；本机使用 D:/Python/Python312。
+1. 双击 [Configure_SU7.cmd](Configure_SU7.cmd)，选择悬架车型、尾翼、默认轮胎、实验阻尼档、车高偏移，以及 ESC / TC / TVC 整数档位，点击“生成所选车型”。不修改原 mod 或游戏安装。这个配置器需要 Python 3.11+/Tk；换电脑先按[恢复说明](../README.su7.zh-CN.md)执行 Restore_SU7.cmd，配置器优先使用仓库 .venv。
 2. 将 dist/content/cars 下的两个 acr_su7_ultra_* 目录复制到自己的 Assetto Corsa/content/cars，保留目录 ID。它们是两辆新车，不覆盖原量产或原型车。
 3. Content Manager 中选择 Xiaomi SU7 Ultra Air - Dev 或 Xiaomi SU7 Ultra Track Coilover - Dev，使用 CSP 扩展物理。当前实现按 0.2.11 稳定版接口/机制核对，尚未游戏试驾。
 4. 维修区轮胎列表中可选 P ZERO 5、Trofeo RS、Sailun PT01 (Experimental)。配置器只设默认胎，不删除其他胎。
@@ -42,7 +42,7 @@ PT01 不是只改轮胎名：加入完整前后物理与热模型组，使用独
 
 请用 SU7 的 TC 自定义调校项切换。原生 HUD 可能显示 1–9，比 SU7 菜单大 1；脚本会同步 SU7 菜单值，原生键盘 TC 调节会被同步回这个值。即使自定义 TC 为 0，仍保留最弱的启用档；原 MIN_SPEED_KMH=12 机制仍保留，不能理解成静止时必然持续减扭。
 
-ESC/TVC 的所有档位已进入共用核心和模拟测试，但生成车只显示预测结果。要实际接管，还需测量轮速/坐标方向、电扭矩单位与正负号、传动隔离和制动接口；不能凭空将校准标记改为 true。[主动实验构建说明](E:/Github/ACRecord2AILine/tools/su7-sim/README.zh-CN.md)已有这一入口，目前未生成主动包。
+ESC/TVC 的所有档位已进入共用核心和模拟测试，但生成车只显示预测结果。要实际接管，还需测量轮速/坐标方向、电扭矩单位与正负号、传动隔离和制动接口；不能凭空将校准标记改为 true。[主动实验构建说明](../su7-sim/README.zh-CN.md)已有这一入口，目前未生成主动包。
 
 CSP Lua Debug 显示所选整数、预测强度、预测横摆请求以及原生 TC 期望/实际档位。这些是现场调试显示；脚本不自动保存行驶记录，也不回传数据。
 
@@ -60,8 +60,10 @@ CSP Lua Debug 显示所选整数、预测强度、预测横摆请求以及原生
 & 'D:\Python\Python312\python.exe' -X utf8 tools/su7-mod/build_mod.py --suspension air --wing fixed --tyre pt01 --damper-click 5 --height-mm 0 --esc 2 --tc 4 --tvc 1
 ```
 
-[核查程序](E:/Github/ACRecord2AILine/tools/su7-mod/verify_package.py)独立读取生成车，检查资源、声音 ID、三组轮胎、LUT、悬架差异、尾翼物理与皮肤冲突、三项电控整数范围与默认值、原生 TC 曲线和模块，以及原车物理哈希。结构与参数核查不能代替游戏加载、音效播放、动画和驾驶测试。
+[核查程序](verify_package.py)独立读取生成车，检查资源、声音 ID、三组轮胎、LUT、悬架差异、尾翼物理与皮肤冲突、三项电控整数范围与默认值、原生 TC 曲线和模块，以及原车物理哈希。结构与参数核查不能代替游戏加载、音效播放、动画和驾驶测试。
 
-[catalog.json](E:/Github/ACRecord2AILine/tools/su7-mod/catalog.json)记录选择与估计来源；每辆车的 variant_manifest.json 记录实际生成组合和原物理 SHA256。原模型、声音、基础物理的作者署名保留在车辆 UI 中。
+[catalog.json](catalog.json)记录选择与估计来源；每辆车的 variant_manifest.json 记录实际生成组合和原物理 SHA256。原模型、声音、基础物理的作者署名保留在车辆 UI 中。
 
-本轮文件核查：默认包 412/412 项通过；空悬/绞牙 × 两种尾翼 × 三种轮胎的 12 种组合、阻尼/杆长偏移的两组边界设置均通过。三种电控强度组合与 12 个 CLI / 12 个 API 无效输入拒绝检查也通过。最终恢复默认双车型。见 [electronics-verification.json](E:/Github/ACRecord2AILine/tools/su7-mod/electronics-verification.json)、 [selection-matrix.json](E:/Github/ACRecord2AILine/tools/su7-mod/selection-matrix.json) 与 [verification.json](E:/Github/ACRecord2AILine/tools/su7-mod/verification.json)。未进入 AC，检查不包含实际加载、声音播放、尾翼动画或驾驶表现。
+本轮文件核查：默认包 412/412 项通过；空悬/绞牙 × 两种尾翼 × 三种轮胎的 12 种组合、阻尼/杆长偏移的两组边界设置均通过。三种电控强度组合与 12 个 CLI / 12 个 API 无效输入拒绝检查也通过。最终恢复默认双车型。见 [electronics-verification.json](electronics-verification.json)、 [selection-matrix.json](selection-matrix.json) 与 [verification.json](verification.json)。未进入 AC，检查不包含实际加载、声音播放、尾翼动画或驾驶表现。
+
+原始 mod 与生成的新车现已随仓库保存，二进制通过 Git LFS 拉取。[资产清单](asset-manifest.json)记录文件字节和 SHA256；换电脑的恢复入口是 [Restore_SU7.cmd](Restore_SU7.cmd)，详细步骤见[工作环境恢复说明](../README.su7.zh-CN.md)。

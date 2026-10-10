@@ -22,7 +22,7 @@
 
 mu=1.20时，实验零百3.034秒、零至200为6.993秒；400米10.034秒、244.35 km/h；100至0.5 km/h制动40.662米，终点尚有23.5 J动能。初始化修正只改善零百5.30毫秒，无法解释主要差距。
 
-![独立纵向校验](E:/Github/ACRecord2AILine/tools/su7-sim/outputs/video-validation/longitudinal-benchmarks.png)
+![独立纵向校验](outputs/video-validation/longitudinal-benchmarks.png)
 
 固定分配参考的均值轴速预算与独立轮速积分，起步出现不合理的瞬时轮速、功率；其起步成绩不能作为原AC mod的性能预测。当前轮胎力、负载转移、TC/ABS、起步和动力请求仍有共同不确定性，仅凭汇总成绩不能分别识别它们。
 
@@ -42,6 +42,6 @@ mu=1.20时，实验零百3.034秒、零至200为6.993秒；400米10.034秒、244
 
 它更新独立JSON结果；本说明和图是本轮记录。阈值按0.5 ms积分点插值，制动终点明确为0.5 km/h。
 
-[素材与条件JSON](E:/Github/ACRecord2AILine/tools/su7-sim/references/video-evidence.json) · [直线结果](E:/Github/ACRecord2AILine/tools/su7-sim/outputs/video-validation/longitudinal-summary.json) · [核心验证](E:/Github/ACRecord2AILine/tools/su7-sim/outputs/verification.json)
+[素材与条件JSON](references/video-evidence.json) · [直线结果](outputs/video-validation/longitudinal-summary.json) · [核心验证](outputs/verification.json)
 
-本轮追加车型归属：2026-10-10 已用新整数档位核心重跑直线测试，默认数值未变，运行时源码哈希已刷新；该平面模型没有悬架动态，不能比较空悬和绞牙。详见[空悬/绞牙版本与 mod 实现说明](E:/Github/ACRecord2AILine/tools/su7-sim/vehicle-variants.zh-CN.md)。
+本轮追加车型归属：2026-10-10 已用新整数档位核心重跑直线测试，默认数值未变，运行时源码哈希已刷新；该平面模型没有悬架动态，不能比较空悬和绞牙。详见[空悬/绞牙版本与 mod 实现说明](vehicle-variants.zh-CN.md)。

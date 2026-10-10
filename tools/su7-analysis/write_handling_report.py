@@ -1,11 +1,11 @@
 from pathlib import Path
 import json
-out=Path(r'E:\Github\ACRecord2AILine\tools\su7-analysis')
+out=Path(__file__).resolve().parent
 j=json.loads((out/'physics_baseline_comparison.json').read_text(encoding='utf-8'))
 m=j['models']['production']
 def ref(file, section, key, label=None):
     v=m[file][section][key]
-    target=v['path'].replace('\\','/')+':'+str(v['line'])
+    target=v['path'].replace('\\','/').replace('E:/Github/ACRecord2AILine',out.parent.parent.as_posix())+':'+str(v['line'])
     return '['+(label or file)+'](<'+target+'>)'
 aero=lambda model,speed:next(x for x in j['aero_estimates'] if x['model']==model and x['speed_kmh']==speed and x['assumed_height_m']==.05)
 p=aero('production',350); q=aero('prototype',350)
@@ -121,5 +121,6 @@ setup 的前外倾范围 −1.5° 至 +0.1°、后 −3° 至 −0.6° 值得检
 
 如果只是想提供更容易上手的版本，可以单独提供舒适/街道预设；如果目标是还原实车，最值得投入的是电机、稳定控制和制动请求的协调。两种目标应明确标注，避免把增加抓地、减重或增加巨大下压力当成实车还原。
 '''
+text=text.replace('E:/Github/ACRecord2AILine',out.parent.parent.as_posix())
 (out/'analysis.zh-CN.md').write_text(text,encoding='utf-8')
 print('Saved analysis.zh-CN.md:', len(text), 'characters')

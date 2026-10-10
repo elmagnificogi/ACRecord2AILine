@@ -1,0 +1,59 @@
+# Keep audited source/data bytes independent of core.autocrlf.
+tools/car/** -text
+tools/su7-analysis/** -text
+tools/su7-sim/** -text
+tools/su7-mod/** -text
+
+# Binary assets use content-addressed Git LFS objects.
+tools/car/**/*.kn5 filter=lfs diff=lfs merge=lfs -text
+tools/car/**/*.kn5.backup filter=lfs diff=lfs merge=lfs -text
+tools/car/**/*.bank filter=lfs diff=lfs merge=lfs -text
+tools/car/**/*.dds filter=lfs diff=lfs merge=lfs -text
+tools/car/**/*.psd filter=lfs diff=lfs merge=lfs -text
+tools/car/**/*.mp4 filter=lfs diff=lfs merge=lfs -text
+tools/car/**/*.mp3 filter=lfs diff=lfs merge=lfs -text
+tools/car/**/*.ksanim filter=lfs diff=lfs merge=lfs -text
+tools/car/**/*.acd filter=lfs diff=lfs merge=lfs -text
+tools/car/**/*.knh filter=lfs diff=lfs merge=lfs -text
+tools/car/**/*.png filter=lfs diff=lfs merge=lfs -text
+tools/car/**/*.jpg filter=lfs diff=lfs merge=lfs -text
+tools/car/**/*.jpeg filter=lfs diff=lfs merge=lfs -text
+tools/su7-analysis/**/*.kn5 filter=lfs diff=lfs merge=lfs -text
+tools/su7-analysis/**/*.kn5.backup filter=lfs diff=lfs merge=lfs -text
+tools/su7-analysis/**/*.bank filter=lfs diff=lfs merge=lfs -text
+tools/su7-analysis/**/*.dds filter=lfs diff=lfs merge=lfs -text
+tools/su7-analysis/**/*.psd filter=lfs diff=lfs merge=lfs -text
+tools/su7-analysis/**/*.mp4 filter=lfs diff=lfs merge=lfs -text
+tools/su7-analysis/**/*.mp3 filter=lfs diff=lfs merge=lfs -text
+tools/su7-analysis/**/*.ksanim filter=lfs diff=lfs merge=lfs -text
+tools/su7-analysis/**/*.acd filter=lfs diff=lfs merge=lfs -text
+tools/su7-analysis/**/*.knh filter=lfs diff=lfs merge=lfs -text
+tools/su7-analysis/**/*.png filter=lfs diff=lfs merge=lfs -text
+tools/su7-analysis/**/*.jpg filter=lfs diff=lfs merge=lfs -text
+tools/su7-analysis/**/*.jpeg filter=lfs diff=lfs merge=lfs -text
+tools/su7-sim/**/*.kn5 filter=lfs diff=lfs merge=lfs -text
+tools/su7-sim/**/*.kn5.backup filter=lfs diff=lfs merge=lfs -text
+tools/su7-sim/**/*.bank filter=lfs diff=lfs merge=lfs -text
+tools/su7-sim/**/*.dds filter=lfs diff=lfs merge=lfs -text
+tools/su7-sim/**/*.psd filter=lfs diff=lfs merge=lfs -text
+tools/su7-sim/**/*.mp4 filter=lfs diff=lfs merge=lfs -text
+tools/su7-sim/**/*.mp3 filter=lfs diff=lfs merge=lfs -text
+tools/su7-sim/**/*.ksanim filter=lfs diff=lfs merge=lfs -text
+tools/su7-sim/**/*.acd filter=lfs diff=lfs merge=lfs -text
+tools/su7-sim/**/*.knh filter=lfs diff=lfs merge=lfs -text
+tools/su7-sim/**/*.png filter=lfs diff=lfs merge=lfs -text
+tools/su7-sim/**/*.jpg filter=lfs diff=lfs merge=lfs -text
+tools/su7-sim/**/*.jpeg filter=lfs diff=lfs merge=lfs -text
+tools/su7-mod/**/*.kn5 filter=lfs diff=lfs merge=lfs -text
+tools/su7-mod/**/*.kn5.backup filter=lfs diff=lfs merge=lfs -text
+tools/su7-mod/**/*.bank filter=lfs diff=lfs merge=lfs -text
+tools/su7-mod/**/*.dds filter=lfs diff=lfs merge=lfs -text
+tools/su7-mod/**/*.psd filter=lfs diff=lfs merge=lfs -text
+tools/su7-mod/**/*.mp4 filter=lfs diff=lfs merge=lfs -text
+tools/su7-mod/**/*.mp3 filter=lfs diff=lfs merge=lfs -text
+tools/su7-mod/**/*.ksanim filter=lfs diff=lfs merge=lfs -text
+tools/su7-mod/**/*.acd filter=lfs diff=lfs merge=lfs -text
+tools/su7-mod/**/*.knh filter=lfs diff=lfs merge=lfs -text
+tools/su7-mod/**/*.png filter=lfs diff=lfs merge=lfs -text
+tools/su7-mod/**/*.jpg filter=lfs diff=lfs merge=lfs -text
+tools/su7-mod/**/*.jpeg filter=lfs diff=lfs merge=lfs -text

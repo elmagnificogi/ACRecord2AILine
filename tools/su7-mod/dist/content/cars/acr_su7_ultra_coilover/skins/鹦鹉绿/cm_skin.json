@@ -1,0 +1,22 @@
+{
+  "carPaint": {
+    "color": "#FF005650",
+    "flakes": 0.777,
+    "enabled": true
+  },
+  "interior": {
+    "enabled": false,
+    "colors": [
+      "#FFFFFF"
+    ]
+  },
+  "leatherColored": {
+    "enabled": false,
+    "colors": [
+      "#FFFFFF"
+    ]
+  },
+  "licensePlate": {
+    "style": "Europe"
+  }
+}

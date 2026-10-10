@@ -1,8 +1,8 @@
 from pathlib import Path
 import json, math
 import numpy as np
-root=Path(r'E:\Github\ACRecord2AILine\tools\car\msk_stw_xiaomi_su7_ultra - 2.0\data')
-out=Path(r'E:\Github\ACRecord2AILine\tools\su7-analysis')
+out=Path(__file__).resolve().parent
+root=out.parent/'car'/'msk_stw_xiaomi_su7_ultra - 2.0'/'data'
 def points(name):
     data=[]
     for raw in (root/name).read_text(encoding='utf-8-sig',errors='replace').splitlines():

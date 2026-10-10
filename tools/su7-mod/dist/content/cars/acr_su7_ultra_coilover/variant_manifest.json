@@ -1,0 +1,214 @@
+{
+  "version": "0.2.0-dev",
+  "carId": "acr_su7_ultra_coilover",
+  "suspension": "coilover",
+  "wing": "fixed",
+  "defaultTyre": "trofeo_rs",
+  "damperClick": 5,
+  "additionalRodOffsetMm": 0,
+  "calibrated": false,
+  "gameTested": false,
+  "actuationECU": false,
+  "electronics": {
+    "esc": 4,
+    "tc": 8,
+    "tvc": 0,
+    "zeroMeansOff": false,
+    "nativeTCMode": 9,
+    "escActuation": false,
+    "tcActuation": "native-experimental",
+    "tvcActuation": false,
+    "levelMapping": "engineering-assumption",
+    "nativeTCMappingVerifiedInGame": false
+  },
+  "controllerSha256": "6324f324e2d15985d4c2a697a2be4c47787e28eb122d8fa15faaac53f13fba94",
+  "catalogSha256": "9e07a166fde6462515a40335753107bc04921488e8e2af6935fc8c2fbbb4c3f9",
+  "sourcePhysicsSha256": {
+    "aero.ini": "2349c49a0cb5cfcbc45a117c9630a22d9bab78e22601d6d5e9df786ee13683d1",
+    "ai.ini": "e3db2b3e1a66799600150f3ec9de8e1fadbed7fc803a75e56a4963233c562c57",
+    "ambient_shadows.ini": "f2c33c3c9c27da920992c7f6413c338a7c9e53ea93455d3b6d57a1ecf56375bf",
+    "analog_instruments.ini": "b2b74040f1775abc1723e9a4075b353708804988da7abb728e384666edf5f26c",
+    "brakes.ini": "9f1ba21474f979cf9a02333eea005c1afc800415c67e52337e450e373a5b526d",
+    "brakes_tcurve_front.lut": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "brakes_tcurve_rear.lut": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "brakes_temp.ini": "33e09a4f60fec90675122882605d5da3f94eea17a73804d1097cac6429ce93c0",
+    "brakes_temp1.ini": "8afc33b9c9f37ab7de06c59a40d02df762c459a69bd8050fffb6b17a9bf155c6",
+    "cameras.ini": "f17d835cd3619c78fd624a6e26bb180c2b1ccb39e18200b2d87545e5431f1522",
+    "car.ini": "b7505558d56ddae110aa4d3c7f1fa5cb0bb1e814890cd3a477a4bbffa530e956",
+    "colliders.ini": "46d850174a9e04d6ef473cbce6dc9157a29c91122b04b228d5016d181151afef",
+    "ctrl_single_lock.ini": "f98edfc356973e7d0baea22d945f20482fb6df76f0a8add6209d79572b4b6767",
+    "damage.ini": "94d4c99a278aaead0f24c4b5d5dee8de87be005f95c6d765c8891c0199872307",
+    "dash_cam.ini": "b63a462f0b48d1633cbdec13b7c599ea43894bf090babcbd27b40b135424b240",
+    "difflock_brake_mult.lut": "7c6571e5a19624cc05ae11b8079b460fc2ab47fe1caabefee9a8f2229bbd715f",
+    "difflock_gas_mult.lut": "78b35b5554dcde07f1788640c910aff291a325eb814b945fd742d3631e8a3fa6",
+    "difflock_gear_mult.lut": "19bebd82e5ea80f893bb482e798abe16c41c6e1edd209e15826cf091baa114a6",
+    "digital_instruments.ini": "9e6c97640316a9426bad3a3bd2fb8afdbb1eff22ee28a513a6514ec3144ad3f3",
+    "driver3d.ini": "e87afc35a98c7bea7029f15c9d3d713c01f01b6fe49a70f826d5798637d84d5d",
+    "drivetrain.ini": "ee84244e5159755f238cba7003bef02f168abad31f97d724f9e75fbc488dee61",
+    "drs.ini": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "electronics.ini": "9636cfad4de836d116974ca8261d159f966ad5e32172b38314f4f1c47b3fba0d",
+    "engine.ini": "689c68990e4a9f180b107543e61a9272f27e45a1a7ae6186f54d4a6c0ef1d4b9",
+    "engine_map0.lut": "da97ed8522cbd764e685e0fe5b37c0d5a4e34604b7c63c09a01c1056e66f4158",
+    "engine_map1.lut": "4376c0a97cf23f8cdb661e67ba844d293afc2d437111c147e70702a4c0397efb",
+    "engine_map2.lut": "f1b6bd3413f709b43d6332fbab67726d1998d38b63e6048b899382d299ee50c6",
+    "engine_map3.lut": "7d9fd93233784503ec3ea1eb9237c4b9c6c379580b42d76198a712f8fc1fc92a",
+    "engine_map_setup.lut": "6775a46ea67cfc1ee6cad1abe979c382e36befd4a2af9f0831109d397683bdd5",
+    "escmode.ini": "5d01a6f8d731389b2485d6fa6858f2a1b48a8982822a84cce1338bc6724d885c",
+    "flames.ini": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "flame_presets.ini": "122e61ad61a8b1f1cdc49adb5754bebc2468685a42039b88a36a252f5e01d1fb",
+    "fuel_cons.ini": "eb7562c569c70ea80f045e93055ae51f8b98d6d96ea43ddc66b0c29a001fc366",
+    "gear_start.lut": "b0a729695fa88ad8aa8b693a254ffb1759bf891c12ca2a4a907539baadbebce7",
+    "height_diffuser_CD.lut": "aeb087f24df6a8ff63ae2afc88130bdca1bb8e2241cd8110aa5ae09a23d27195",
+    "height_diffuser_CL.lut": "40aa4a8c3ceac90655dd826decb16e442123e3f0f03fdcce543cd5d099dadfac",
+    "lights.ini": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "lods.ini": "6dd6a3ae277241c5f2b30deb24465101ca5ed929e7065b92da1c4369cb4a33bd",
+    "mirrors.ini": "a137d55fb9b0414179db1f509dd090003ff18ee2b354576fccbcbc77226fc89f",
+    "power - __.lut": "4d0a700c0af4d94a47d8aee8c750905084667ea38a8c2bc4192554f9d47776ad",
+    "power.lut": "4d0a700c0af4d94a47d8aee8c750905084667ea38a8c2bc4192554f9d47776ad",
+    "proview_nodes.ini": "38e2f4bd700e325dc3eadd689ea57d4a7c1ebe45761f84b763093f44d6305425",
+    "p_hard_front.lut": "de222febfa776ee26f271b6455ca4aa0eb758f66b1403c050893ec13bc11b5ff",
+    "p_hard_rear.lut": "de222febfa776ee26f271b6455ca4aa0eb758f66b1403c050893ec13bc11b5ff",
+    "rear_ratio_vs_lock.lut": "909e70859c1f1115ac98d7cbb88155189510c7b77e64a6f9211f7a2e2aa7f11b",
+    "script.lua": "ae98a54925718432b80825466c5f3603ba251eb4d93558157f0dd67749a3f241",
+    "semislicks_front.lut": "31e17c77f5717c886885f9ddd368246c4fe554597b418be58ebe8edf7530d9cc",
+    "semislicks_rear.lut": "31e17c77f5717c886885f9ddd368246c4fe554597b418be58ebe8edf7530d9cc",
+    "setup.ini": "6d26291a080ac800936f9e27e416b60a88f1a4cbc1a9927ea495156c34ac341a",
+    "sounds.ini": "6e9d0030fe23013b0020ea6dc5450ee9471c7b710c8c23e553da7cb49d73760b",
+    "street_front.lut": "49245974c79740536a6d38234bb7970ad7dde710ea6c9a77d42a25c97425dff2",
+    "street_rear.lut": "49245974c79740536a6d38234bb7970ad7dde710ea6c9a77d42a25c97425dff2",
+    "suspensions.ini": "b9b7773bc54c6d2d71d55825182c349985f57cdd98ccba35fe86df4e76aae1fa",
+    "suspension_graphics.ini": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "tcurve_p_hard.lut": "335c01f0a3f963105b26c25bb96031db69d13ec36bd2cf1a94908c1823e2a9d4",
+    "tcurve_semis.lut": "374d604f6d6fc408e9529397705eb06a377dd61a06c39eebe5e5e8ecf00844c2",
+    "tcurve_street.lut": "06af275fc184301cee267e0abfb6d0c27793fcc40e1bc434e8b56d187e26ad6d",
+    "throttle.lut": "a7c62524274b76e153b87164f56259269e9c6bf9343f97ae778b3e730dcd1b33",
+    "traction_control.lut": "9ed8773df7d8c8485c4d3d7960c342fce15044010f8803c60a53b343146bdbeb",
+    "tyres.ini": "ed0cbaedb640fddba6363c5970932baa2faa3922578e18e2565953f2c8164f37",
+    "understeer_factor_vs_lock.lut": "003a01bedd9d5dbde001bf3bc052903601ec8ef0028490e720d3cdce31094fa7",
+    "wing_animations.ini": "f8e925bfd2fc8e38a2f91868679da6cf4f9eca9ee7b8b5d5b40e1ca20a98af48",
+    "wing_body_AOA_CD.lut": "f953d47d618ed184f1f5e98faac88bb4cab24b1e2e25b60eda1f2b5e48b9edd0",
+    "wing_body_AOA_CL.lut": "0c996ffe77de95582f2b7d950011a5aad8b28a6b2eeb90f502f1a63402c1902a",
+    "wing_controller_brake.lut": "8ed0233ddaa52f5fea5560ad495e34b6e261bc9d5798e5a9ca1b23fd26c67763",
+    "wing_controller_brakefront.lut": "08cb9e187c50b9e9e8422a3dee5906653c4e931629f03444e68e0e59c15a61f7",
+    "wing_controller_gas.lut": "79373aec8662ee5427cda7faa338d8d9f43993c2f22abcdccd7deda605251a2d",
+    "wing_controller_latg.lut": "e11da1aae7ced32da87d16a00dead6eda9c9f9a2e3426f684b6e4340cb54d658",
+    "wing_controller_long.lut": "8fd84b42ee07aa27b5e705f5382408a956a8b6fff4f9305d6419b9dc258c0464",
+    "wing_controller_speedD.lut": "73f33eb1bfd5ec77b1fef3061e676d329dc90464580e3bc2ad989485254f3f2e",
+    "wing_controller_speedF.lut": "72a8ffecdd7b8baf254925a3fc83034ad0e98058cc2d400985cf4e4f291f1d3d",
+    "wing_controller_speedR.lut": "89b3fcbb0b2ec67cd5dd8bb579cf8992d1dc725cfed07f85533823f8e8ed364a",
+    "wing_controller_speedR2.lut": "cbad8f26f48ffd0fc58e36eeab728c43298642c6328f276535763de65695e53d",
+    "wing_controller_speed_r.lut": "8d14c0a2c9d58c688b79a0aaeab87e5e17214cf4c822a4c17f1b90181b3c1eaf",
+    "wing_controller_steer.lut": "bb0fa35609767e6c28e6a9d19340b2f19299ffadd2ee699183562e3ab096faf4",
+    "wing_diffuser_AOA_CD.lut": "ee0e01fafac1b93a5412d1ffd4a9e7799451ca6a3baa692e89afc0d758871d90",
+    "wing_diffuser_AOA_CL.lut": "6701b9dc6c8c656d47b23c4fd5aafff7f76dd414f103740766e19465c2f454f5",
+    "wing_front_AOA_CD.lut": "f0ffbb6318c8d65ffe8b057beca5f9f4475fad297e45c12f7c6fb82819e9562b",
+    "wing_front_AOA_CL.lut": "b836a1e49b03b2ee5160f1339900134ce7e9a84e9d1631f687042df45e3e2e91",
+    "wing_rear_AOA_CD.lut": "2165b800de475cfa3075d5a77e31debeda960b2f697a9103c9a266c609bd4ea3",
+    "wing_rear_AOA_CD2.lut": "828a0b033adc0645e4ccf3e32f5383518ed32bf64f02eda514ed0df38d409eba",
+    "wing_rear_AOA_CL.lut": "50138e639a163cde975b92370555ec8e87d861d8cbab57b582e03e6eff048543",
+    "wing_rear_AOA_CL2.lut": "54a74b91e6e683bebe0a56873dbc65db01f29aae040506f7e72e980c5aedb3f8"
+  },
+  "originalPhysicsUnchanged": true,
+  "assumptions": {
+    "suspension": {
+      "carId": "acr_su7_ultra_coilover",
+      "name": "Xiaomi SU7 Ultra Track Coilover - Dev",
+      "labelZh": "赛道绞牙版（实验模型）",
+      "defaultWing": "fixed",
+      "defaultTyre": "trofeo_rs",
+      "wheelRateScale": [
+        1.35,
+        1.45
+      ],
+      "progressiveScale": [
+        1.2,
+        1.2
+      ],
+      "damperScale": [
+        1.1618950039,
+        1.2041594579
+      ],
+      "antiRollScale": [
+        1.15,
+        1.2
+      ],
+      "rodOffsetM": -0.01,
+      "defaultDamperClick": 5,
+      "fidelity": "Explicit engineering assumptions relative to source: higher wheel rates, matching sqrt(k) damping scaling, ARB change and rod offset. Not OEM Bilstein spring/damper values; static change is not proven 10 mm actual ride-height reduction."
+    },
+    "wing": {
+      "labelZh": "固定碳纤维大尾翼",
+      "spanM": 1.6,
+      "cdGainScale": 1.0,
+      "clGainScale": 1.0,
+      "keepSpeedController": false,
+      "keepWingAnimations": false,
+      "fidelity": "Use source rear aero at fixed original angle, remove active motion; original lumped rear aero remains uncalibrated."
+    },
+    "pt01": {
+      "index": 2,
+      "labelZh": "赛轮 PT01（实验估计）",
+      "name": "Sailun PT01 (Experimental)",
+      "shortName": "PT01(EST)",
+      "sourceOfficial": "https://en.sailungroup.com/content/details117_1504.html",
+      "sourceCatalog": "https://fliphtml5.com/sailun/uwkq/",
+      "nominalSizes": [
+        "265/35ZR21",
+        "305/30ZR21"
+      ],
+      "sizeCaveat": "Catalog confirms sizes, not identity of regional compound with Ultra OEM formulation. Loaded radii inherited from mod.",
+      "basis": "Trofeo RS source surrogate; all unknowns explicitly retained as borrowed or assumed.",
+      "assumedPeakRefScale": 0.98,
+      "assumedFalloffLevel": 0.89,
+      "assumedFalloffSpeed": 2.5,
+      "assumedTemperatureCurve": [
+        [
+          0,
+          0.8
+        ],
+        [
+          20,
+          0.9
+        ],
+        [
+          40,
+          0.96
+        ],
+        [
+          60,
+          0.99
+        ],
+        [
+          75,
+          1.0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          130,
+          0.97
+        ],
+        [
+          150,
+          0.94
+        ],
+        [
+          160,
+          0.92
+        ],
+        [
+          180,
+          0.82
+        ],
+        [
+          200,
+          0.65
+        ]
+      ],
+      "borrowed": "Pressure, mass/inertia, stiffness, heat-transfer, wear, relaxation, load sensitivity and wet physics retained from donor; none is a PT01 measurement.",
+      "unknown": "OEM friction/force curves, pressure/temperature window, tyre mass, wear, load index and wet behavior. No claim of superiority over Trofeo RS."
+    }
+  }
+}

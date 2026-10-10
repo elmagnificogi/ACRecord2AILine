@@ -1,6 +1,6 @@
 # SU7 Ultra 电控实验
 
-量产目标现已区分普通双腔空悬与赛道套装绞牙，轮胎独立记录。当前来源 mod 只有一套固定悬架，硬件归属未确认；本实验 Street/Sport/Track 仅为电控模式，未实现两种悬架。详见[空悬/绞牙版本与 mod 实现说明](E:/Github/ACRecord2AILine/tools/su7-sim/vehicle-variants.zh-CN.md)。
+量产目标现已区分普通双腔空悬与赛道套装绞牙，轮胎独立记录。当前来源 mod 只有一套固定悬架，硬件归属未确认；本实验 Street/Sport/Track 仅为电控模式，未实现两种悬架。详见[空悬/绞牙版本与 mod 实现说明](vehicle-variants.zh-CN.md)。
 
 
 这里已经实现一套可运行的离线电控模型，并生成 CSP 观测数据包。原车 mod 没有修改，也没有安装进游戏。离线模拟不是 Assetto Corsa 的物理引擎，更不是小米的原厂标定。
@@ -9,11 +9,11 @@
 
 已用量产车型的一手资料约束前电机 288 kW、后电机各 425 kW，总计 1138 kW；后 V8s 每台峰值扭矩 635 Nm、最高转速 27200 rpm；名义电池能量 93.7 kWh。前电机的 500 Nm、21000 rpm 使用 V6s 型谱资料，尚缺同期 Ultra 专属扭矩表。
 
-完整来源与适用范围见 [公开参数说明](<E:/Github/ACRecord2AILine/tools/su7-sim/references/public-data.zh-CN.md>) 和 [机器可读参数](<E:/Github/ACRecord2AILine/tools/su7-sim/references/public-parameters.json>)。工信部、小米发布资料、澳门交通事务局车型认可均已交叉核对。
+完整来源与适用范围见 [公开参数说明](<references/public-data.zh-CN.md>) 和 [机器可读参数](<references/public-parameters.json>)。工信部、小米发布资料、澳门交通事务局车型认可均已交叉核对。
 
 ## 已实现的控制
 
-[su7_control.lua](<E:/Github/ACRecord2AILine/tools/su7-sim/su7_control.lua>) 是离线与游戏适配共用的控制核心：
+[su7_control.lua](<su7_control.lua>) 是离线与游戏适配共用的控制核心：
 
 - 前轴一个电机共享功率与扭矩预算，两前轮给相同轮端驱动扭矩；两后轮分别受各自电机包络限制。
 - 后轮差动扭矩跟随目标横摆率和侧滑反馈，实际效果由轮胎力产生，没有直接向车身添加虚构横摆力矩。
@@ -26,7 +26,7 @@
 
 ## 哪些是模拟假设
 
-[su7_config.lua](<E:/Github/ACRecord2AILine/tools/su7-sim/su7_config.lua>) 把未知量集中列出：前齿比 8.0、后齿比沿用 mod 的 9.205，机械/放电效率 0.94、充电效率 0.90，回收扭矩、模式电门指数与功率倍率、TC/ABS阈值、横摆/侧滑增益等，均为实验设定。
+[su7_config.lua](<su7_config.lua>) 把未知量集中列出：前齿比 8.0、后齿比沿用 mod 的 9.205，机械/放电效率 0.94、充电效率 0.90，回收扭矩、模式电门指数与功率倍率、TC/ABS阈值、横摆/侧滑增益等，均为实验设定。
 
 电机包络是 min(峰值扭矩, 峰值功率/角速度)，在最高转速前平滑降扭；不是实测完整电机曲线。0.6 g 只是回收减速度能力边界；400 kW 被选作保守模拟限制，厂家原文是“超过 400 kW”。20% SOC 能达到 800 kW 是能力声明；将它作为保守上限、假设 50% SOC 可用峰值、在两者之间插值，同样不是原厂 SOC 降额表。
 
@@ -51,11 +51,11 @@ Python 通过 Lupa 的 LuaJIT 2.1 直接执行同一份 Lua，不维护另一份
 
 ## 游戏内观测包
 
-[csp-shadow/data](<E:/Github/ACRecord2AILine/tools/su7-sim/csp-shadow/data/script.lua>) 已生成，含原物理文件和共用模块。这个包只添加观测、实验模式与 ESC/TC/TVC 档位菜单（均为预测），保留原车动力、刹车、TC/ABS和360 km/h限速逻辑。适配器从物理帧读取速度、轮载与轮方向，估算道路轮角；它的预测扭矩不会施加到车轮。模拟 SOC 也是预测能量，不是读取真实游戏电池。
+[csp-shadow/data](<csp-shadow/data/script.lua>) 已生成，含原物理文件和共用模块。这个包只添加观测、实验模式与 ESC/TC/TVC 档位菜单（均为预测），保留原车动力、刹车、TC/ABS和360 km/h限速逻辑。适配器从物理帧读取速度、轮载与轮方向，估算道路轮角；它的预测扭矩不会施加到车轮。模拟 SOC 也是预测能量，不是读取真实游戏电池。
 
 需要试用时，可在独立测试安装中保持原车型ID，先备份原data和data.acd，再按实际加载方式使用观测data并启用扩展物理。若要另建车目录，须处理声音bank/GUID和ACD的目录关联，单纯改名可能失声或无法读取物理。还需核对游戏实际加载的是新data，而非残留的data.acd。数据包不包含KN5或音频，不构成完整可安装车型。观测时建议原动力地图选择排位 MAP_1，保持与离线对照一致。CSP的Lua Debug显示预测扭矩、速度一致性、轮速、道路轮角和横摆数据。
 
-[接口核查报告](<E:/Github/ACRecord2AILine/tools/su7-sim/csp-api-feasibility.zh-CN.md>) 以官方公开稳定版0.2.11 SDK为基线。逐轮电扭矩和制动接口已确认存在；电扭矩的原注释没有写单位与负号语义，需用游戏执行器试验核实。物理速度、方向向量、实际轮胎半径也需校准。源码中没有用只在较新测试版出现的TC接口。
+[接口核查报告](<csp-api-feasibility.zh-CN.md>) 以官方公开稳定版0.2.11 SDK为基线。逐轮电扭矩和制动接口已确认存在；电扭矩的原注释没有写单位与负号语义，需用游戏执行器试验核实。物理速度、方向向量、实际轮胎半径也需校准。源码中没有用只在较新测试版出现的TC接口。
 
 build_patch.py 默认生成上述观测包，并对原文件做SHA256核对。主动控制构建入口也已写好：它会取消原正向动力、coast、离合器传动耦合和原TC/EDL/ABS，然后由Lua承担相应控制；为防止重复动力或重复制动，需要先实际验证隔离和执行器量纲。calibration-template.json列出了测量字段，不能仅把布尔值改成true就当验证完成。取得测量后可用 --active --calibration 路径生成前进实验包；目前没有生成或安装主动包。
 
@@ -65,11 +65,11 @@ build_patch.py 默认生成上述观测包，并对原文件做SHA256核对。�
 
 ## 视频与公开实测辅助校验
 
-新增[视频辅助校验说明](E:/Github/ACRecord2AILine/tools/su7-sim/video-assisted.zh-CN.md)和longitudinal_validation.py，用原作者实测检查直线性能。已修正首次模式初始化，核心检查现为30项；尚未逐帧分析GT7视频。独立模型的加速和制动仍不匹配实测，不能视为完成性能还原。
+新增[视频辅助校验说明](video-assisted.zh-CN.md)和longitudinal_validation.py，用原作者实测检查直线性能。已修正首次模式初始化，核心检查现为30项；尚未逐帧分析GT7视频。独立模型的加速和制动仍不匹配实测，不能视为完成性能还原。
 
 ## 可配置新车中的接入状态（2026-10-10）
 
-[可配置双车包](E:/Github/ACRecord2AILine/tools/su7-mod/README.zh-CN.md)独立生成空悬和绞牙车型，接入同一预测核心。它另设 nativeTC=true，将 SU7 的 TC 0–8 同步到原生启用档 1–9，并写入九条递减滑移阈值；这是实验映射，与离线按响应速率缩放 TC 不完全相同，尚需实际游戏核对曲线索引和效果。ESC/TVC 在这两辆车中仍只预测。此处 csp-shadow 包的 nativeTC=false，不会同步或改变原生 TC。
+[可配置双车包](../su7-mod/README.zh-CN.md)独立生成空悬和绞牙车型，接入同一预测核心。它另设 nativeTC=true，将 SU7 的 TC 0–8 同步到原生启用档 1–9，并写入九条递减滑移阈值；这是实验映射，与离线按响应速率缩放 TC 不完全相同，尚需实际游戏核对曲线索引和效果。ESC/TVC 在这两辆车中仍只预测。此处 csp-shadow 包的 nativeTC=false，不会同步或改变原生 TC。
 
 档位方向来自用户说明，强度底值与间隔没有原厂数据：ESC 0.20+0.80×档位/4，TC 0.25+0.75×档位/8，TVC 1.00−0.70×档位/3。TVC0 最强、TVC3 最少且仍有干预。这些数字只定义实验核心响应，不是实车百分比，也不能据此预测圈速。
 

@@ -20,5 +20,18 @@
 *.zip
 *.cmd
 
-# Local donor mods are inputs, not source code.
-/tools/car/
+# SU7 workspace assets are versioned, with binary resources in Git LFS.
+!/tools/car/
+!/tools/car/**
+!/tools/su7-mod/dist/
+!/tools/su7-mod/dist/**
+!/tools/su7-sim/csp-shadow/
+!/tools/su7-sim/csp-shadow/**
+!/tools/su7-analysis/prototype-data/
+!/tools/su7-analysis/prototype-data/**
+!/tools/su7-analysis/references/
+!/tools/su7-analysis/references/**
+!/tools/su7-sim/outputs/
+!/tools/su7-sim/outputs/**
+
+/.venv/

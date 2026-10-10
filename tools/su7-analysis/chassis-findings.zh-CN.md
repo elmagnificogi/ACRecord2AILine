@@ -1,6 +1,6 @@
 # SU7 Ultra 量产 mod：底盘、轮胎和电子辅助审计
 
-量产目标现已区分普通双腔空悬与赛道套装绞牙，轮胎独立记录。当前来源 mod 只有一套固定悬架，硬件归属未确认；本实验 Street/Sport/Track 仅为电控模式，未实现两种悬架。详见[空悬/绞牙版本与 mod 实现说明](E:/Github/ACRecord2AILine/tools/su7-sim/vehicle-variants.zh-CN.md)。
+量产目标现已区分普通双腔空悬与赛道套装绞牙，轮胎独立记录。当前来源 mod 只有一套固定悬架，硬件归属未确认；本实验 Street/Sport/Track 仅为电控模式，未实现两种悬架。详见[空悬/绞牙版本与 mod 实现说明](../su7-sim/vehicle-variants.zh-CN.md)。
 
 
 对象：E:\Github\ACRecord2AILine\tools\car\msk_stw_xiaomi_su7_ultra - 2.0\data。对照：E:\Github\ACRecord2AILine\tools\su7-analysis\prototype-data。只读配置，未修改 mod，未进游戏测圈。

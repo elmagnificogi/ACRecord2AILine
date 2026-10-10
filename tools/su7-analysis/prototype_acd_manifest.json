@@ -1,0 +1,269 @@
+{
+  "source": "E:\\Github\\ACRecord2AILine\\tools\\car\\negi_su7_ultra_prototype\\data.acd",
+  "key_source": "negi_su7_ultra_prototype",
+  "key": "253-107-5-244-170-198-61-102",
+  "source_sha256": "9b5c04a7008124907ef27e05394e48de2c9615a1f94ea918cfeff41d699aefed",
+  "count": 52,
+  "entries": [
+    {
+      "name": "aero.ini",
+      "bytes": 3983,
+      "sha256": "98a269d46d5c40d6174c0293333e01e5562d29e3b0c1a33c31fdadefa680cc71"
+    },
+    {
+      "name": "ai.ini",
+      "bytes": 276,
+      "sha256": "c5dcd55603537ce3fe4cb54ada57877d2efeb45e9d537d9906f57075118ebe8c"
+    },
+    {
+      "name": "ambient_shadows.ini",
+      "bytes": 63,
+      "sha256": "140c73f20eae83790e4622dd7251031e974c3a5f4ae0274e18a099ca05f5b69e"
+    },
+    {
+      "name": "brakes.ini",
+      "bytes": 793,
+      "sha256": "adbacde3f57f77913968cc73a58b5732d161d586bbcb39182d7dd5c455dc2389"
+    },
+    {
+      "name": "cameras.ini",
+      "bytes": 924,
+      "sha256": "d61c5e8ab9592bc5ae6d9a1256b122cd54c6c920a4283e8a36a72546e403dd92"
+    },
+    {
+      "name": "car.ini",
+      "bytes": 1172,
+      "sha256": "8bf89ffbcff431497ffa9492ed734db0071513115278fdb2dad240e9b0272c95"
+    },
+    {
+      "name": "colliders.ini",
+      "bytes": 511,
+      "sha256": "52d5b55365e2458d2d472c410ca37afddc83f83641a616965a26444769560cb2"
+    },
+    {
+      "name": "damage.ini",
+      "bytes": 3339,
+      "sha256": "d8807099a57b73e9e2fc5830044b12b87bc3ab62c25e9a73307cdacb090ea197"
+    },
+    {
+      "name": "dash_cam.ini",
+      "bytes": 49,
+      "sha256": "4441a0b0c3d31a2f939ae4c835dcd7156df487cbd72ffeaae3169f11850469b2"
+    },
+    {
+      "name": "digital_instruments.ini",
+      "bytes": 3918,
+      "sha256": "8b0f8bd109da6101150f984445f2bf4ca39a7e8e0049b1765d16194b025394d9"
+    },
+    {
+      "name": "driver3d.ini",
+      "bytes": 390,
+      "sha256": "5e92ad27da9b122282bd448c4c8b1a7d851895ab7f2d3febfe72c06ed275b796"
+    },
+    {
+      "name": "drivetrain.ini",
+      "bytes": 2029,
+      "sha256": "be2fe61f1fb91f89c7b842310b50abfd275d1cc953d559089372d9fb28e4460c"
+    },
+    {
+      "name": "electronics.ini",
+      "bytes": 748,
+      "sha256": "e146a1ce1d0f33fe95ce09fb4a9574d8cfcb08c0aef8788f298ec14e946f615a"
+    },
+    {
+      "name": "engine.ini",
+      "bytes": 893,
+      "sha256": "60060d8d2b2cac840572e6d0098bab832bdff05f3ecf1544e7d85d496c45c548"
+    },
+    {
+      "name": "escmode.ini",
+      "bytes": 39,
+      "sha256": "95afd247d3f1c3ded1e2a5911a3faf001353c9717feef777c4635af7f1758c7d"
+    },
+    {
+      "name": "fuel_cons.ini",
+      "bytes": 34,
+      "sha256": "464a6b89e3eae10905de5fce8a224ec346752c68e74e3032a7245c5aedb4bd20"
+    },
+    {
+      "name": "height_diffuser_CD.lut",
+      "bytes": 84,
+      "sha256": "429fdbeb7995fe0d3efb4df0dd1218ea8cc9a9da2a55509ad6c903b802cb6cbe"
+    },
+    {
+      "name": "height_diffuser_CL.lut",
+      "bytes": 157,
+      "sha256": "4240692d14a729ff53fc3dd53d828d9dd9242ba77b332e8ad83014ccd64ace7e"
+    },
+    {
+      "name": "height_front_CD.lut",
+      "bytes": 84,
+      "sha256": "429fdbeb7995fe0d3efb4df0dd1218ea8cc9a9da2a55509ad6c903b802cb6cbe"
+    },
+    {
+      "name": "height_front_CL.lut",
+      "bytes": 140,
+      "sha256": "3c703239dfe26ff3a3c270843294cb0b3930a46fbb14ef0484c9ea0b4d287e2f"
+    },
+    {
+      "name": "lights.ini",
+      "bytes": 296,
+      "sha256": "390d9b172c37e22f5138156a9aab461563d7524e80c59c735ce40d8ffce1c460"
+    },
+    {
+      "name": "lods.ini",
+      "bytes": 80,
+      "sha256": "416ed7f29aaf18f22e5e0657679f516be9c6ef4869b0e01e3e67d231f3ccc2b3"
+    },
+    {
+      "name": "mirrors.ini",
+      "bytes": 23,
+      "sha256": "2ae8fdf1dcd380ef80ba5b9e0ce1157d9fd69d745a4102fc2f34e473f35ec4c6"
+    },
+    {
+      "name": "power.lut",
+      "bytes": 386,
+      "sha256": "52f1d3fb2848b5e3e8cdf84f1037073e52cc03f3b8534dae745d18267ae197df"
+    },
+    {
+      "name": "proview_nodes.ini",
+      "bytes": 9,
+      "sha256": "ecc31f4b17730a069498e7ac2450d28b459c421ed4df8eeed855c16e4a65049f"
+    },
+    {
+      "name": "p_hard_front.lut",
+      "bytes": 77,
+      "sha256": "de222febfa776ee26f271b6455ca4aa0eb758f66b1403c050893ec13bc11b5ff"
+    },
+    {
+      "name": "p_hard_rear.lut",
+      "bytes": 77,
+      "sha256": "de222febfa776ee26f271b6455ca4aa0eb758f66b1403c050893ec13bc11b5ff"
+    },
+    {
+      "name": "setup.ini",
+      "bytes": 6330,
+      "sha256": "b21a80308a411db59fcb19b4a44b5ab43c57de139e3b5baf5bd1bda82a74085c"
+    },
+    {
+      "name": "slicksGT3h_front.lut",
+      "bytes": 75,
+      "sha256": "0576d3bc6706c16163c59859b0eef7d066b6a5f2f58d9e5f4a95fb5626721bae"
+    },
+    {
+      "name": "slicksGT3h_rear.lut",
+      "bytes": 75,
+      "sha256": "0576d3bc6706c16163c59859b0eef7d066b6a5f2f58d9e5f4a95fb5626721bae"
+    },
+    {
+      "name": "slicksGT3m_front.lut",
+      "bytes": 76,
+      "sha256": "0671ab2d816e0b521250087006300663eabe5327a903b0632fdcf495f9b461cc"
+    },
+    {
+      "name": "slicksGT3m_rear.lut",
+      "bytes": 76,
+      "sha256": "0671ab2d816e0b521250087006300663eabe5327a903b0632fdcf495f9b461cc"
+    },
+    {
+      "name": "slicksGT3sh_front.lut",
+      "bytes": 74,
+      "sha256": "eac1d0b9a33c7d26f132b1ce5f0c6016c394543298111df8a3854e0b79efcba6"
+    },
+    {
+      "name": "slicksGT3sh_rear.lut",
+      "bytes": 74,
+      "sha256": "eac1d0b9a33c7d26f132b1ce5f0c6016c394543298111df8a3854e0b79efcba6"
+    },
+    {
+      "name": "sounds.ini",
+      "bytes": 723,
+      "sha256": "a372e55f3bb1cef81fafd98156689075931fb69a4f669196fe6d5d3cbf56b629"
+    },
+    {
+      "name": "suspensions.ini",
+      "bytes": 3387,
+      "sha256": "aae19ac7601d10996ea70b4b470b4beaec539d37c0cf98ab7a4193b178db5bd6"
+    },
+    {
+      "name": "suspension_graphics.ini",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "tcurve_slicksGT3h.lut",
+      "bytes": 105,
+      "sha256": "4d7ca71a79061b51c0ada64bf5b0fa4532409dccd139f6bc6da339af3111afa0"
+    },
+    {
+      "name": "tcurve_slicksGT3m.lut",
+      "bytes": 113,
+      "sha256": "a493eadf19ae4c2027eb3b29bc7a60675627d24499a827f7f3082cecc6d1195d"
+    },
+    {
+      "name": "tcurve_slicksGT3sh.lut",
+      "bytes": 104,
+      "sha256": "9c5c6eb6678725a0341e8d333f48094928057456965b5e8803c2d3c96e3decff"
+    },
+    {
+      "name": "throttle.lut",
+      "bytes": 65,
+      "sha256": "a7c62524274b76e153b87164f56259269e9c6bf9343f97ae778b3e730dcd1b33"
+    },
+    {
+      "name": "traction_control.lut",
+      "bytes": 56,
+      "sha256": "79acddf919f2eac48eb2f70a77cf8dac121bc71569c7cc5c6073fac492ebbfcf"
+    },
+    {
+      "name": "tyres.ini",
+      "bytes": 14384,
+      "sha256": "07d4bf07f6b764aaa0c9ba200a690da82c51d50f91c66814422cc5aceb2a361d"
+    },
+    {
+      "name": "wing_animations.ini",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "wing_body_AOA_CD.lut",
+      "bytes": 108,
+      "sha256": "9fc9f8bb23b5e0ec889c710f42c37635bc03babb92efcfa7d157816f1be7b969"
+    },
+    {
+      "name": "wing_body_AOA_CL.lut",
+      "bytes": 54,
+      "sha256": "4ba22fe32889040c375a9ea6edfc09768971067e6ef36337f0312f1dfbcfb860"
+    },
+    {
+      "name": "wing_diffuser_AOA_CD.lut",
+      "bytes": 123,
+      "sha256": "ee0e01fafac1b93a5412d1ffd4a9e7799451ca6a3baa692e89afc0d758871d90"
+    },
+    {
+      "name": "wing_diffuser_AOA_CL.lut",
+      "bytes": 108,
+      "sha256": "f9bd9f84e724dc67e5956196631484e00518544a2e0fea160020085083d66ec1"
+    },
+    {
+      "name": "wing_front_AOA_CD.lut",
+      "bytes": 76,
+      "sha256": "2784a98b2c563abe73befedc6953e2cb598cb7d06280770589aa6ac9681cc1d8"
+    },
+    {
+      "name": "wing_front_AOA_CL.lut",
+      "bytes": 74,
+      "sha256": "31303756ea2ff83f74cb40d3ee10ebe2642845a06d9f745b5c5043ea66e9e369"
+    },
+    {
+      "name": "wing_rear_AOA_CD.lut",
+      "bytes": 93,
+      "sha256": "335ba27651cbedc139b6cf2c9312aaf5f1ca914c5feb578980e38134ebfcb773"
+    },
+    {
+      "name": "wing_rear_AOA_CL.lut",
+      "bytes": 97,
+      "sha256": "470db6f57302e4666f567b995920d3935e7761b222161cb6a92c8060b51af27e"
+    }
+  ]
+}

@@ -1,0 +1,2118 @@
+{
+  "checkedAtUtc": "2026-10-10T02:50:41.970339+00:00",
+  "passed": true,
+  "checkCount": 418,
+  "passedChecks": 418,
+  "failedChecks": [],
+  "runtimeTested": false,
+  "physicalCalibrationValidated": false,
+  "originalDataFilesChecked": 83,
+  "cars": [
+    {
+      "id": "acr_su7_ultra_air",
+      "suspension": "air",
+      "runtimeTested": false,
+      "defaultCompoundIndex": 0,
+      "lutReferenceCount": 40,
+      "springRatesNm": {
+        "FRONT": 89759.0,
+        "REAR": 77649.0
+      },
+      "wing": "active",
+      "electronics": {
+        "levels": {
+          "esc": 2,
+          "tc": 4,
+          "tvc": 1
+        },
+        "zeroMeansOff": false,
+        "nativeTCMode": 5,
+        "escActuation": false,
+        "tcActuation": "native-experimental",
+        "tvcActuation": false
+      }
+    },
+    {
+      "id": "acr_su7_ultra_coilover",
+      "suspension": "coilover",
+      "runtimeTested": false,
+      "defaultCompoundIndex": 1,
+      "lutReferenceCount": 39,
+      "springRatesNm": {
+        "FRONT": 121174.65,
+        "REAR": 112591.05
+      },
+      "wing": "fixed",
+      "electronics": {
+        "levels": {
+          "esc": 2,
+          "tc": 4,
+          "tvc": 1
+        },
+        "zeroMeansOff": false,
+        "nativeTCMode": 5,
+        "escActuation": false,
+        "tcActuation": "native-experimental",
+        "tvcActuation": false
+      }
+    }
+  ],
+  "inheritedLimitations": [
+    "acr_su7_ultra_air: ignored dormant engine.ini COAST_CURVE/coast.lut; FROM_COAST_REF is selected",
+    "acr_su7_ultra_air: inherited empty brakes_tcurve_front.lut; brake thermal behavior remains unverified",
+    "acr_su7_ultra_air: inherited empty brakes_tcurve_rear.lut; brake thermal behavior remains unverified",
+    "acr_su7_ultra_coilover: ignored dormant engine.ini COAST_CURVE/coast.lut; FROM_COAST_REF is selected",
+    "acr_su7_ultra_coilover: inherited empty brakes_tcurve_front.lut; brake thermal behavior remains unverified",
+    "acr_su7_ultra_coilover: inherited empty brakes_tcurve_rear.lut; brake thermal behavior remains unverified"
+  ],
+  "checks": [
+    {
+      "check": "Catalog electronic ranges match the specified integer controls",
+      "passed": true
+    },
+    {
+      "check": "Catalog electronic defaults are integer 4/8/0",
+      "passed": true
+    },
+    {
+      "check": "Catalog preserves zero intervention and the separate TVC direction",
+      "passed": true
+    },
+    {
+      "check": "Catalog ESC assumptions retain nonzero correctly ordered intervention",
+      "passed": true
+    },
+    {
+      "check": "Catalog TC assumptions retain nonzero correctly ordered intervention",
+      "passed": true
+    },
+    {
+      "check": "Catalog TVC assumptions retain nonzero correctly ordered intervention",
+      "passed": true
+    },
+    {
+      "check": "Catalog TC thresholds match the native nine-level mapping",
+      "passed": true
+    },
+    {
+      "check": "Catalog native TC mapping is not claimed game verified",
+      "passed": true
+    },
+    {
+      "check": "Catalog distinguishes predicted ESC/TVC from native TC",
+      "passed": true
+    },
+    {
+      "check": "Original source data matches frozen SHA256 baseline",
+      "passed": true,
+      "detail": {
+        "files": 83,
+        "mismatches": []
+      }
+    },
+    {
+      "check": "Package output is separate from original source",
+      "passed": true
+    },
+    {
+      "check": "At least one new production variant exists",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: isolated output directory",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: unfolded data without data.acd",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: provisional calibration disclosed",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: data/car.ini exists",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: data/suspensions.ini exists",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: data/tyres.ini exists",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: data/aero.ini exists",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: data/engine.ini exists",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: data/drivetrain.ini exists",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: data/setup.ini exists",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: data/electronics.ini exists",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: data/brakes.ini exists",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: data/lods.ini exists",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: data/wing_animations.ini exists",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: data/script.lua exists",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: resource collider.kn5 exists",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: resource body_shadow.png exists",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: resource driver_base_pos.knh exists",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: resource extension/ext_config.ini exists",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: resource extension/video_preset.lua exists",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: resource extension/tyreload.lua exists",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: resource extension/siren.lua exists",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: resource ui/ui_car.json exists",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: tyre_0_shadow.png exists",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: tyre_1_shadow.png exists",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: tyre_2_shadow.png exists",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: tyre_3_shadow.png exists",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: animation car_door_L.ksanim exists",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: animation car_door_lr.ksanim exists",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: animation car_door_r.ksanim exists",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: animation car_door_rr.ksanim exists",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: animation car_gear_D.ksanim exists",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: animation car_gear_N.ksanim exists",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: animation car_gear_P.ksanim exists",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: animation car_gear_R.ksanim exists",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: animation car_rear_wing.ksanim exists",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: animation car_rear_wing2.ksanim exists",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: animation car_rear_wing3.ksanim exists",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: animation car_wiper.ksanim exists",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: animation hood.ksanim exists",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: animation steer.ksanim exists",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: LOD LOD_0 asset resolves",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: model byte size preserved",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: contiguous FRONT compound sections",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: contiguous REAR compound sections",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: contiguous THERMAL_FRONT compound sections",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: contiguous THERMAL_REAR compound sections",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: selected default compound",
+      "passed": true,
+      "detail": {
+        "actual": 0,
+        "expected": 0
+      }
+    },
+    {
+      "check": "acr_su7_ultra_air: compound 0 identity at both axles",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: compound 0 front positive geometry/load/grip",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: compound 0 front tyre radius exceeds rim",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: compound 0 rear positive geometry/load/grip",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: compound 0 rear tyre radius exceeds rim",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: compound 1 identity at both axles",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: compound 1 front positive geometry/load/grip",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: compound 1 front tyre radius exceeds rim",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: compound 1 rear positive geometry/load/grip",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: compound 1 rear tyre radius exceeds rim",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: compound 2 identity at both axles",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: compound 2 front positive geometry/load/grip",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: compound 2 front tyre radius exceeds rim",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: compound 2 rear positive geometry/load/grip",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: compound 2 rear tyre radius exceeds rim",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: PT01 has distinct tyre physics",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: PT01 has independent thermal curve",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: LUT resolves aero.ini[WING_0].LUT_AOA_CL",
+      "passed": true,
+      "detail": "wing_body_AOA_CL.lut"
+    },
+    {
+      "check": "acr_su7_ultra_air: LUT resolves aero.ini[WING_0].LUT_AOA_CD",
+      "passed": true,
+      "detail": "wing_body_AOA_CD.lut"
+    },
+    {
+      "check": "acr_su7_ultra_air: LUT resolves aero.ini[WING_1].LUT_AOA_CL",
+      "passed": true,
+      "detail": "wing_front_AOA_CL.lut"
+    },
+    {
+      "check": "acr_su7_ultra_air: LUT resolves aero.ini[WING_1].LUT_AOA_CD",
+      "passed": true,
+      "detail": "wing_front_AOA_CD.lut"
+    },
+    {
+      "check": "acr_su7_ultra_air: LUT resolves aero.ini[WING_2].LUT_AOA_CL",
+      "passed": true,
+      "detail": "wing_rear_AOA_CL.lut"
+    },
+    {
+      "check": "acr_su7_ultra_air: LUT resolves aero.ini[WING_2].LUT_AOA_CD",
+      "passed": true,
+      "detail": "wing_rear_AOA_CD.lut"
+    },
+    {
+      "check": "acr_su7_ultra_air: LUT resolves aero.ini[WING_3].LUT_AOA_CL",
+      "passed": true,
+      "detail": "wing_diffuser_AOA_CL.lut"
+    },
+    {
+      "check": "acr_su7_ultra_air: LUT resolves aero.ini[WING_3].LUT_GH_CL",
+      "passed": true,
+      "detail": "height_diffuser_CL.lut"
+    },
+    {
+      "check": "acr_su7_ultra_air: LUT resolves aero.ini[WING_3].LUT_AOA_CD",
+      "passed": true,
+      "detail": "wing_diffuser_AOA_CD.lut"
+    },
+    {
+      "check": "acr_su7_ultra_air: LUT resolves aero.ini[WING_3].LUT_GH_CD",
+      "passed": true,
+      "detail": "height_diffuser_CD.lut"
+    },
+    {
+      "check": "acr_su7_ultra_air: LUT resolves aero.ini[DYNAMIC_CONTROLLER_0].LUT",
+      "passed": true,
+      "detail": "wing_controller_speedR.lut"
+    },
+    {
+      "check": "acr_su7_ultra_air: LUT resolves brakes_temp.ini[TEMPS_FRONT].PERF_CURVE",
+      "passed": true,
+      "detail": "brakes_tcurve_front.lut"
+    },
+    {
+      "check": "acr_su7_ultra_air: LUT resolves brakes_temp.ini[TEMPS_REAR].PERF_CURVE",
+      "passed": true,
+      "detail": "brakes_tcurve_rear.lut"
+    },
+    {
+      "check": "acr_su7_ultra_air: LUT resolves brakes_temp1.ini[TEMPS_FRONT].PERF_CURVE",
+      "passed": true,
+      "detail": "brakes_tcurve_front.lut"
+    },
+    {
+      "check": "acr_su7_ultra_air: LUT resolves brakes_temp1.ini[TEMPS_REAR].PERF_CURVE",
+      "passed": true,
+      "detail": "brakes_tcurve_rear.lut"
+    },
+    {
+      "check": "acr_su7_ultra_air: LUT resolves ctrl_single_lock.ini[CONTROLLER_0].LUT",
+      "passed": true,
+      "detail": "gear_start.lut"
+    },
+    {
+      "check": "acr_su7_ultra_air: LUT resolves ctrl_single_lock.ini[CONTROLLER_1].LUT",
+      "passed": true,
+      "detail": "rear_ratio_vs_lock.lut"
+    },
+    {
+      "check": "acr_su7_ultra_air: LUT resolves ctrl_single_lock.ini[CONTROLLER_2].LUT",
+      "passed": true,
+      "detail": "difflock_gas_mult.lut"
+    },
+    {
+      "check": "acr_su7_ultra_air: LUT resolves ctrl_single_lock.ini[CONTROLLER_3].LUT",
+      "passed": true,
+      "detail": "understeer_factor_vs_lock.lut"
+    },
+    {
+      "check": "acr_su7_ultra_air: LUT resolves ctrl_single_lock.ini[CONTROLLER_4].LUT",
+      "passed": true,
+      "detail": "difflock_gear_mult.lut"
+    },
+    {
+      "check": "acr_su7_ultra_air: LUT resolves ctrl_single_lock.ini[CONTROLLER_5].LUT",
+      "passed": true,
+      "detail": "difflock_brake_mult.lut"
+    },
+    {
+      "check": "acr_su7_ultra_air: LUT resolves electronics.ini[TRACTION_CONTROL].CURVE",
+      "passed": true,
+      "detail": "traction_control.lut"
+    },
+    {
+      "check": "acr_su7_ultra_air: LUT resolves engine.ini[HEADER].POWER_CURVE",
+      "passed": true,
+      "detail": "power.lut"
+    },
+    {
+      "check": "acr_su7_ultra_air: LUT resolves engine.ini[MAP].MAP_0",
+      "passed": true,
+      "detail": "engine_map0.lut"
+    },
+    {
+      "check": "acr_su7_ultra_air: LUT resolves engine.ini[MAP].MAP_1",
+      "passed": true,
+      "detail": "engine_map1.lut"
+    },
+    {
+      "check": "acr_su7_ultra_air: LUT resolves engine.ini[MAP].MAP_2",
+      "passed": true,
+      "detail": "engine_map2.lut"
+    },
+    {
+      "check": "acr_su7_ultra_air: LUT resolves engine.ini[MAP].MAP_3",
+      "passed": true,
+      "detail": "engine_map3.lut"
+    },
+    {
+      "check": "acr_su7_ultra_air: LUT resolves setup.ini[ENGINE_MAPS].LUT",
+      "passed": true,
+      "detail": "engine_map_setup.lut"
+    },
+    {
+      "check": "acr_su7_ultra_air: LUT resolves tyres.ini[FRONT].WEAR_CURVE",
+      "passed": true,
+      "detail": "street_front.lut"
+    },
+    {
+      "check": "acr_su7_ultra_air: LUT resolves tyres.ini[REAR].WEAR_CURVE",
+      "passed": true,
+      "detail": "street_rear.lut"
+    },
+    {
+      "check": "acr_su7_ultra_air: LUT resolves tyres.ini[THERMAL_FRONT].PERFORMANCE_CURVE",
+      "passed": true,
+      "detail": "tcurve_street.lut"
+    },
+    {
+      "check": "acr_su7_ultra_air: LUT resolves tyres.ini[THERMAL_REAR].PERFORMANCE_CURVE",
+      "passed": true,
+      "detail": "tcurve_street.lut"
+    },
+    {
+      "check": "acr_su7_ultra_air: LUT resolves tyres.ini[FRONT_1].WEAR_CURVE",
+      "passed": true,
+      "detail": "p_hard_front.lut"
+    },
+    {
+      "check": "acr_su7_ultra_air: LUT resolves tyres.ini[REAR_1].WEAR_CURVE",
+      "passed": true,
+      "detail": "p_hard_rear.lut"
+    },
+    {
+      "check": "acr_su7_ultra_air: LUT resolves tyres.ini[THERMAL_FRONT_1].PERFORMANCE_CURVE",
+      "passed": true,
+      "detail": "tcurve_p_hard.lut"
+    },
+    {
+      "check": "acr_su7_ultra_air: LUT resolves tyres.ini[THERMAL_REAR_1].PERFORMANCE_CURVE",
+      "passed": true,
+      "detail": "tcurve_p_hard.lut"
+    },
+    {
+      "check": "acr_su7_ultra_air: LUT resolves tyres.ini[FRONT_2].WEAR_CURVE",
+      "passed": true,
+      "detail": "pt01_wear_front.lut"
+    },
+    {
+      "check": "acr_su7_ultra_air: LUT resolves tyres.ini[REAR_2].WEAR_CURVE",
+      "passed": true,
+      "detail": "pt01_wear_rear.lut"
+    },
+    {
+      "check": "acr_su7_ultra_air: LUT resolves tyres.ini[THERMAL_FRONT_2].PERFORMANCE_CURVE",
+      "passed": true,
+      "detail": "pt01_temperature_estimate.lut"
+    },
+    {
+      "check": "acr_su7_ultra_air: LUT resolves tyres.ini[THERMAL_REAR_2].PERFORMANCE_CURVE",
+      "passed": true,
+      "detail": "pt01_temperature_estimate.lut"
+    },
+    {
+      "check": "acr_su7_ultra_air: empty LUT is inherited, never new",
+      "passed": true,
+      "detail": "brakes_tcurve_front.lut"
+    },
+    {
+      "check": "acr_su7_ultra_air: empty LUT is inherited, never new",
+      "passed": true,
+      "detail": "brakes_tcurve_rear.lut"
+    },
+    {
+      "check": "acr_su7_ultra_air: finite LUT difflock_brake_mult.lut",
+      "passed": true,
+      "detail": {
+        "rows": 4
+      }
+    },
+    {
+      "check": "acr_su7_ultra_air: finite LUT difflock_gas_mult.lut",
+      "passed": true,
+      "detail": {
+        "rows": 4
+      }
+    },
+    {
+      "check": "acr_su7_ultra_air: finite LUT difflock_gear_mult.lut",
+      "passed": true,
+      "detail": {
+        "rows": 2
+      }
+    },
+    {
+      "check": "acr_su7_ultra_air: finite LUT engine_map0.lut",
+      "passed": true,
+      "detail": {
+        "rows": 5
+      }
+    },
+    {
+      "check": "acr_su7_ultra_air: finite LUT engine_map1.lut",
+      "passed": true,
+      "detail": {
+        "rows": 8
+      }
+    },
+    {
+      "check": "acr_su7_ultra_air: finite LUT engine_map2.lut",
+      "passed": true,
+      "detail": {
+        "rows": 5
+      }
+    },
+    {
+      "check": "acr_su7_ultra_air: finite LUT engine_map3.lut",
+      "passed": true,
+      "detail": {
+        "rows": 2
+      }
+    },
+    {
+      "check": "acr_su7_ultra_air: finite LUT engine_map_setup.lut",
+      "passed": true,
+      "detail": {
+        "rows": 4
+      }
+    },
+    {
+      "check": "acr_su7_ultra_air: finite LUT gear_start.lut",
+      "passed": true,
+      "detail": {
+        "rows": 2
+      }
+    },
+    {
+      "check": "acr_su7_ultra_air: finite LUT height_diffuser_CD.lut",
+      "passed": true,
+      "detail": {
+        "rows": 8
+      }
+    },
+    {
+      "check": "acr_su7_ultra_air: finite LUT height_diffuser_CL.lut",
+      "passed": true,
+      "detail": {
+        "rows": 10
+      }
+    },
+    {
+      "check": "acr_su7_ultra_air: finite LUT p_hard_front.lut",
+      "passed": true,
+      "detail": {
+        "rows": 10
+      }
+    },
+    {
+      "check": "acr_su7_ultra_air: finite LUT p_hard_rear.lut",
+      "passed": true,
+      "detail": {
+        "rows": 10
+      }
+    },
+    {
+      "check": "acr_su7_ultra_air: finite LUT power.lut",
+      "passed": true,
+      "detail": {
+        "rows": 41
+      }
+    },
+    {
+      "check": "acr_su7_ultra_air: finite LUT pt01_temperature_estimate.lut",
+      "passed": true,
+      "detail": {
+        "rows": 11
+      }
+    },
+    {
+      "check": "acr_su7_ultra_air: finite LUT pt01_wear_front.lut",
+      "passed": true,
+      "detail": {
+        "rows": 10
+      }
+    },
+    {
+      "check": "acr_su7_ultra_air: finite LUT pt01_wear_rear.lut",
+      "passed": true,
+      "detail": {
+        "rows": 10
+      }
+    },
+    {
+      "check": "acr_su7_ultra_air: finite LUT rear_ratio_vs_lock.lut",
+      "passed": true,
+      "detail": {
+        "rows": 4
+      }
+    },
+    {
+      "check": "acr_su7_ultra_air: finite LUT street_front.lut",
+      "passed": true,
+      "detail": {
+        "rows": 11
+      }
+    },
+    {
+      "check": "acr_su7_ultra_air: finite LUT street_rear.lut",
+      "passed": true,
+      "detail": {
+        "rows": 11
+      }
+    },
+    {
+      "check": "acr_su7_ultra_air: finite LUT tcurve_p_hard.lut",
+      "passed": true,
+      "detail": {
+        "rows": 13
+      }
+    },
+    {
+      "check": "acr_su7_ultra_air: finite LUT tcurve_street.lut",
+      "passed": true,
+      "detail": {
+        "rows": 12
+      }
+    },
+    {
+      "check": "acr_su7_ultra_air: finite LUT traction_control.lut",
+      "passed": true,
+      "detail": {
+        "rows": 9
+      }
+    },
+    {
+      "check": "acr_su7_ultra_air: finite LUT understeer_factor_vs_lock.lut",
+      "passed": true,
+      "detail": {
+        "rows": 8
+      }
+    },
+    {
+      "check": "acr_su7_ultra_air: finite LUT wing_body_AOA_CD.lut",
+      "passed": true,
+      "detail": {
+        "rows": 3
+      }
+    },
+    {
+      "check": "acr_su7_ultra_air: finite LUT wing_body_AOA_CL.lut",
+      "passed": true,
+      "detail": {
+        "rows": 7
+      }
+    },
+    {
+      "check": "acr_su7_ultra_air: finite LUT wing_controller_speedR.lut",
+      "passed": true,
+      "detail": {
+        "rows": 10
+      }
+    },
+    {
+      "check": "acr_su7_ultra_air: finite LUT wing_diffuser_AOA_CD.lut",
+      "passed": true,
+      "detail": {
+        "rows": 14
+      }
+    },
+    {
+      "check": "acr_su7_ultra_air: finite LUT wing_diffuser_AOA_CL.lut",
+      "passed": true,
+      "detail": {
+        "rows": 12
+      }
+    },
+    {
+      "check": "acr_su7_ultra_air: finite LUT wing_front_AOA_CD.lut",
+      "passed": true,
+      "detail": {
+        "rows": 7
+      }
+    },
+    {
+      "check": "acr_su7_ultra_air: finite LUT wing_front_AOA_CL.lut",
+      "passed": true,
+      "detail": {
+        "rows": 7
+      }
+    },
+    {
+      "check": "acr_su7_ultra_air: finite LUT wing_rear_AOA_CD.lut",
+      "passed": true,
+      "detail": {
+        "rows": 14
+      }
+    },
+    {
+      "check": "acr_su7_ultra_air: finite LUT wing_rear_AOA_CL.lut",
+      "passed": true,
+      "detail": {
+        "rows": 9
+      }
+    },
+    {
+      "check": "acr_su7_ultra_air: positive spring/damping hardware",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: wing configuration matches selection",
+      "passed": true,
+      "detail": {
+        "actual": "active",
+        "expected": "active"
+      }
+    },
+    {
+      "check": "acr_su7_ultra_air: wing animation/physics coherent",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: rear wing finite positive aero/geometry",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: unified hardware wing visual rule",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: visible wing matches physical hardware",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: usable skin resources included",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: skin 公安涂装 cannot override wing hardware",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "acr_su7_ultra_air: skin 太空银 cannot override wing hardware",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "acr_su7_ultra_air: skin 曜石黑 cannot override wing hardware",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "acr_su7_ultra_air: skin 珍珠白 cannot override wing hardware",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "acr_su7_ultra_air: skin 闪电黄 cannot override wing hardware",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "acr_su7_ultra_air: skin 鹦鹉绿 cannot override wing hardware",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "acr_su7_ultra_air: correctly named FMOD bank",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: FMOD bank binary preserved",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: all FMOD event paths rebound",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: required engine/skid/wheel sound events",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: original ID absent from GUID paths",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: ESC manifest is an integer in range",
+      "passed": true,
+      "detail": {
+        "actual": 2,
+        "range": [
+          0,
+          4
+        ]
+      }
+    },
+    {
+      "check": "acr_su7_ultra_air: selected ESC matches requested level",
+      "passed": true,
+      "detail": {
+        "actual": 2,
+        "expected": 2
+      }
+    },
+    {
+      "check": "acr_su7_ultra_air: TC manifest is an integer in range",
+      "passed": true,
+      "detail": {
+        "actual": 4,
+        "range": [
+          0,
+          8
+        ]
+      }
+    },
+    {
+      "check": "acr_su7_ultra_air: selected TC matches requested level",
+      "passed": true,
+      "detail": {
+        "actual": 4,
+        "expected": 4
+      }
+    },
+    {
+      "check": "acr_su7_ultra_air: TVC manifest is an integer in range",
+      "passed": true,
+      "detail": {
+        "actual": 1,
+        "range": [
+          0,
+          3
+        ]
+      }
+    },
+    {
+      "check": "acr_su7_ultra_air: selected TVC matches requested level",
+      "passed": true,
+      "detail": {
+        "actual": 1,
+        "expected": 1
+      }
+    },
+    {
+      "check": "acr_su7_ultra_air: level zero retains intervention",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: native TC uses one-based level mapping",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: engineering level mapping disclosed",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: ESC/TVC actuation remains disabled",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: native TC experimental actuation disclosed",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: catalog digest matches packaged build selection",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: mode selector retains its independent 0..2 range",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: setup ESC exposes the full integer range",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: setup ESC default matches manifest",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: setup ESC identity is unambiguous",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: setup TC exposes the full integer range",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: setup TC default matches manifest",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: setup TC identity is unambiguous",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: setup TVC exposes the full integer range",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: setup TVC default matches manifest",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: setup TVC identity is unambiguous",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: electronics module su7_config.lua packaged",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: electronics module su7_runtime.lua packaged",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: electronics module su7_control.lua packaged",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: electronics module su7_csp_adapter.lua packaged",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: electronics module su7_base_power.lut packaged",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: electronics module su7_base_throttle_m1.lut packaged",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: runtime active is explicit and correct",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: runtime calibrated is explicit and correct",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: runtime nativeTC is explicit and correct",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: runtime ESC default matches manifest",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: runtime TC default matches manifest",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: runtime TVC default matches manifest",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: original script entry loads the electronics adapter",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: su7_config.lua matches reviewed shared source",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: su7_control.lua matches reviewed shared source",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: su7_csp_adapter.lua matches reviewed shared source",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: ABS remains separate from ESC/TC/TVC levels",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: EDL remains separate from ESC/TC/TVC levels",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: native TC present and active even at zero level",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: native TC default slip threshold matches selected level",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: native TC curve has all nine contiguous levels",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: native TC curve matches explicit engineering assumptions",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_air: higher native TC levels allow strictly less slip",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: isolated output directory",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: unfolded data without data.acd",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: provisional calibration disclosed",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: data/car.ini exists",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: data/suspensions.ini exists",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: data/tyres.ini exists",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: data/aero.ini exists",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: data/engine.ini exists",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: data/drivetrain.ini exists",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: data/setup.ini exists",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: data/electronics.ini exists",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: data/brakes.ini exists",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: data/lods.ini exists",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: data/wing_animations.ini exists",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: data/script.lua exists",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: resource collider.kn5 exists",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: resource body_shadow.png exists",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: resource driver_base_pos.knh exists",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: resource extension/ext_config.ini exists",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: resource extension/video_preset.lua exists",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: resource extension/tyreload.lua exists",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: resource extension/siren.lua exists",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: resource ui/ui_car.json exists",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: tyre_0_shadow.png exists",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: tyre_1_shadow.png exists",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: tyre_2_shadow.png exists",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: tyre_3_shadow.png exists",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: animation car_door_L.ksanim exists",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: animation car_door_lr.ksanim exists",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: animation car_door_r.ksanim exists",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: animation car_door_rr.ksanim exists",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: animation car_gear_D.ksanim exists",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: animation car_gear_N.ksanim exists",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: animation car_gear_P.ksanim exists",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: animation car_gear_R.ksanim exists",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: animation car_rear_wing.ksanim exists",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: animation car_rear_wing2.ksanim exists",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: animation car_rear_wing3.ksanim exists",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: animation car_wiper.ksanim exists",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: animation hood.ksanim exists",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: animation steer.ksanim exists",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: LOD LOD_0 asset resolves",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: model byte size preserved",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: contiguous FRONT compound sections",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: contiguous REAR compound sections",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: contiguous THERMAL_FRONT compound sections",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: contiguous THERMAL_REAR compound sections",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: selected default compound",
+      "passed": true,
+      "detail": {
+        "actual": 1,
+        "expected": 1
+      }
+    },
+    {
+      "check": "acr_su7_ultra_coilover: compound 0 identity at both axles",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: compound 0 front positive geometry/load/grip",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: compound 0 front tyre radius exceeds rim",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: compound 0 rear positive geometry/load/grip",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: compound 0 rear tyre radius exceeds rim",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: compound 1 identity at both axles",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: compound 1 front positive geometry/load/grip",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: compound 1 front tyre radius exceeds rim",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: compound 1 rear positive geometry/load/grip",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: compound 1 rear tyre radius exceeds rim",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: compound 2 identity at both axles",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: compound 2 front positive geometry/load/grip",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: compound 2 front tyre radius exceeds rim",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: compound 2 rear positive geometry/load/grip",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: compound 2 rear tyre radius exceeds rim",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: PT01 has distinct tyre physics",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: PT01 has independent thermal curve",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: LUT resolves aero.ini[WING_0].LUT_AOA_CL",
+      "passed": true,
+      "detail": "wing_body_AOA_CL.lut"
+    },
+    {
+      "check": "acr_su7_ultra_coilover: LUT resolves aero.ini[WING_0].LUT_AOA_CD",
+      "passed": true,
+      "detail": "wing_body_AOA_CD.lut"
+    },
+    {
+      "check": "acr_su7_ultra_coilover: LUT resolves aero.ini[WING_1].LUT_AOA_CL",
+      "passed": true,
+      "detail": "wing_front_AOA_CL.lut"
+    },
+    {
+      "check": "acr_su7_ultra_coilover: LUT resolves aero.ini[WING_1].LUT_AOA_CD",
+      "passed": true,
+      "detail": "wing_front_AOA_CD.lut"
+    },
+    {
+      "check": "acr_su7_ultra_coilover: LUT resolves aero.ini[WING_2].LUT_AOA_CL",
+      "passed": true,
+      "detail": "wing_rear_AOA_CL.lut"
+    },
+    {
+      "check": "acr_su7_ultra_coilover: LUT resolves aero.ini[WING_2].LUT_AOA_CD",
+      "passed": true,
+      "detail": "wing_rear_AOA_CD.lut"
+    },
+    {
+      "check": "acr_su7_ultra_coilover: LUT resolves aero.ini[WING_3].LUT_AOA_CL",
+      "passed": true,
+      "detail": "wing_diffuser_AOA_CL.lut"
+    },
+    {
+      "check": "acr_su7_ultra_coilover: LUT resolves aero.ini[WING_3].LUT_GH_CL",
+      "passed": true,
+      "detail": "height_diffuser_CL.lut"
+    },
+    {
+      "check": "acr_su7_ultra_coilover: LUT resolves aero.ini[WING_3].LUT_AOA_CD",
+      "passed": true,
+      "detail": "wing_diffuser_AOA_CD.lut"
+    },
+    {
+      "check": "acr_su7_ultra_coilover: LUT resolves aero.ini[WING_3].LUT_GH_CD",
+      "passed": true,
+      "detail": "height_diffuser_CD.lut"
+    },
+    {
+      "check": "acr_su7_ultra_coilover: LUT resolves brakes_temp.ini[TEMPS_FRONT].PERF_CURVE",
+      "passed": true,
+      "detail": "brakes_tcurve_front.lut"
+    },
+    {
+      "check": "acr_su7_ultra_coilover: LUT resolves brakes_temp.ini[TEMPS_REAR].PERF_CURVE",
+      "passed": true,
+      "detail": "brakes_tcurve_rear.lut"
+    },
+    {
+      "check": "acr_su7_ultra_coilover: LUT resolves brakes_temp1.ini[TEMPS_FRONT].PERF_CURVE",
+      "passed": true,
+      "detail": "brakes_tcurve_front.lut"
+    },
+    {
+      "check": "acr_su7_ultra_coilover: LUT resolves brakes_temp1.ini[TEMPS_REAR].PERF_CURVE",
+      "passed": true,
+      "detail": "brakes_tcurve_rear.lut"
+    },
+    {
+      "check": "acr_su7_ultra_coilover: LUT resolves ctrl_single_lock.ini[CONTROLLER_0].LUT",
+      "passed": true,
+      "detail": "gear_start.lut"
+    },
+    {
+      "check": "acr_su7_ultra_coilover: LUT resolves ctrl_single_lock.ini[CONTROLLER_1].LUT",
+      "passed": true,
+      "detail": "rear_ratio_vs_lock.lut"
+    },
+    {
+      "check": "acr_su7_ultra_coilover: LUT resolves ctrl_single_lock.ini[CONTROLLER_2].LUT",
+      "passed": true,
+      "detail": "difflock_gas_mult.lut"
+    },
+    {
+      "check": "acr_su7_ultra_coilover: LUT resolves ctrl_single_lock.ini[CONTROLLER_3].LUT",
+      "passed": true,
+      "detail": "understeer_factor_vs_lock.lut"
+    },
+    {
+      "check": "acr_su7_ultra_coilover: LUT resolves ctrl_single_lock.ini[CONTROLLER_4].LUT",
+      "passed": true,
+      "detail": "difflock_gear_mult.lut"
+    },
+    {
+      "check": "acr_su7_ultra_coilover: LUT resolves ctrl_single_lock.ini[CONTROLLER_5].LUT",
+      "passed": true,
+      "detail": "difflock_brake_mult.lut"
+    },
+    {
+      "check": "acr_su7_ultra_coilover: LUT resolves electronics.ini[TRACTION_CONTROL].CURVE",
+      "passed": true,
+      "detail": "traction_control.lut"
+    },
+    {
+      "check": "acr_su7_ultra_coilover: LUT resolves engine.ini[HEADER].POWER_CURVE",
+      "passed": true,
+      "detail": "power.lut"
+    },
+    {
+      "check": "acr_su7_ultra_coilover: LUT resolves engine.ini[MAP].MAP_0",
+      "passed": true,
+      "detail": "engine_map0.lut"
+    },
+    {
+      "check": "acr_su7_ultra_coilover: LUT resolves engine.ini[MAP].MAP_1",
+      "passed": true,
+      "detail": "engine_map1.lut"
+    },
+    {
+      "check": "acr_su7_ultra_coilover: LUT resolves engine.ini[MAP].MAP_2",
+      "passed": true,
+      "detail": "engine_map2.lut"
+    },
+    {
+      "check": "acr_su7_ultra_coilover: LUT resolves engine.ini[MAP].MAP_3",
+      "passed": true,
+      "detail": "engine_map3.lut"
+    },
+    {
+      "check": "acr_su7_ultra_coilover: LUT resolves setup.ini[ENGINE_MAPS].LUT",
+      "passed": true,
+      "detail": "engine_map_setup.lut"
+    },
+    {
+      "check": "acr_su7_ultra_coilover: LUT resolves tyres.ini[FRONT].WEAR_CURVE",
+      "passed": true,
+      "detail": "street_front.lut"
+    },
+    {
+      "check": "acr_su7_ultra_coilover: LUT resolves tyres.ini[REAR].WEAR_CURVE",
+      "passed": true,
+      "detail": "street_rear.lut"
+    },
+    {
+      "check": "acr_su7_ultra_coilover: LUT resolves tyres.ini[THERMAL_FRONT].PERFORMANCE_CURVE",
+      "passed": true,
+      "detail": "tcurve_street.lut"
+    },
+    {
+      "check": "acr_su7_ultra_coilover: LUT resolves tyres.ini[THERMAL_REAR].PERFORMANCE_CURVE",
+      "passed": true,
+      "detail": "tcurve_street.lut"
+    },
+    {
+      "check": "acr_su7_ultra_coilover: LUT resolves tyres.ini[FRONT_1].WEAR_CURVE",
+      "passed": true,
+      "detail": "p_hard_front.lut"
+    },
+    {
+      "check": "acr_su7_ultra_coilover: LUT resolves tyres.ini[REAR_1].WEAR_CURVE",
+      "passed": true,
+      "detail": "p_hard_rear.lut"
+    },
+    {
+      "check": "acr_su7_ultra_coilover: LUT resolves tyres.ini[THERMAL_FRONT_1].PERFORMANCE_CURVE",
+      "passed": true,
+      "detail": "tcurve_p_hard.lut"
+    },
+    {
+      "check": "acr_su7_ultra_coilover: LUT resolves tyres.ini[THERMAL_REAR_1].PERFORMANCE_CURVE",
+      "passed": true,
+      "detail": "tcurve_p_hard.lut"
+    },
+    {
+      "check": "acr_su7_ultra_coilover: LUT resolves tyres.ini[FRONT_2].WEAR_CURVE",
+      "passed": true,
+      "detail": "pt01_wear_front.lut"
+    },
+    {
+      "check": "acr_su7_ultra_coilover: LUT resolves tyres.ini[REAR_2].WEAR_CURVE",
+      "passed": true,
+      "detail": "pt01_wear_rear.lut"
+    },
+    {
+      "check": "acr_su7_ultra_coilover: LUT resolves tyres.ini[THERMAL_FRONT_2].PERFORMANCE_CURVE",
+      "passed": true,
+      "detail": "pt01_temperature_estimate.lut"
+    },
+    {
+      "check": "acr_su7_ultra_coilover: LUT resolves tyres.ini[THERMAL_REAR_2].PERFORMANCE_CURVE",
+      "passed": true,
+      "detail": "pt01_temperature_estimate.lut"
+    },
+    {
+      "check": "acr_su7_ultra_coilover: empty LUT is inherited, never new",
+      "passed": true,
+      "detail": "brakes_tcurve_front.lut"
+    },
+    {
+      "check": "acr_su7_ultra_coilover: empty LUT is inherited, never new",
+      "passed": true,
+      "detail": "brakes_tcurve_rear.lut"
+    },
+    {
+      "check": "acr_su7_ultra_coilover: finite LUT difflock_brake_mult.lut",
+      "passed": true,
+      "detail": {
+        "rows": 4
+      }
+    },
+    {
+      "check": "acr_su7_ultra_coilover: finite LUT difflock_gas_mult.lut",
+      "passed": true,
+      "detail": {
+        "rows": 4
+      }
+    },
+    {
+      "check": "acr_su7_ultra_coilover: finite LUT difflock_gear_mult.lut",
+      "passed": true,
+      "detail": {
+        "rows": 2
+      }
+    },
+    {
+      "check": "acr_su7_ultra_coilover: finite LUT engine_map0.lut",
+      "passed": true,
+      "detail": {
+        "rows": 5
+      }
+    },
+    {
+      "check": "acr_su7_ultra_coilover: finite LUT engine_map1.lut",
+      "passed": true,
+      "detail": {
+        "rows": 8
+      }
+    },
+    {
+      "check": "acr_su7_ultra_coilover: finite LUT engine_map2.lut",
+      "passed": true,
+      "detail": {
+        "rows": 5
+      }
+    },
+    {
+      "check": "acr_su7_ultra_coilover: finite LUT engine_map3.lut",
+      "passed": true,
+      "detail": {
+        "rows": 2
+      }
+    },
+    {
+      "check": "acr_su7_ultra_coilover: finite LUT engine_map_setup.lut",
+      "passed": true,
+      "detail": {
+        "rows": 4
+      }
+    },
+    {
+      "check": "acr_su7_ultra_coilover: finite LUT gear_start.lut",
+      "passed": true,
+      "detail": {
+        "rows": 2
+      }
+    },
+    {
+      "check": "acr_su7_ultra_coilover: finite LUT height_diffuser_CD.lut",
+      "passed": true,
+      "detail": {
+        "rows": 8
+      }
+    },
+    {
+      "check": "acr_su7_ultra_coilover: finite LUT height_diffuser_CL.lut",
+      "passed": true,
+      "detail": {
+        "rows": 10
+      }
+    },
+    {
+      "check": "acr_su7_ultra_coilover: finite LUT p_hard_front.lut",
+      "passed": true,
+      "detail": {
+        "rows": 10
+      }
+    },
+    {
+      "check": "acr_su7_ultra_coilover: finite LUT p_hard_rear.lut",
+      "passed": true,
+      "detail": {
+        "rows": 10
+      }
+    },
+    {
+      "check": "acr_su7_ultra_coilover: finite LUT power.lut",
+      "passed": true,
+      "detail": {
+        "rows": 41
+      }
+    },
+    {
+      "check": "acr_su7_ultra_coilover: finite LUT pt01_temperature_estimate.lut",
+      "passed": true,
+      "detail": {
+        "rows": 11
+      }
+    },
+    {
+      "check": "acr_su7_ultra_coilover: finite LUT pt01_wear_front.lut",
+      "passed": true,
+      "detail": {
+        "rows": 10
+      }
+    },
+    {
+      "check": "acr_su7_ultra_coilover: finite LUT pt01_wear_rear.lut",
+      "passed": true,
+      "detail": {
+        "rows": 10
+      }
+    },
+    {
+      "check": "acr_su7_ultra_coilover: finite LUT rear_ratio_vs_lock.lut",
+      "passed": true,
+      "detail": {
+        "rows": 4
+      }
+    },
+    {
+      "check": "acr_su7_ultra_coilover: finite LUT street_front.lut",
+      "passed": true,
+      "detail": {
+        "rows": 11
+      }
+    },
+    {
+      "check": "acr_su7_ultra_coilover: finite LUT street_rear.lut",
+      "passed": true,
+      "detail": {
+        "rows": 11
+      }
+    },
+    {
+      "check": "acr_su7_ultra_coilover: finite LUT tcurve_p_hard.lut",
+      "passed": true,
+      "detail": {
+        "rows": 13
+      }
+    },
+    {
+      "check": "acr_su7_ultra_coilover: finite LUT tcurve_street.lut",
+      "passed": true,
+      "detail": {
+        "rows": 12
+      }
+    },
+    {
+      "check": "acr_su7_ultra_coilover: finite LUT traction_control.lut",
+      "passed": true,
+      "detail": {
+        "rows": 9
+      }
+    },
+    {
+      "check": "acr_su7_ultra_coilover: finite LUT understeer_factor_vs_lock.lut",
+      "passed": true,
+      "detail": {
+        "rows": 8
+      }
+    },
+    {
+      "check": "acr_su7_ultra_coilover: finite LUT wing_body_AOA_CD.lut",
+      "passed": true,
+      "detail": {
+        "rows": 3
+      }
+    },
+    {
+      "check": "acr_su7_ultra_coilover: finite LUT wing_body_AOA_CL.lut",
+      "passed": true,
+      "detail": {
+        "rows": 7
+      }
+    },
+    {
+      "check": "acr_su7_ultra_coilover: finite LUT wing_diffuser_AOA_CD.lut",
+      "passed": true,
+      "detail": {
+        "rows": 14
+      }
+    },
+    {
+      "check": "acr_su7_ultra_coilover: finite LUT wing_diffuser_AOA_CL.lut",
+      "passed": true,
+      "detail": {
+        "rows": 12
+      }
+    },
+    {
+      "check": "acr_su7_ultra_coilover: finite LUT wing_front_AOA_CD.lut",
+      "passed": true,
+      "detail": {
+        "rows": 7
+      }
+    },
+    {
+      "check": "acr_su7_ultra_coilover: finite LUT wing_front_AOA_CL.lut",
+      "passed": true,
+      "detail": {
+        "rows": 7
+      }
+    },
+    {
+      "check": "acr_su7_ultra_coilover: finite LUT wing_rear_AOA_CD.lut",
+      "passed": true,
+      "detail": {
+        "rows": 14
+      }
+    },
+    {
+      "check": "acr_su7_ultra_coilover: finite LUT wing_rear_AOA_CL.lut",
+      "passed": true,
+      "detail": {
+        "rows": 9
+      }
+    },
+    {
+      "check": "acr_su7_ultra_coilover: positive spring/damping hardware",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: wing configuration matches selection",
+      "passed": true,
+      "detail": {
+        "actual": "fixed",
+        "expected": "fixed"
+      }
+    },
+    {
+      "check": "acr_su7_ultra_coilover: wing animation/physics coherent",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: rear wing finite positive aero/geometry",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: unified hardware wing visual rule",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: visible wing matches physical hardware",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: usable skin resources included",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: skin 公安涂装 cannot override wing hardware",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "acr_su7_ultra_coilover: skin 太空银 cannot override wing hardware",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "acr_su7_ultra_coilover: skin 曜石黑 cannot override wing hardware",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "acr_su7_ultra_coilover: skin 珍珠白 cannot override wing hardware",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "acr_su7_ultra_coilover: skin 闪电黄 cannot override wing hardware",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "acr_su7_ultra_coilover: skin 鹦鹉绿 cannot override wing hardware",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "acr_su7_ultra_coilover: correctly named FMOD bank",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: FMOD bank binary preserved",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: all FMOD event paths rebound",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: required engine/skid/wheel sound events",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: original ID absent from GUID paths",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: ESC manifest is an integer in range",
+      "passed": true,
+      "detail": {
+        "actual": 2,
+        "range": [
+          0,
+          4
+        ]
+      }
+    },
+    {
+      "check": "acr_su7_ultra_coilover: selected ESC matches requested level",
+      "passed": true,
+      "detail": {
+        "actual": 2,
+        "expected": 2
+      }
+    },
+    {
+      "check": "acr_su7_ultra_coilover: TC manifest is an integer in range",
+      "passed": true,
+      "detail": {
+        "actual": 4,
+        "range": [
+          0,
+          8
+        ]
+      }
+    },
+    {
+      "check": "acr_su7_ultra_coilover: selected TC matches requested level",
+      "passed": true,
+      "detail": {
+        "actual": 4,
+        "expected": 4
+      }
+    },
+    {
+      "check": "acr_su7_ultra_coilover: TVC manifest is an integer in range",
+      "passed": true,
+      "detail": {
+        "actual": 1,
+        "range": [
+          0,
+          3
+        ]
+      }
+    },
+    {
+      "check": "acr_su7_ultra_coilover: selected TVC matches requested level",
+      "passed": true,
+      "detail": {
+        "actual": 1,
+        "expected": 1
+      }
+    },
+    {
+      "check": "acr_su7_ultra_coilover: level zero retains intervention",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: native TC uses one-based level mapping",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: engineering level mapping disclosed",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: ESC/TVC actuation remains disabled",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: native TC experimental actuation disclosed",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: catalog digest matches packaged build selection",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: mode selector retains its independent 0..2 range",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: setup ESC exposes the full integer range",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: setup ESC default matches manifest",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: setup ESC identity is unambiguous",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: setup TC exposes the full integer range",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: setup TC default matches manifest",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: setup TC identity is unambiguous",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: setup TVC exposes the full integer range",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: setup TVC default matches manifest",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: setup TVC identity is unambiguous",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: electronics module su7_config.lua packaged",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: electronics module su7_runtime.lua packaged",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: electronics module su7_control.lua packaged",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: electronics module su7_csp_adapter.lua packaged",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: electronics module su7_base_power.lut packaged",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: electronics module su7_base_throttle_m1.lut packaged",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: runtime active is explicit and correct",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: runtime calibrated is explicit and correct",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: runtime nativeTC is explicit and correct",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: runtime ESC default matches manifest",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: runtime TC default matches manifest",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: runtime TVC default matches manifest",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: original script entry loads the electronics adapter",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: su7_config.lua matches reviewed shared source",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: su7_control.lua matches reviewed shared source",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: su7_csp_adapter.lua matches reviewed shared source",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: ABS remains separate from ESC/TC/TVC levels",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: EDL remains separate from ESC/TC/TVC levels",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: native TC present and active even at zero level",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: native TC default slip threshold matches selected level",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: native TC curve has all nine contiguous levels",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: native TC curve matches explicit engineering assumptions",
+      "passed": true
+    },
+    {
+      "check": "acr_su7_ultra_coilover: higher native TC levels allow strictly less slip",
+      "passed": true
+    },
+    {
+      "check": "Air and coilover have distinct spring rates at both axles",
+      "passed": true
+    },
+    {
+      "check": "Verification left original source data unchanged",
+      "passed": true
+    }
+  ]
+}

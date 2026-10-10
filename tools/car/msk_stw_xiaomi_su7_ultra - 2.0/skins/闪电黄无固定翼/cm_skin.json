@@ -1,0 +1,28 @@
+{
+  "carPaint": {
+    "color": "#FFF4B209",
+    "flakes": 0.777,
+    "enabled": false
+  },
+  "interior": {
+    "enabled": false,
+    "colors": [
+      "#FFFFFF"
+    ]
+  },
+  "leatherColored": {
+    "enabled": false,
+    "colors": [
+      "#FFFFFF"
+    ]
+  },
+  "licensePlate": {
+    "style": "Europe"
+  },
+  "rims": {
+    "enabled": true,
+    "colors": [
+      "#000000"
+    ]
+  }
+}

@@ -29,11 +29,11 @@ ESC/TC/TVC 为独立整数：ESC 0–4、TC 0–8 越大干预越强；TVC 0–3
 
 ## 交付物
 
-- [使用说明与边界](<E:/Github/ACRecord2AILine/tools/su7-sim/README.zh-CN.md>)
-- [公开数据来源](<E:/Github/ACRecord2AILine/tools/su7-sim/references/public-data.zh-CN.md>)
-- [六场景摘要JSON](<E:/Github/ACRecord2AILine/tools/su7-sim/outputs/simulation-summary.json>)
-- [横摆开关对照JSON](<E:/Github/ACRecord2AILine/tools/su7-sim/outputs/yaw-ablation/ablation-summary.json>)
-- [核心验证结果](<E:/Github/ACRecord2AILine/tools/su7-sim/outputs/verification.json>)
-- [CSP观测脚本](<E:/Github/ACRecord2AILine/tools/su7-sim/csp-shadow/data/script.lua>)
+- [使用说明与边界](<README.zh-CN.md>)
+- [公开数据来源](<references/public-data.zh-CN.md>)
+- [六场景摘要JSON](<outputs/simulation-summary.json>)
+- [横摆开关对照JSON](<outputs/yaw-ablation/ablation-summary.json>)
+- [核心验证结果](<outputs/verification.json>)
+- [CSP观测脚本](<csp-shadow/data/script.lua>)
 
 观测包保留原物理，仅计算预测输出，未启用实验扭矩。电扭矩单位/方向、传动隔离及实际制动接口仍需游戏内校准；脚本接线测试不替代这些校准。主动构建器是前进实验用途，未生成或安装正式驾驶版本。

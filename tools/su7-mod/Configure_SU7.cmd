@@ -1,5 +1,9 @@
 @echo off
 cd /d "%~dp0"
+if exist "%~dp0..\..\.venv\Scripts\pythonw.exe" (
+  "%~dp0..\..\.venv\Scripts\pythonw.exe" "%~dp0configure.py"
+  exit /b
+)
 if exist "D:\Python\Python312\pythonw.exe" (
   "D:\Python\Python312\pythonw.exe" "%~dp0configure.py"
   exit /b

@@ -4,7 +4,7 @@ import numpy as np
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
-r=Path(r'E:\Github\ACRecord2AILine\tools\su7-sim')
+r=Path(__file__).resolve().parent
 summary=json.loads((r/'outputs/simulation-summary.json').read_text(encoding='utf-8'))
 ab=json.loads((r/'outputs/yaw-ablation/ablation-summary.json').read_text(encoding='utf-8'))
 for data in [summary,ab]:
@@ -62,6 +62,7 @@ text+='''
 
 观测包保留原物理，仅计算预测输出，未启用实验扭矩。电扭矩单位/方向、传动隔离及实际制动接口仍需游戏内校准；脚本接线测试不替代这些校准。主动构建器是前进实验用途，未生成或安装正式驾驶版本。
 '''
+text=text.replace('E:/Github/ACRecord2AILine',r.parent.parent.as_posix())
 (r/'RESULTS.zh-CN.md').write_text(text,encoding='utf-8')
 normal=json.loads((r/'outputs/simulation.json').read_text(encoding='utf-8'))
 abl=json.loads((r/'outputs/yaw-ablation/ablation.json').read_text(encoding='utf-8'))

@@ -1,0 +1,44 @@
+{bb4a74e6-4011-48f6-ba8a-e649b30abe43} event:/cars/msk_stw_xiaomi_su7_ultra - 2.0/backfire_ext
+{61a5ecd7-7061-4914-95e5-b063cb541705} event:/cars/msk_stw_xiaomi_su7_ultra - 2.0/backfire_int
+{95d85826-2a6c-4879-95ee-7e6f640a6f33} event:/cars/msk_stw_xiaomi_su7_ultra - 2.0/bodywork
+{2fa9800e-1a05-49e9-8534-f2f664930265} event:/cars/msk_stw_xiaomi_su7_ultra - 2.0/door
+{48ecc402-34f2-41ee-8112-e316b50a5d29} event:/cars/msk_stw_xiaomi_su7_ultra - 2.0/engine_ext
+{ad2ccd32-ae0a-4fc5-a6bc-8f885f5bf41d} event:/cars/msk_stw_xiaomi_su7_ultra - 2.0/engine_int
+{1f98bbea-d9ea-4c69-b6e1-60abaa17cb4d} event:/cars/msk_stw_xiaomi_su7_ultra - 2.0/gear_ext
+{a4dc1c8c-9e0b-4344-985e-7235482023c1} event:/cars/msk_stw_xiaomi_su7_ultra - 2.0/gear_grind
+{4939f7f7-741f-4c7e-9b17-d0b99d5e0c4b} event:/cars/msk_stw_xiaomi_su7_ultra - 2.0/gear_int
+{18eb849d-0c5e-47fd-b5fe-3161c08ace15} event:/cars/msk_stw_xiaomi_su7_ultra - 2.0/horn
+{3e937090-989d-4fa4-957d-32c9176bd31a} event:/cars/msk_stw_xiaomi_su7_ultra - 2.0/limiter
+{fae8de4f-ad14-447a-8b8c-fd5cffa970a1} event:/cars/msk_stw_xiaomi_su7_ultra - 2.0/skid_ext
+{b7505636-5cff-4205-8c2e-4e1587344ab6} event:/cars/msk_stw_xiaomi_su7_ultra - 2.0/skid_int
+{8be66610-5524-4bdd-990c-6d1cbdf46d0d} event:/cars/msk_stw_xiaomi_su7_ultra - 2.0/tractioncontrol_ext
+{9a2f87fd-287b-421c-a2f6-28d99368bc1b} event:/cars/msk_stw_xiaomi_su7_ultra - 2.0/tractioncontrol_int
+{b2ccb914-8e49-4e1b-8e73-f73c5d30c1ed} event:/cars/msk_stw_xiaomi_su7_ultra - 2.0/transmission
+{0abdee12-b581-4bef-aa67-4458b00426e8} event:/cars/msk_stw_xiaomi_su7_ultra - 2.0/turbo
+{bd5ed89e-c65b-41d7-abf7-c82370a1e5d4} event:/cars/msk_stw_xiaomi_su7_ultra - 2.0/wheel
+{8e003d85-bc00-46fa-8318-99163dce4053} event:/cars/msk_stw_xiaomi_su7_ultra - 2.0/wind
+{08f6ba78-f576-4f9f-a232-47657d5fec19} bus:/
+{9e2b6406-bcd0-4f61-92a5-b3e5d68d4b97} bus:/grp_backfire_ext
+{477be05a-5cbd-468a-b1d8-637af58bba28} bus:/grp_backfire_int
+{b3c3876b-83aa-45d3-b43a-125adcb9a753} bus:/grp_bodywork
+{f915798f-0669-4379-b31a-6ec19e8af0ea} bus:/grp_collisions
+{559b9037-dd6c-4120-9373-477d07717f9e} bus:/grp_door
+{5206e42b-ae8f-49f6-b059-d613b2947b49} bus:/grp_engine_ext
+{db9dca15-49f5-4c00-93ca-e76ccaf1160e} bus:/grp_engine_int
+{c9a0a35d-dcc0-4002-ae01-5487466de9f8} bus:/grp_gear_ext
+{f09ce222-1e68-42a9-9e16-fcb45004fcb3} bus:/grp_gear_int
+{c89669bc-901a-4b52-91b7-46a85014ee0d} bus:/grp_horn
+{37b936f8-165c-484d-a2f5-d06ae99a0822} bus:/grp_limiter
+{81c0ee3a-2fd8-4e25-b775-eb7845ca644f} bus:/grp_skid_ext
+{37bf169d-f171-4af4-a924-d65a1f998264} bus:/grp_skid_int
+{ce5395d1-28c9-4dcc-90bd-051528b365d3} bus:/grp_surfaces
+{9d0c46e7-d738-480e-8d5f-b5fb315a701a} bus:/grp_tractioncontrol_ext
+{dcf6df4b-a019-4819-97e4-d1b3ed67e4b1} bus:/grp_tractioncontrol_int
+{dba03e3d-9c12-43da-a5b9-9c79b7673c7f} bus:/grp_transmission
+{35927822-c7cf-43ab-b6a2-447a4386450e} bus:/grp_turbo
+{b7b6c398-22ee-465a-a6df-42861188e195} bus:/grp_wheel_closed
+{208daf59-324a-4a13-994e-d284dac196ce} bus:/grp_wheel_open
+{bec567db-3040-4ca9-82f7-75f072ab68c8} bus:/grp_wind_closed
+{1c1f5d35-07d5-4d6f-b916-cd0eb4adfd60} bus:/grp_wind_open
+{c31a1404-80fe-4965-8eaa-f0cc940a4ef7} bank:/msk_stw_xiaomi_su7_ultra - 2.0_drift
+{c31a1404-80fe-4965-8eaa-f0cc940a4ef7} bank:/ud_msk_stw_xiaomi_su7_ultra_sc

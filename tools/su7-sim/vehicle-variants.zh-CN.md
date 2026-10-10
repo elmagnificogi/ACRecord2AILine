@@ -4,11 +4,11 @@
 
 ## 本地 mod 实际是什么
 
-仓库里只有量产和原型两个整车目录，没有其他车型可供本地拆解。量产目录不是“空悬一辆、绞牙一辆”。其 [suspensions.ini](<E:/Github/ACRecord2AILine/tools/car/msk_stw_xiaomi_su7_ultra - 2.0/data/suspensions.ini:15>) 只有一套固定前后 DWB 近似、轮端弹簧率 89759/77649 N/m、慢速压缩阻尼 13455/7527 N·s/m、回弹 13990/13631 N·s/m。
+仓库里只有量产和原型两个整车目录，没有其他车型可供本地拆解。量产目录不是“空悬一辆、绞牙一辆”。其 [suspensions.ini](<../car/msk_stw_xiaomi_su7_ultra - 2.0/data/suspensions.ini:15>) 只有一套固定前后 DWB 近似、轮端弹簧率 89759/77649 N/m、慢速压缩阻尼 13455/7527 N·s/m、回弹 13990/13631 N·s/m。
 
-ROD_LENGTH 是固定静态长度，渐进弹簧率也不能证明双腔空气弹簧已模拟。[setup.ini](<E:/Github/ACRecord2AILine/tools/car/msk_stw_xiaomi_su7_ultra - 2.0/data/setup.ini>) 没有开放车高、弹簧、阻尼或防倾杆调节。[script.lua](<E:/Github/ACRecord2AILine/tools/car/msk_stw_xiaomi_su7_ultra - 2.0/data/script.lua>) 只在超过 360 km/h 时切电门。已检查的配置没有气室切换、调平或自适应阻尼逻辑。因此当前只能称为“硬件归属未确认的固定悬架量产 mod”。它可能近似某个工况，不能凭数值较软就确认为普通空悬。
+ROD_LENGTH 是固定静态长度，渐进弹簧率也不能证明双腔空气弹簧已模拟。[setup.ini](<../car/msk_stw_xiaomi_su7_ultra - 2.0/data/setup.ini>) 没有开放车高、弹簧、阻尼或防倾杆调节。[script.lua](<../car/msk_stw_xiaomi_su7_ultra - 2.0/data/script.lua>) 只在超过 360 km/h 时切电门。已检查的配置没有气室切换、调平或自适应阻尼逻辑。因此当前只能称为“硬件归属未确认的固定悬架量产 mod”。它可能近似某个工况，不能凭数值较软就确认为普通空悬。
 
-“无固定翼”皮肤只隐藏翼片网格，未找到对应的物理覆盖；共享 [aero.ini](<E:/Github/ACRecord2AILine/tools/car/msk_stw_xiaomi_su7_ultra - 2.0/data/aero.ini:46>) 仍保留后翼 WING_2。皮肤没有分别建立空悬、绞牙或无固定翼的空气动力。
+“无固定翼”皮肤只隐藏翼片网格，未找到对应的物理覆盖；共享 [aero.ini](<../car/msk_stw_xiaomi_su7_ultra - 2.0/data/aero.ini:46>) 仍保留后翼 WING_2。皮肤没有分别建立空悬、绞牙或无固定翼的空气动力。
 
 ## 两种量产硬件分别记录
 
@@ -40,7 +40,7 @@ SU7 的实现应让 AC 处理车身、轮胎与悬架受力，再用经过运行
 
 ## 本轮具体补正
 
-新增[硬件配置清单](E:/Github/ACRecord2AILine/tools/su7-sim/references/production-variants.json)：production_air 与 production_track_coilover 分别建档，缺失轮率、阻尼曲线、车高、行程、质量/重心和气动图保持未知，没有伪造原厂数值。现有实验证据与生成包携带硬件归属标记；Street/Sport/Track 只表示实验电控模式，不会切换悬架。
+新增[硬件配置清单](references/production-variants.json)：production_air 与 production_track_coilover 分别建档，缺失轮率、阻尼曲线、车高、行程、质量/重心和气动图保持未知，没有伪造原厂数值。现有实验证据与生成包携带硬件归属标记；Street/Sport/Track 只表示实验电控模式，不会切换悬架。
 
 汽车之家实测没有核实悬架套装和胎型，改为“量产车，硬件版本未确认”的一般参考。官方纽北视频归入“额外改装的绞牙纪录车”；GT7素材的硬件版本仍未知。原来的模拟数值未重算，保留运行时源码哈希，追加注明本次只改归属；它们不构成空悬与绞牙性能对照。
 
