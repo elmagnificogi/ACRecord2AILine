@@ -1,0 +1,237 @@
+{
+  "schemaVersion": 1,
+  "version": "0.2.0-dev",
+  "checkedDate": "2026-10-10",
+  "sourceCarId": "msk_stw_xiaomi_su7_ultra - 2.0",
+  "minimumCSP": "0.2.11 extended physics; runtime not tested",
+  "shared": {
+    "massPolicy": "Keep source 2435 kg; package-specific real mass unknown. No limited-edition weight reduction.",
+    "powertrainPolicy": "Keep original motor/drivetrain/ABS/regen approximation. Native TC uses nine experimental slip thresholds. ESC/TVC are predictions, not active actuators."
+  },
+  "suspensions": {
+    "air": {
+      "carId": "acr_su7_ultra_air",
+      "name": "Xiaomi SU7 Ultra Air - Dev",
+      "labelZh": "量产空悬版（等效模型）",
+      "defaultWing": "active",
+      "defaultTyre": "pz5",
+      "wheelRateScale": [
+        1.0,
+        1.0
+      ],
+      "progressiveScale": [
+        1.0,
+        1.0
+      ],
+      "damperScale": [
+        1.0,
+        1.0
+      ],
+      "antiRollScale": [
+        1.0,
+        1.0
+      ],
+      "rodOffsetM": 0.0,
+      "defaultDamperClick": 5,
+      "fidelity": "Source fixed spring/damper set is an assumed single operating-point air-suspension surrogate; no dual-chamber switching, self-leveling or CDC."
+    },
+    "coilover": {
+      "carId": "acr_su7_ultra_coilover",
+      "name": "Xiaomi SU7 Ultra Track Coilover - Dev",
+      "labelZh": "赛道绞牙版（实验模型）",
+      "defaultWing": "fixed",
+      "defaultTyre": "trofeo_rs",
+      "wheelRateScale": [
+        1.35,
+        1.45
+      ],
+      "progressiveScale": [
+        1.2,
+        1.2
+      ],
+      "damperScale": [
+        1.1618950039,
+        1.2041594579
+      ],
+      "antiRollScale": [
+        1.15,
+        1.2
+      ],
+      "rodOffsetM": -0.01,
+      "defaultDamperClick": 5,
+      "fidelity": "Explicit engineering assumptions relative to source: higher wheel rates, matching sqrt(k) damping scaling, ARB change and rod offset. Not OEM Bilstein spring/damper values; static change is not proven 10 mm actual ride-height reduction."
+    }
+  },
+  "wings": {
+    "active": {
+      "labelZh": "原厂升降尾翼",
+      "spanM": 1.286,
+      "cdGainScale": 0.85,
+      "clGainScale": 0.65,
+      "keepSpeedController": true,
+      "keepWingAnimations": true,
+      "fidelity": "Source rear aero rescaled as an active-wing surrogate; span from local mesh. Coefficients are assumptions, not CFD or measurements."
+    },
+    "fixed": {
+      "labelZh": "固定碳纤维大尾翼",
+      "spanM": 1.6,
+      "cdGainScale": 1.0,
+      "clGainScale": 1.0,
+      "keepSpeedController": false,
+      "keepWingAnimations": false,
+      "fidelity": "Use source rear aero at fixed original angle, remove active motion; original lumped rear aero remains uncalibrated."
+    }
+  },
+  "tyres": {
+    "pz5": {
+      "index": 0,
+      "labelZh": "倍耐力 P ZERO 5",
+      "physics": "Original source road compound, unvalidated"
+    },
+    "trofeo_rs": {
+      "index": 1,
+      "labelZh": "倍耐力 Trofeo RS",
+      "physics": "Original source semi-slick compound, unvalidated"
+    },
+    "pt01": {
+      "index": 2,
+      "labelZh": "赛轮 PT01（实验估计）",
+      "name": "Sailun PT01 (Experimental)",
+      "shortName": "PT01(EST)",
+      "sourceOfficial": "https://en.sailungroup.com/content/details117_1504.html",
+      "sourceCatalog": "https://fliphtml5.com/sailun/uwkq/",
+      "nominalSizes": [
+        "265/35ZR21",
+        "305/30ZR21"
+      ],
+      "sizeCaveat": "Catalog confirms sizes, not identity of regional compound with Ultra OEM formulation. Loaded radii inherited from mod.",
+      "basis": "Trofeo RS source surrogate; all unknowns explicitly retained as borrowed or assumed.",
+      "assumedPeakRefScale": 0.98,
+      "assumedFalloffLevel": 0.89,
+      "assumedFalloffSpeed": 2.5,
+      "assumedTemperatureCurve": [
+        [
+          0,
+          0.8
+        ],
+        [
+          20,
+          0.9
+        ],
+        [
+          40,
+          0.96
+        ],
+        [
+          60,
+          0.99
+        ],
+        [
+          75,
+          1.0
+        ],
+        [
+          110,
+          1.0
+        ],
+        [
+          130,
+          0.97
+        ],
+        [
+          150,
+          0.94
+        ],
+        [
+          160,
+          0.92
+        ],
+        [
+          180,
+          0.82
+        ],
+        [
+          200,
+          0.65
+        ]
+      ],
+      "borrowed": "Pressure, mass/inertia, stiffness, heat-transfer, wear, relaxation, load sensitivity and wet physics retained from donor; none is a PT01 measurement.",
+      "unknown": "OEM friction/force curves, pressure/temperature window, tyre mass, wear, load index and wet behavior. No claim of superiority over Trofeo RS."
+    }
+  },
+  "selectionPolicy": "Suspension, wing and tyre selections are independent. Hardware changes before session; all tyres selectable in native pit setup.",
+  "calibrated": false,
+  "gameTested": false,
+  "electronics": {
+    "defaults": {
+      "esc": 4,
+      "tc": 8,
+      "tvc": 0
+    },
+    "ranges": {
+      "esc": [
+        0,
+        4
+      ],
+      "tc": [
+        0,
+        8
+      ],
+      "tvc": [
+        0,
+        3
+      ]
+    },
+    "zeroMeansOff": false,
+    "directions": {
+      "esc": "higher-more",
+      "tc": "higher-more",
+      "tvc": "higher-less"
+    },
+    "assumedCoreStrengths": {
+      "esc": [
+        0.2,
+        0.4,
+        0.6,
+        0.8,
+        1.0
+      ],
+      "tc": [
+        0.25,
+        0.34375,
+        0.4375,
+        0.53125,
+        0.625,
+        0.71875,
+        0.8125,
+        0.90625,
+        1.0
+      ],
+      "tvc": [
+        1.0,
+        0.766666666667,
+        0.533333333333,
+        0.3
+      ]
+    },
+    "nativeTCSlipThresholds": [
+      0.4,
+      0.34,
+      0.28,
+      0.22,
+      0.18,
+      0.15,
+      0.12,
+      0.1,
+      0.08
+    ],
+    "nativeTCModeOffset": 1,
+    "nativeTCMappingVerifiedInGame": false,
+    "actuatorStatus": {
+      "esc": "prediction-only",
+      "tc": "native-experimental",
+      "tvc": "prediction-only"
+    },
+    "source": "User-specified integer ranges/directions; strengths and slip limits are engineering assumptions"
+  }
+}

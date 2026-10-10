@@ -1,0 +1,97 @@
+{
+  "status": "passed",
+  "version": "0.2.0-dev",
+  "presets": [
+    {
+      "label": "minimum",
+      "esc": 0,
+      "tc": 0,
+      "tvc": 3,
+      "report": "verification-ecu-minimum.json",
+      "status": "passed"
+    },
+    {
+      "label": "middle",
+      "esc": 2,
+      "tc": 4,
+      "tvc": 1,
+      "report": "verification-ecu-middle.json",
+      "status": "passed"
+    },
+    {
+      "label": "maximum",
+      "esc": 4,
+      "tc": 8,
+      "tvc": 0,
+      "report": "verification-ecu-maximum.json",
+      "status": "passed"
+    }
+  ],
+  "invalidCLI": [
+    {
+      "option": "esc",
+      "value": "-1",
+      "rejected": true
+    },
+    {
+      "option": "esc",
+      "value": "5",
+      "rejected": true
+    },
+    {
+      "option": "esc",
+      "value": "1.5",
+      "rejected": true
+    },
+    {
+      "option": "esc",
+      "value": "nan",
+      "rejected": true
+    },
+    {
+      "option": "tc",
+      "value": "-1",
+      "rejected": true
+    },
+    {
+      "option": "tc",
+      "value": "9",
+      "rejected": true
+    },
+    {
+      "option": "tc",
+      "value": "1.5",
+      "rejected": true
+    },
+    {
+      "option": "tc",
+      "value": "nan",
+      "rejected": true
+    },
+    {
+      "option": "tvc",
+      "value": "-1",
+      "rejected": true
+    },
+    {
+      "option": "tvc",
+      "value": "4",
+      "rejected": true
+    },
+    {
+      "option": "tvc",
+      "value": "1.5",
+      "rejected": true
+    },
+    {
+      "option": "tvc",
+      "value": "nan",
+      "rejected": true
+    }
+  ],
+  "invalidAPIRejections": 12,
+  "invalidInputsLeftGeneratedManifestsUnchanged": true,
+  "defaultsRestored": true,
+  "gameRuntimeTested": false,
+  "nativeTCMappingVerifiedInGame": false
+}

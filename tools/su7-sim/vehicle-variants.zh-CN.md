@@ -1,0 +1,49 @@
+# SU7 Ultra 空悬版、绞牙版与 AC mod 的实现
+
+核查：2026-10-09。量产车应拆成普通空悬与选装赛道专业套装绞牙两种硬件目标；驾驶模式、轮胎和气动装备另外记录。这里补正原分析的车型归属，没有生成两辆已还原的整车，也没有覆盖原 mod。
+
+## 本地 mod 实际是什么
+
+仓库里只有量产和原型两个整车目录，没有其他车型可供本地拆解。量产目录不是“空悬一辆、绞牙一辆”。其 [suspensions.ini](<E:/Github/ACRecord2AILine/tools/car/msk_stw_xiaomi_su7_ultra - 2.0/data/suspensions.ini:15>) 只有一套固定前后 DWB 近似、轮端弹簧率 89759/77649 N/m、慢速压缩阻尼 13455/7527 N·s/m、回弹 13990/13631 N·s/m。
+
+ROD_LENGTH 是固定静态长度，渐进弹簧率也不能证明双腔空气弹簧已模拟。[setup.ini](<E:/Github/ACRecord2AILine/tools/car/msk_stw_xiaomi_su7_ultra - 2.0/data/setup.ini>) 没有开放车高、弹簧、阻尼或防倾杆调节。[script.lua](<E:/Github/ACRecord2AILine/tools/car/msk_stw_xiaomi_su7_ultra - 2.0/data/script.lua>) 只在超过 360 km/h 时切电门。已检查的配置没有气室切换、调平或自适应阻尼逻辑。因此当前只能称为“硬件归属未确认的固定悬架量产 mod”。它可能近似某个工况，不能凭数值较软就确认为普通空悬。
+
+“无固定翼”皮肤只隐藏翼片网格，未找到对应的物理覆盖；共享 [aero.ini](<E:/Github/ACRecord2AILine/tools/car/msk_stw_xiaomi_su7_ultra - 2.0/data/aero.ini:46>) 仍保留后翼 WING_2。皮肤没有分别建立空悬、绞牙或无固定翼的空气动力。
+
+## 两种量产硬件分别记录
+
+[小米官方产品页](https://www.xiaomiev.com/ultra)与[2025 年赛道套装发布稿](https://prtimes.jp/main/html/rd/p/000000173.000098799.html)区分基础双腔空悬与 Bilstein EVO R for Ultra 绞牙套装。发布稿确认基础车配自适应减振器；套装还更换制动片、轮毂并附带两种轮胎。实时产品页的现行配置与软件版本不能直接视为 2025 上市标定。
+
+- **普通空悬版**：记录双腔气簧、随模式/载荷改变的等效刚度、车高状态与自适应阻尼。固定弹簧阻尼可做一个指定模式和载荷的近似；完整动态模拟还需要气簧力—行程/压力关系、气室状态、调平响应与阻尼力—速度曲线。目前没有查到这些原厂数值。
+- **赛道专业套装绞牙版**：分别记录前后轮率、压缩/回弹曲线、车高、预载、限位/行程、定位和实际调节档。官方最大弹簧刚度与最大阻尼力是包络，不能当成前后实际参数；绞牙弹簧刚度也不能直接填成 AC 轮端刚度。若运动比定义为弹簧位移/车轮位移，轮端刚度近似为弹簧刚度乘运动比平方。阻尼力 N 与阻尼系数 N·s/m 是不同量。
+
+两者共同使用已确认的三电机动力架构。没有依据给普通赛道套装额外增加电机功率，也没有数据证明它应采用另一套具体横摆增益。套装附带 P ZERO 5 与额外一套 Trofeo RS，官方说明半热熔胎并非出厂预装：轮胎必须作为独立条件，不能用 Trofeo 判定悬架版本。
+
+绞牙的车高与阻尼可为赛道优化，但更硬不保证在颠簸路面更有抓地。这是动力学推断；空悬与绞牙究竟相差多少，仍需相同轮胎、温度、定位、输入和电控模式下的对照。
+
+[2025 年量产纽北纪录](https://www.xiaomiauto.com/global/prototype)还加了双风道前盖、空气动力底护板和认证安全改装，不能直接用于普通空悬或普通赛道套装的圈速目标。纽北限量版又是单独装备组合，其减重不能套用到普通绞牙套装。
+
+## 其他车型怎样安装、怎样模拟
+
+安装通常是把整套资源放进 AC 的 content/cars/车辆ID：KN5负责显示模型，sfx负责声音，ui负责车型菜单，skins负责外观，data或data.acd提供物理，extension与物理脚本提供扩展功能。打包和解包只是存储形式差别，不代表谁模拟得更好。物理包若同时留下旧 data.acd，不能假定新 data 一定被加载；Content Manager 的[数据读取实现](https://raw.githubusercontent.com/gro-ove/actools/master/AcTools/DataFile/DataWrapper.cs)优先读取存在的 ACD。
+
+[RSS 官方安装说明](https://racesimstudio.com/frequently-asked-questions)要求完整安装附带的扩展资源；部分车型还区分 CSP 与原生物理包。真正的差异在物理实现：几何决定轮跳时的外倾和前束，弹簧/阻尼/限位影响接地与姿态，轮胎计算载荷、组合滑移和温度，气动图处理车高/姿态与速度，传动与制动提供驱动和减速，再由控制脚本补充原生模型难以表达的系统。
+
+两个公开作者例子：
+
+- [Arch BMW F82 M4](https://raw.githubusercontent.com/archibaldmilton/Girellu/master/Releases/Mods/Arch%20Cars%20Public/CHANGELOGS/BMW_F82_M4_README.txt)记录了阻尼曲线、轮胎热与组合抓地、衬套/束角弹性、主动差速控制及 Lua 电门/收油。它说明成熟物理包会一起处理机械结构与控制，不能只换一个马力或抓地倍率。
+- [VRC Formula Alpha 2023](https://www.virtual-racing-cars.com/p/ac-formula-alpha-2023/)分别维护机械物理和 Lua 的电能、踏板、差速与制动策略。它不是 SU7 的标定来源，只用于说明混合制动和控制层可以怎样进入 AC。
+
+[CSP 官方悬架扩展](https://github.com/ac-custom-shaders-patch/acc-extension-config/wiki/Cars-%E2%80%93-Suspension)提供运动比、弹簧/阻尼曲线等机制；[物理脚本](https://github.com/ac-custom-shaders-patch/acc-extension-config/wiki/Cars-%E2%80%93-Physics-scripts)在物理线程处理控制。版本兼容要按车型与具体接口核对。现有 0.2.11 SDK 有阻尼读写接口，但接口存在不等于已经还原空气弹簧或 CDC。
+
+SU7 的实现应让 AC 处理车身、轮胎与悬架受力，再用经过运行验证的脚本计算三电机分配、回收和稳定控制。现有离线平面模型没有垂向、俯仰和侧倾自由度，无法验证空悬/绞牙的接地差异；不能仅给两者不同 mu 就宣称完成两种底盘。
+
+## 本轮具体补正
+
+新增[硬件配置清单](E:/Github/ACRecord2AILine/tools/su7-sim/references/production-variants.json)：production_air 与 production_track_coilover 分别建档，缺失轮率、阻尼曲线、车高、行程、质量/重心和气动图保持未知，没有伪造原厂数值。现有实验证据与生成包携带硬件归属标记；Street/Sport/Track 只表示实验电控模式，不会切换悬架。
+
+汽车之家实测没有核实悬架套装和胎型，改为“量产车，硬件版本未确认”的一般参考。官方纽北视频归入“额外改装的绞牙纪录车”；GT7素材的硬件版本仍未知。原来的模拟数值未重算，保留运行时源码哈希，追加注明本次只改归属；它们不构成空悬与绞牙性能对照。
+
+原 mod 的更软参数和与原型的差异仍是配置事实；原报告“更软符合公路与赛车区别”的判断不足以确认硬件还原。本轮将车型身份确认放在底盘与电控标定之前。
+
+最终提供两辆可用车型时，适合建立独立车 ID 与各自物理包；共享模型资源仍需按完整车型打包，声音 bank/GUID 与 ACD 的目录关联也要处理。没有安装两辆新车；现在交付的是明确分版本的分析、参数清单与实验标记。

@@ -1,0 +1,61 @@
+{
+  "scope": "Hypothetical low-mu plant only, not measured Xiaomi gains",
+  "rows": [
+    {
+      "betaGain": 7000,
+      "durationCompletedS": 8.001,
+      "terminated": null,
+      "finalSpeedKmh": 108.76029496435584,
+      "peakAbsBetaDeg": 3.9643436592663353,
+      "yawErrorRmsRadS": 0.05419045899144141,
+      "peakAbsSlip": 0.3183454929585227,
+      "maxDrivePowerKW": 246.85546774994424,
+      "maxRegenPowerKW": 0.0,
+      "recoveredKWh": 0.0,
+      "minimumTcFactor": 0.14683164308546506,
+      "minimumAbsFactor": 1.0
+    },
+    {
+      "betaGain": 20000,
+      "durationCompletedS": 8.001,
+      "terminated": null,
+      "finalSpeedKmh": 108.60376567596998,
+      "peakAbsBetaDeg": 3.676216373254875,
+      "yawErrorRmsRadS": 0.056684810024092855,
+      "peakAbsSlip": 0.3183454929585227,
+      "maxDrivePowerKW": 246.85546774994424,
+      "maxRegenPowerKW": 0.0,
+      "recoveredKWh": 0.0,
+      "minimumTcFactor": 0.14683164308546506,
+      "minimumAbsFactor": 1.0
+    },
+    {
+      "betaGain": 40000,
+      "durationCompletedS": 8.001,
+      "terminated": null,
+      "finalSpeedKmh": 108.41947122997175,
+      "peakAbsBetaDeg": 3.3892465253149267,
+      "yawErrorRmsRadS": 0.05939995126810819,
+      "peakAbsSlip": 0.3183454929585227,
+      "maxDrivePowerKW": 246.85546774994424,
+      "maxRegenPowerKW": 0.0,
+      "recoveredKWh": 0.0,
+      "minimumTcFactor": 0.14683164308546506,
+      "minimumAbsFactor": 1.0
+    },
+    {
+      "betaGain": 60000,
+      "durationCompletedS": 8.001,
+      "terminated": null,
+      "finalSpeedKmh": 108.28422628769293,
+      "peakAbsBetaDeg": 3.2024018210345115,
+      "yawErrorRmsRadS": 0.06130168180892264,
+      "peakAbsSlip": 0.3183454929585227,
+      "maxDrivePowerKW": 246.85546774994424,
+      "maxRegenPowerKW": 0.0,
+      "recoveredKWh": 0.0,
+      "minimumTcFactor": 0.14683164308546506,
+      "minimumAbsFactor": 1.0
+    }
+  ]
+}

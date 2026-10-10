@@ -1,0 +1,426 @@
+{
+  "schema_version": 1,
+  "checked_date": "2026-10-09",
+  "target": {
+    "model": "Xiaomi SU7 Ultra 量产车",
+    "model_year": 2025,
+    "baseline_period": "2024-10预发布至2025量产",
+    "exclude": [
+      "SU7普通/Max整车标定",
+      "原型车整车指标",
+      "V6s Plus/YU7/2026新一代SU7标定",
+      "后来的限量版质量与座位"
+    ],
+    "hardware_profiles_reference": "production-variants.json",
+    "hardware_variant_policy": "Shared production powertrain boundaries only; air/coilover suspension calibration and package-specific mass/aero are separate."
+  },
+  "categories": {
+    "directly_usable": "已确认车型硬件峰值/结构，可作为仿真参数，峰值不是完整标定",
+    "usable_with_scope_caveat": "官方电机型号资料，但未找到同期Ultra专属参数表",
+    "validation_constraint": "宣传或实验室边界，只能约束模型",
+    "qualitative_constraint": "公开控制行为，无数值标定",
+    "derived_constraint": "公式推算，非厂家独立测量",
+    "corroborative_only": "实时页面历史适用性未核实"
+  },
+  "sources": [
+    {
+      "id": "xiaomi_20241029",
+      "publisher": "Xiaomi",
+      "source_type": "manufacturer_press_release",
+      "title": "Xiaomi SU7 Ultra Unveiled: The Ultimate Performance Technology Sedan",
+      "published_date": "2024-10-29",
+      "url": "https://www.mi.com/global/discover/article?id=3768",
+      "body_api": "https://go.buy.mi.com/global/discovery/land?id=3768&from=pc",
+      "api_fields": {
+        "errno": 0,
+        "id": "3768",
+        "add_time": "1730195018",
+        "online_time": "1730212226",
+        "content_field": "data.content"
+      },
+      "applicability": "2024量产预发布；仅使用2025量产相同动力架构的公开边界，不导入原型车圈速、质量或制动数据。"
+    },
+    {
+      "id": "miit_2025_ultra",
+      "publisher": "中华人民共和国工业和信息化部",
+      "source_type": "regulatory_manufacturer_submission",
+      "title": "XMA7000MBEVA6 企业申报车型公示详情",
+      "published_date": "2025（扩展申报页）",
+      "url": "https://www.miit.gov.cn/datainfo/dljdclscqyjcpgg/bgkzn2wwee/art/2025/art_b036222751c843978b80546e86031b8f.html",
+      "applicability": "原参数栏及扩展后参数栏均明确量产三电机峰值；不采用扩展的2330kg/两座数据。"
+    },
+    {
+      "id": "xiaomi_20250616_gt",
+      "publisher": "Xiaomi",
+      "source_type": "manufacturer_press_release",
+      "title": "Xiaomi SU7 Ultra, Gran Turismo 7’ye Geliyor",
+      "published_date": "2025-06-16",
+      "url": "https://www.mi.com/tr/discover/article?id=5077",
+      "body_api": "https://go.buy.mi.com/tr/discovery/land?id=5077&from=pc",
+      "api_fields": {
+        "errno": 0,
+        "id": "5077",
+        "online_time": "1750038575",
+        "content_field": "data.content"
+      },
+      "applicability": "量产SU7 Ultra公告中的V8s电机参数。"
+    },
+    {
+      "id": "xiaomi_hyperengine",
+      "publisher": "Xiaomi Auto",
+      "source_type": "manufacturer_technical_page",
+      "url": "https://www.xiaomiev.com/hyperengine",
+      "published_date": null,
+      "applicability": "页面现含后来的V6s Plus，仅采用明确标为旧V6s的21000rpm/500Nm；275kW通用值不作为Ultra功率。"
+    },
+    {
+      "id": "xiaomi_ultra_live",
+      "publisher": "Xiaomi Auto",
+      "source_type": "manufacturer_live_product_page",
+      "url": "https://www.xiaomiev.com/ultra",
+      "published_date": null,
+      "applicability": "实时页面含后续更新，只作车型结构与历史公开值交叉核对；不把新增套件或现行OTA当作2025上市标定。",
+      "component_url": "https://s1.xiaomiev.com/activity-outer-assets/assets/_next/static/chunks/9347-fb626ed7b3a1acdc.js"
+    },
+    {
+      "id": "dsat_2025_ultra",
+      "publisher": "澳门交通事务局",
+      "source_type": "regulatory_type_approval",
+      "title": "型号认可106/2025：SU7 ULTRA AWD",
+      "published_date": "2025（车型年份及认可编号）",
+      "url": "https://www.dsat.gov.mo/car_new/carparts.aspx?language=t&sv_code=106&sv_year=2025",
+      "applicability": "型号XMA7000MBEVA6、2025年、五座、2360kg，电池栏93.7kWh。仅用于同型号容量和质量核对，不采用页面与其他一手来源冲突的制动盘尺寸。"
+    }
+  ],
+  "parameters": [
+    {
+      "id": "motor_layout",
+      "category": "directly_usable",
+      "value": {
+        "front": 1,
+        "rear_left": 1,
+        "rear_right": 1,
+        "front_type": "V6s",
+        "rear_type": "V8s"
+      },
+      "unit": "count",
+      "sources": [
+        "xiaomi_20241029",
+        "miit_2025_ultra"
+      ],
+      "summary": "量产架构是一台前电机与两台独立后电机。",
+      "use": "建立三路扭矩源；前电机驱动前轴，后左与后右分别驱动车轮。"
+    },
+    {
+      "id": "front_peak_power",
+      "category": "directly_usable",
+      "value": 288,
+      "unit": "kW",
+      "sources": [
+        "miit_2025_ultra"
+      ],
+      "summary": "申报原参数明确前电机288kW。",
+      "use": "前电机机械功率的公开峰值边界；不是低SOC或长期持续功率。"
+    },
+    {
+      "id": "rear_each_peak_power",
+      "category": "directly_usable",
+      "value": 425,
+      "unit": "kW",
+      "sources": [
+        "miit_2025_ultra",
+        "xiaomi_ultra_live"
+      ],
+      "summary": "后左/后右均为425kW。",
+      "use": "各后电机机械峰值边界。"
+    },
+    {
+      "id": "rear_each_peak_torque",
+      "category": "directly_usable",
+      "value": 635,
+      "unit": "Nm",
+      "sources": [
+        "xiaomi_20250616_gt"
+      ],
+      "summary": "2025量产公告确认V8s峰值635Nm。",
+      "use": "单台后电机扭矩边界；不可乘齿比后仍称电机轴扭矩。"
+    },
+    {
+      "id": "rear_each_max_rpm",
+      "category": "directly_usable",
+      "value": 27200,
+      "unit": "rpm",
+      "sources": [
+        "xiaomi_20241029",
+        "xiaomi_20250616_gt"
+      ],
+      "summary": "V8s最高转速。",
+      "use": "后电机转速边界，采用软限幅；不是每个速度下均能输出峰值扭矩。"
+    },
+    {
+      "id": "front_peak_torque",
+      "category": "usable_with_scope_caveat",
+      "value": 500,
+      "unit": "Nm",
+      "sources": [
+        "xiaomi_hyperengine"
+      ],
+      "summary": "官方V6s技术页确认500Nm；这次未找到带日期的Ultra专属前电机扭矩原厂表。",
+      "use": "可作为V6s前电机的候选边界，保留适用范围标签。"
+    },
+    {
+      "id": "front_max_rpm",
+      "category": "usable_with_scope_caveat",
+      "value": 21000,
+      "unit": "rpm",
+      "sources": [
+        "xiaomi_hyperengine"
+      ],
+      "summary": "官方技术页明确旧V6/V6s为21000rpm；22000rpm属于后来的V6s Plus。",
+      "use": "Ultra前电机候选转速边界；与未知前轴齿比一起校验，不能沿用后电机齿比和27200rpm。"
+    },
+    {
+      "id": "total_peak_mechanical_power",
+      "category": "directly_usable",
+      "value": 1138,
+      "unit": "kW",
+      "sources": [
+        "miit_2025_ultra"
+      ],
+      "derived": true,
+      "derivation": "288 + 425 + 425",
+      "summary": "由申报三电机峰值相加，官方总马力1548PS与此取整一致。",
+      "use": "三路总峰值边界；不等于轮上功率，不等于电池1330kW。"
+    },
+    {
+      "id": "total_motor_peak_torque_sum",
+      "category": "derived_constraint",
+      "value": 1770,
+      "unit": "Nm",
+      "sources": [
+        "xiaomi_hyperengine",
+        "xiaomi_20250616_gt"
+      ],
+      "derived": true,
+      "derivation": "500 + 635 + 635",
+      "summary": "电机轴峰值算术和，并非车轮峰值扭矩；不同齿比下不能直接按此总数分配轮上扭矩。",
+      "use": "仅交叉核对，带前V6s适用范围限制。"
+    },
+    {
+      "id": "battery_peak_discharge",
+      "category": "validation_constraint",
+      "value": 1330,
+      "unit": "kW",
+      "sources": [
+        "xiaomi_20241029"
+      ],
+      "summary": "赛道电池包峰值放电能力。",
+      "use": "电池端峰值边界；需另设电机/逆变器/传动效率和温度模型。"
+    },
+    {
+      "id": "battery_discharge_soc20",
+      "category": "validation_constraint",
+      "value": 800,
+      "unit": "kW",
+      "conditions": {
+        "soc": 0.2
+      },
+      "sources": [
+        "xiaomi_20241029"
+      ],
+      "summary": "预发布资料称20%电量时仍可达到800kW放电。",
+      "use": "只是一处SOC锚点，不能据此恢复完整SOC功率曲线，也不应直接设为800kW轮上输出。"
+    },
+    {
+      "id": "battery_max_discharge_rate",
+      "category": "validation_constraint",
+      "value": 16,
+      "unit": "C",
+      "sources": [
+        "xiaomi_20241029"
+      ],
+      "summary": "最大放电倍率声明。",
+      "use": "不单独推算持续放电功率或限流时间。"
+    },
+    {
+      "id": "regen_peak_deceleration",
+      "category": "validation_constraint",
+      "value": 0.6,
+      "unit": "g",
+      "sources": [
+        "xiaomi_20241029"
+      ],
+      "short_quote": "maximum deceleration of 0.6g",
+      "summary": "最大制动回收减速度声明。",
+      "use": "制动回收上包络参考；不是松电门固定减速度，也不是全部速度/SOC/温度下都可达到。"
+    },
+    {
+      "id": "regen_peak_power",
+      "category": "validation_constraint",
+      "value": 400,
+      "relation": ">",
+      "unit": "kW",
+      "sources": [
+        "xiaomi_20241029"
+      ],
+      "summary": "最大回收功率超过400kW，原文不是400kW硬上限。",
+      "use": "400kW可作为明确标注的保守仿真暂定上限，但不是原厂已知上限。"
+    },
+    {
+      "id": "torque_control_frequency",
+      "category": "validation_constraint",
+      "value": 500,
+      "unit": "Hz",
+      "sources": [
+        "xiaomi_20241029"
+      ],
+      "short_quote": "500 times per second",
+      "summary": "三电机控制频率声明。",
+      "use": "设计快速、平滑的扭矩分配；模拟器物理步频不可因子采样循环凭空提升。"
+    },
+    {
+      "id": "torque_vectoring_behavior",
+      "category": "qualitative_constraint",
+      "value": [
+        "独立动态分配三电机扭矩",
+        "转弯给外侧轮更多扭矩",
+        "低附着侧左右轮快速调整"
+      ],
+      "sources": [
+        "xiaomi_20241029"
+      ],
+      "summary": "公开行为可用于横摆响应方向和分离附着测试。",
+      "use": "不公开目标横摆率、侧偏阈值、左右差值上限或控制器增益。"
+    },
+    {
+      "id": "driving_modes_2024",
+      "category": "qualitative_constraint",
+      "value": {
+        "track": [
+          "耐力",
+          "排位",
+          "漂移",
+          "大师自定义"
+        ],
+        "daily_examples": [
+          "新手",
+          "经济",
+          "湿地",
+          "运动",
+          "自定义"
+        ]
+      },
+      "sources": [
+        "xiaomi_20241029"
+      ],
+      "summary": "预发布模式清单；日常模式限制动力和车速。",
+      "use": "模式应联动响应、扭矩分配、稳定控制与回收；数值映射不能称为厂家标定。"
+    },
+    {
+      "id": "torque_rise_time_live",
+      "category": "corroborative_only",
+      "value": 15,
+      "unit": "ms",
+      "sources": [
+        "xiaomi_ultra_live"
+      ],
+      "conditions": {
+        "step": "0–90%"
+      },
+      "summary": "实时官方页面组件称电机扭矩0–90%调整15ms；组件无可核实历史发布日期。",
+      "use": "只作快速响应能力交叉核对；不能直接认定2025全部工况踏板至轮上响应为15ms。"
+    },
+    {
+      "id": "battery_nominal_energy",
+      "category": "directly_usable",
+      "value": 93.7,
+      "unit": "kWh",
+      "sources": [
+        "dsat_2025_ultra"
+      ],
+      "summary": "澳门2025同型号量产车认可资料的电池容量栏。",
+      "use": "标称总能量；可用于SOC模型的名义容量，不等于已知可用能量或电池缓冲区大小。"
+    },
+    {
+      "id": "curb_mass_5seat",
+      "category": "directly_usable",
+      "value": 2360,
+      "unit": "kg",
+      "sources": [
+        "miit_2025_ultra",
+        "dsat_2025_ultra"
+      ],
+      "summary": "五座原参数整备质量。",
+      "use": "不含另加驾驶员/载荷；不要采用限量两座2330kg。"
+    },
+    {
+      "id": "acceleration_0_100",
+      "category": "validation_constraint",
+      "value": 1.98,
+      "unit": "s",
+      "sources": [
+        "xiaomi_20241029",
+        "xiaomi_ultra_live"
+      ],
+      "summary": "厂家加速声明；中文页面注明不含起步时间、需Trofeo RS半热熔胎。",
+      "use": "仅在说明起步计时、轮胎、SOC/温度及模式的情况下校验；不能当作普通P Zero、全程含起步时间必达的目标。"
+    },
+    {
+      "id": "designed_max_speed",
+      "category": "validation_constraint",
+      "value": 350,
+      "unit": "km/h",
+      "sources": [
+        "xiaomi_20241029"
+      ],
+      "summary": "2024量产预发布设计最高车速。",
+      "use": "约束齿比/功率/风阻的联合结果，无法单独反推出真实齿比；不得把后来的359km/h实测直接当电子限速值。"
+    }
+  ],
+  "unknowns": [
+    {
+      "id": "front_and_rear_reduction_ratios",
+      "value": null,
+      "unit": "ratio",
+      "sources_checked": [
+        "miit_2025_ultra",
+        "xiaomi_20241029",
+        "xiaomi_hyperengine",
+        "xiaomi_ultra_live"
+      ],
+      "summary": "在已查一手来源中未找到前后减速比；原mod9.205不能称厂家数据。",
+      "assumption_rule": "前后分别设定；与电机最大rpm、有效滚动半径及最高车速联合拟合。"
+    },
+    {
+      "id": "motor_torque_rpm_curves",
+      "value": null,
+      "summary": "未找到三台电机完整扭矩/转速/电压/SOC图。",
+      "assumption_rule": "min(Tpeak,Ppeak/omega)仅是明确标注的包络近似；前约5500rpm、后约6392rpm是由峰值相交推算，非实测拐点。"
+    },
+    {
+      "id": "battery_usable_energy_and_power_soc_curve",
+      "value": null,
+      "summary": "标称93.7kWh已确认；可用能量、完整SOC放电曲线、温度限幅、持续时长仍未公开确认。",
+      "assumption_rule": "SOC可先以标称能量积分；须标注未模拟隐藏缓冲区，SOC功率插值是工程假设，并保留20%/800kW锚点和电池端/电机端区别。"
+    },
+    {
+      "id": "regen_maps_and_brake_blending",
+      "value": null,
+      "summary": "未找到松电门回收档位、速度曲线、高SOC/低温降额、前后回收比例和液压补偿图。",
+      "assumption_rule": "做速度渐入/低速渐退、扭矩和功率双限制、SOC/温度降额与液压补足；全为工程近似。"
+    },
+    {
+      "id": "yaw_tc_esc_maps",
+      "value": null,
+      "summary": "没有公开厂家目标横摆、侧偏、滑移率阈值、TC/ESC增益或轮间差动扭矩上限。",
+      "assumption_rule": "可设计可解释的控制器并标模拟，不写原厂500Hz/ASIL-D等名称暗示复刻认证。"
+    },
+    {
+      "id": "mode_power_and_boost_limits",
+      "value": null,
+      "summary": "本次未取得2025上市所有模式的可追溯原厂功率/速度/Boost时长表；OTA亦有变化。",
+      "assumption_rule": "模式数值统一列入assumptions，禁止把网络常见816/940/1072PS直接当作已核实原厂标定。"
+    }
+  ],
+  "warning": "此文件不包含厂家的完整电控标定。任何未列为已确认的控制数值必须在实现中保持可调并标作工程假设。"
+}

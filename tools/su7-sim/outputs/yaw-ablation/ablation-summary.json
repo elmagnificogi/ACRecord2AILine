@@ -1,0 +1,99 @@
+{
+  "metadata": {
+    "hardwareScope": {
+      "hardwareVariant": null,
+      "sourceModClassification": "single_fixed_suspension_unclassified",
+      "targetProfiles": [
+        "production_air",
+        "production_track_coilover"
+      ],
+      "hardwareProfilesApplied": false,
+      "suspensionDynamicsSimulated": false,
+      "expectedNativeSuspensionInGame": false,
+      "gameRuntimeVerified": false,
+      "suspensionModel": "not modeled",
+      "controlModeIsHardwareVariant": false,
+      "manifestSha256": "29953f7ee96ad19455ad26f17956fc5026cc48228e2b5db3c862ca20fdc77654",
+      "note": "Street/Sport/Track are experimental ECU settings. No validated air-versus-coilover performance comparison exists."
+    },
+    "luaRuntime": "LuaJIT 2.1 via Lupa 2.6, numeric core only",
+    "traceSamplePeriodS": 0.03,
+    "purpose": "Offline control experiment, not Xiaomi calibration or AC game measurement",
+    "units": "SI internally; x forward, y left, z up; wheel order FL FR RL RR",
+    "controllerSha256": "6324f324e2d15985d4c2a697a2be4c47787e28eb122d8fa15faaac53f13fba94",
+    "configSha256": "0d83b4e07fa92e1bf7b969851399563a25d8b3d9e91e3a4ec0d84034673368da",
+    "metricsPolicy": "Common kinematic yaw target vx*delta/L for RMS; not a manufacturer path target. Whole-profile comparison mixes pedal, caps, TC, yaw and braking; ablation disables yaw-request TV and ESC only.",
+    "sourceTorqueCurve": "E:\\Github\\ACRecord2AILine\\tools\\car\\msk_stw_xiaomi_su7_ultra - 2.0\\data\\power.lut",
+    "sourceEngineMap": "E:\\Github\\ACRecord2AILine\\tools\\car\\msk_stw_xiaomi_su7_ultra - 2.0\\data\\engine_map1.lut",
+    "sourceMapPolicy": "MAP_1 fixed in all control modes to isolate ECU changes",
+    "reference": "Fixed 22/78 + simple .28 TC/.12 ABS + 64% brake bias + original nonrecoverable COAST_REF",
+    "assumptions": {
+      "mass": 2435.0,
+      "wheelbase": 3.0,
+      "track_front": 1.672,
+      "track_rear": 1.649,
+      "cg_height": 0.4,
+      "efficiency": 1.0,
+      "discharge_efficiency": 0.94,
+      "charge_efficiency": 0.9,
+      "battery_kwh": 93.7,
+      "gear": 9.205,
+      "air_density": 1.225,
+      "cd_area": 0.63,
+      "rolling_coefficient": 0.012,
+      "tire_kappa_gain": 9.0,
+      "tire_alpha_gain": 11.0,
+      "lateral_load_front_share": 0.56,
+      "control_dt": 0.003,
+      "plant_dt": 0.0005
+    },
+    "yawInertiaApproxKgM2": 5832.169958333333,
+    "wheelInertiasKgM2": [
+      2.351077638,
+      2.351077638,
+      4.359275262000001,
+      4.359275262000001
+    ],
+    "tireModel": "Warm constant-mu tanh forces plus combined force circle; no thermal or DWB reconstruction",
+    "batteryCapacityKWhNominal": 93.7,
+    "chargeEfficiencyAssumed": 0.9,
+    "dischargeEfficiencyAssumed": 0.94,
+    "validDomain": "Forward planar driving; no roll, pitch, wheel-hop, full aerodynamics, or hardware delays"
+  },
+  "results": [
+    {
+      "scenario": "low_mu_exit",
+      "controller": "experimental_no_yaw",
+      "metrics": {
+        "durationCompletedS": 8.001,
+        "terminated": null,
+        "finalSpeedKmh": 109.05114024934633,
+        "peakAbsBetaDeg": 4.859425948041506,
+        "yawErrorRmsRadS": 0.0440464763057662,
+        "peakAbsSlip": 0.31999657390787734,
+        "maxDrivePowerKW": 246.95012135269042,
+        "maxRegenPowerKW": 0.0,
+        "recoveredKWh": 0.0,
+        "minimumTcFactor": 0.14526869644583965,
+        "minimumAbsFactor": 1.0
+      }
+    },
+    {
+      "scenario": "low_mu_exit",
+      "controller": "experimental",
+      "metrics": {
+        "durationCompletedS": 8.001,
+        "terminated": null,
+        "finalSpeedKmh": 108.41947122997175,
+        "peakAbsBetaDeg": 3.3892465253149267,
+        "yawErrorRmsRadS": 0.05939995126810819,
+        "peakAbsSlip": 0.3183454929585227,
+        "maxDrivePowerKW": 246.85546774994424,
+        "maxRegenPowerKW": 0.0,
+        "recoveredKWh": 0.0,
+        "minimumTcFactor": 0.14683164308546506,
+        "minimumAbsFactor": 1.0
+      }
+    }
+  ]
+}

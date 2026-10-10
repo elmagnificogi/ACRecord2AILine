@@ -1,0 +1,339 @@
+{
+  "reason": "Before correcting first selected-mode initialization; historical results only",
+  "simulation": {
+    "metadata": {
+      "luaRuntime": "LuaJIT 2.1 via Lupa 2.6, numeric core only",
+      "traceSamplePeriodS": 0.03,
+      "purpose": "Offline control experiment, not Xiaomi calibration or AC game measurement",
+      "units": "SI internally; x forward, y left, z up; wheel order FL FR RL RR",
+      "controllerSha256": "55e43af32b74fce861a9292c64129c47183b14a23f7cb14ed43463b532a1f481",
+      "configSha256": "0d83b4e07fa92e1bf7b969851399563a25d8b3d9e91e3a4ec0d84034673368da",
+      "metricsPolicy": "Common kinematic yaw target vx*delta/L for RMS; not a manufacturer path target. Whole-profile comparison mixes pedal, caps, TC, yaw and braking; ablation disables yaw-request TV and ESC only.",
+      "sourceTorqueCurve": "E:\\Github\\ACRecord2AILine\\tools\\car\\msk_stw_xiaomi_su7_ultra - 2.0\\data\\power.lut",
+      "sourceEngineMap": "E:\\Github\\ACRecord2AILine\\tools\\car\\msk_stw_xiaomi_su7_ultra - 2.0\\data\\engine_map1.lut",
+      "sourceMapPolicy": "MAP_1 fixed in all control modes to isolate ECU changes",
+      "reference": "Fixed 22/78 + simple .28 TC/.12 ABS + 64% brake bias + original nonrecoverable COAST_REF",
+      "assumptions": {
+        "mass": 2435.0,
+        "wheelbase": 3.0,
+        "track_front": 1.672,
+        "track_rear": 1.649,
+        "cg_height": 0.4,
+        "efficiency": 1.0,
+        "discharge_efficiency": 0.94,
+        "charge_efficiency": 0.9,
+        "battery_kwh": 93.7,
+        "gear": 9.205,
+        "air_density": 1.225,
+        "cd_area": 0.63,
+        "rolling_coefficient": 0.012,
+        "tire_kappa_gain": 9.0,
+        "tire_alpha_gain": 11.0,
+        "lateral_load_front_share": 0.56,
+        "control_dt": 0.003,
+        "plant_dt": 0.0005
+      },
+      "yawInertiaApproxKgM2": 5832.169958333333,
+      "wheelInertiasKgM2": [
+        2.351077638,
+        2.351077638,
+        4.359275262000001,
+        4.359275262000001
+      ],
+      "tireModel": "Warm constant-mu tanh forces plus combined force circle; no thermal or DWB reconstruction",
+      "batteryCapacityKWhNominal": 93.7,
+      "chargeEfficiencyAssumed": 0.9,
+      "dischargeEfficiencyAssumed": 0.94,
+      "validDomain": "Forward planar driving; no roll, pitch, wheel-hop, full aerodynamics, or hardware delays"
+    },
+    "results": [
+      {
+        "scenario": "corner_throttle",
+        "controller": "reference",
+        "metrics": {
+          "durationCompletedS": 8.001,
+          "terminated": null,
+          "finalSpeedKmh": 169.75784396175143,
+          "peakAbsBetaDeg": 4.242288363287279,
+          "yawErrorRmsRadS": 0.16656383373570596,
+          "peakAbsSlip": 0.49471946532777555,
+          "maxDrivePowerKW": 800.8510419059992,
+          "maxRegenPowerKW": 0.0,
+          "recoveredKWh": 0.0,
+          "minimumTcFactor": 0.320692361893227,
+          "minimumAbsFactor": 1.0
+        }
+      },
+      {
+        "scenario": "corner_throttle",
+        "controller": "experimental",
+        "metrics": {
+          "durationCompletedS": 8.001,
+          "terminated": null,
+          "finalSpeedKmh": 168.4503317640471,
+          "peakAbsBetaDeg": 3.77432891555268,
+          "yawErrorRmsRadS": 0.15746001641065951,
+          "peakAbsSlip": 0.2758370710970827,
+          "maxDrivePowerKW": 620.2208636583593,
+          "maxRegenPowerKW": 0.0,
+          "recoveredKWh": 0.0,
+          "minimumTcFactor": 0.5106853189506199,
+          "minimumAbsFactor": 1.0
+        }
+      },
+      {
+        "scenario": "low_mu_exit",
+        "controller": "reference",
+        "metrics": {
+          "durationCompletedS": 8.001,
+          "terminated": null,
+          "finalSpeedKmh": 113.07078103032235,
+          "peakAbsBetaDeg": 9.839853926992784,
+          "yawErrorRmsRadS": 0.048825737903917386,
+          "peakAbsSlip": 0.7749280751433164,
+          "maxDrivePowerKW": 753.1014865707399,
+          "maxRegenPowerKW": 0.0,
+          "recoveredKWh": 0.0,
+          "minimumTcFactor": 0.04201779075841172,
+          "minimumAbsFactor": 1.0
+        }
+      },
+      {
+        "scenario": "low_mu_exit",
+        "controller": "experimental",
+        "metrics": {
+          "durationCompletedS": 8.001,
+          "terminated": null,
+          "finalSpeedKmh": 108.41947122997175,
+          "peakAbsBetaDeg": 3.3892465253149267,
+          "yawErrorRmsRadS": 0.05939995126810819,
+          "peakAbsSlip": 0.3183454929585227,
+          "maxDrivePowerKW": 246.85546774994424,
+          "maxRegenPowerKW": 0.0,
+          "recoveredKWh": 0.0,
+          "minimumTcFactor": 0.14683164308546506,
+          "minimumAbsFactor": 1.0
+        }
+      },
+      {
+        "scenario": "yaw_disturbance",
+        "controller": "reference",
+        "metrics": {
+          "durationCompletedS": 6.9990000000000006,
+          "terminated": null,
+          "finalSpeedKmh": 96.00115925762152,
+          "peakAbsBetaDeg": 2.9859804208599456,
+          "yawErrorRmsRadS": 0.03902332157938107,
+          "peakAbsSlip": 0.02500871988957312,
+          "maxDrivePowerKW": 111.91774984035634,
+          "maxRegenPowerKW": 0.0,
+          "recoveredKWh": 0.0,
+          "minimumTcFactor": 1.0,
+          "minimumAbsFactor": 1.0
+        }
+      },
+      {
+        "scenario": "yaw_disturbance",
+        "controller": "experimental",
+        "metrics": {
+          "durationCompletedS": 6.9990000000000006,
+          "terminated": null,
+          "finalSpeedKmh": 78.01905430112168,
+          "peakAbsBetaDeg": 2.899906947783605,
+          "yawErrorRmsRadS": 0.03452110494230706,
+          "peakAbsSlip": 0.03723697443325504,
+          "maxDrivePowerKW": 14.135673115152498,
+          "maxRegenPowerKW": 0.0,
+          "recoveredKWh": 0.0,
+          "minimumTcFactor": 1.0,
+          "minimumAbsFactor": 1.0
+        }
+      },
+      {
+        "scenario": "brake_blend",
+        "controller": "reference",
+        "metrics": {
+          "durationCompletedS": 6.9990000000000006,
+          "terminated": null,
+          "finalSpeedKmh": 1.2136321456637574e-40,
+          "peakAbsBetaDeg": 0.0,
+          "yawErrorRmsRadS": 0.0,
+          "peakAbsSlip": 0.14436757769052846,
+          "maxDrivePowerKW": 0.0,
+          "maxRegenPowerKW": 0.0,
+          "recoveredKWh": 0.0,
+          "minimumTcFactor": 1.0,
+          "minimumAbsFactor": 0.9090976335716507
+        }
+      },
+      {
+        "scenario": "brake_blend",
+        "controller": "experimental",
+        "metrics": {
+          "durationCompletedS": 6.9990000000000006,
+          "terminated": null,
+          "finalSpeedKmh": 8.825235971809233e-32,
+          "peakAbsBetaDeg": 0.0,
+          "yawErrorRmsRadS": 0.0,
+          "peakAbsSlip": 0.2089098824721621,
+          "maxDrivePowerKW": 0.0,
+          "maxRegenPowerKW": 271.0182288983562,
+          "recoveredKWh": 0.2082401815615868,
+          "minimumTcFactor": 1.0,
+          "minimumAbsFactor": 0.8137812418839729
+        }
+      },
+      {
+        "scenario": "high_soc_brake",
+        "controller": "reference",
+        "metrics": {
+          "durationCompletedS": 5.001,
+          "terminated": null,
+          "finalSpeedKmh": 20.6697764630642,
+          "peakAbsBetaDeg": 0.0,
+          "yawErrorRmsRadS": 0.0,
+          "peakAbsSlip": 0.06052670481878653,
+          "maxDrivePowerKW": 0.0,
+          "maxRegenPowerKW": 0.0,
+          "recoveredKWh": 0.0,
+          "minimumTcFactor": 1.0,
+          "minimumAbsFactor": 1.0
+        }
+      },
+      {
+        "scenario": "high_soc_brake",
+        "controller": "experimental",
+        "metrics": {
+          "durationCompletedS": 5.001,
+          "terminated": null,
+          "finalSpeedKmh": 23.34224529792053,
+          "peakAbsBetaDeg": 0.0,
+          "yawErrorRmsRadS": 0.0,
+          "peakAbsSlip": 0.06287252596163026,
+          "maxDrivePowerKW": 0.0,
+          "maxRegenPowerKW": 26.906751507414953,
+          "recoveredKWh": 0.019319703739623266,
+          "minimumTcFactor": 1.0,
+          "minimumAbsFactor": 1.0
+        }
+      },
+      {
+        "scenario": "mode_switch",
+        "controller": "reference",
+        "metrics": {
+          "durationCompletedS": 9.0,
+          "terminated": null,
+          "finalSpeedKmh": 197.69278835895085,
+          "peakAbsBetaDeg": 3.735134144484265,
+          "yawErrorRmsRadS": 0.1996313670647248,
+          "peakAbsSlip": 0.366791844568744,
+          "maxDrivePowerKW": 617.2966268933804,
+          "maxRegenPowerKW": 0.0,
+          "recoveredKWh": 0.0,
+          "minimumTcFactor": 0.720601650747918,
+          "minimumAbsFactor": 1.0
+        }
+      },
+      {
+        "scenario": "mode_switch",
+        "controller": "experimental",
+        "metrics": {
+          "durationCompletedS": 9.0,
+          "terminated": null,
+          "finalSpeedKmh": 176.86160574876678,
+          "peakAbsBetaDeg": 3.6410077320233034,
+          "yawErrorRmsRadS": 0.15509405617664598,
+          "peakAbsSlip": 0.16850890454969225,
+          "maxDrivePowerKW": 597.5017654614271,
+          "maxRegenPowerKW": 0.0,
+          "recoveredKWh": 0.0,
+          "minimumTcFactor": 0.5428605858756962,
+          "minimumAbsFactor": 1.0
+        }
+      }
+    ]
+  },
+  "ablation": {
+    "metadata": {
+      "luaRuntime": "LuaJIT 2.1 via Lupa 2.6, numeric core only",
+      "traceSamplePeriodS": 0.03,
+      "purpose": "Offline control experiment, not Xiaomi calibration or AC game measurement",
+      "units": "SI internally; x forward, y left, z up; wheel order FL FR RL RR",
+      "controllerSha256": "55e43af32b74fce861a9292c64129c47183b14a23f7cb14ed43463b532a1f481",
+      "configSha256": "0d83b4e07fa92e1bf7b969851399563a25d8b3d9e91e3a4ec0d84034673368da",
+      "metricsPolicy": "Common kinematic yaw target vx*delta/L for RMS; not a manufacturer path target. Whole-profile comparison mixes pedal, caps, TC, yaw and braking; ablation disables yaw-request TV and ESC only.",
+      "sourceTorqueCurve": "E:\\Github\\ACRecord2AILine\\tools\\car\\msk_stw_xiaomi_su7_ultra - 2.0\\data\\power.lut",
+      "sourceEngineMap": "E:\\Github\\ACRecord2AILine\\tools\\car\\msk_stw_xiaomi_su7_ultra - 2.0\\data\\engine_map1.lut",
+      "sourceMapPolicy": "MAP_1 fixed in all control modes to isolate ECU changes",
+      "reference": "Fixed 22/78 + simple .28 TC/.12 ABS + 64% brake bias + original nonrecoverable COAST_REF",
+      "assumptions": {
+        "mass": 2435.0,
+        "wheelbase": 3.0,
+        "track_front": 1.672,
+        "track_rear": 1.649,
+        "cg_height": 0.4,
+        "efficiency": 1.0,
+        "discharge_efficiency": 0.94,
+        "charge_efficiency": 0.9,
+        "battery_kwh": 93.7,
+        "gear": 9.205,
+        "air_density": 1.225,
+        "cd_area": 0.63,
+        "rolling_coefficient": 0.012,
+        "tire_kappa_gain": 9.0,
+        "tire_alpha_gain": 11.0,
+        "lateral_load_front_share": 0.56,
+        "control_dt": 0.003,
+        "plant_dt": 0.0005
+      },
+      "yawInertiaApproxKgM2": 5832.169958333333,
+      "wheelInertiasKgM2": [
+        2.351077638,
+        2.351077638,
+        4.359275262000001,
+        4.359275262000001
+      ],
+      "tireModel": "Warm constant-mu tanh forces plus combined force circle; no thermal or DWB reconstruction",
+      "batteryCapacityKWhNominal": 93.7,
+      "chargeEfficiencyAssumed": 0.9,
+      "dischargeEfficiencyAssumed": 0.94,
+      "validDomain": "Forward planar driving; no roll, pitch, wheel-hop, full aerodynamics, or hardware delays"
+    },
+    "results": [
+      {
+        "scenario": "low_mu_exit",
+        "controller": "experimental_no_yaw",
+        "metrics": {
+          "durationCompletedS": 8.001,
+          "terminated": null,
+          "finalSpeedKmh": 109.05114024934633,
+          "peakAbsBetaDeg": 4.859425948041506,
+          "yawErrorRmsRadS": 0.0440464763057662,
+          "peakAbsSlip": 0.31999657390787734,
+          "maxDrivePowerKW": 246.95012135269042,
+          "maxRegenPowerKW": 0.0,
+          "recoveredKWh": 0.0,
+          "minimumTcFactor": 0.14526869644583965,
+          "minimumAbsFactor": 1.0
+        }
+      },
+      {
+        "scenario": "low_mu_exit",
+        "controller": "experimental",
+        "metrics": {
+          "durationCompletedS": 8.001,
+          "terminated": null,
+          "finalSpeedKmh": 108.41947122997175,
+          "peakAbsBetaDeg": 3.3892465253149267,
+          "yawErrorRmsRadS": 0.05939995126810819,
+          "peakAbsSlip": 0.3183454929585227,
+          "maxDrivePowerKW": 246.85546774994424,
+          "maxRegenPowerKW": 0.0,
+          "recoveredKWh": 0.0,
+          "minimumTcFactor": 0.14683164308546506,
+          "minimumAbsFactor": 1.0
+        }
+      }
+    ]
+  }
+}

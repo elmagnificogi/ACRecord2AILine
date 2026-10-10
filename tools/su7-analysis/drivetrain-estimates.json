@@ -1,0 +1,59 @@
+{
+  "method": "LUT linear interpolation at 1 rpm resolution within limiter; model power is torque*rpm*pi/30000. Coast is an idealized no-loss motor-to-wheel estimate, excludes aero and rolling resistance, uses unloaded rear radius0.352m. These are not AC telemetry.",
+  "maps": [
+    {
+      "map_index": 0,
+      "name": "运动",
+      "peak_model_kw": 781.47,
+      "rpm": 7089,
+      "torque_nm": 1052.68
+    },
+    {
+      "map_index": 1,
+      "name": "排位",
+      "peak_model_kw": 928.83,
+      "rpm": 7055,
+      "torque_nm": 1257.22
+    },
+    {
+      "map_index": 2,
+      "name": "耐力",
+      "peak_model_kw": 759.01,
+      "rpm": 6929,
+      "torque_nm": 1046.04
+    },
+    {
+      "map_index": 3,
+      "name": "直线",
+      "peak_model_kw": 961.34,
+      "rpm": 12804,
+      "torque_nm": 716.98
+    }
+  ],
+  "coast": [
+    {
+      "speed_kmh": 100,
+      "motor_rpm": 6936.7,
+      "coast_motor_nm": 85.2,
+      "wheel_force_N": 2227.7,
+      "deceleration_g": 0.093,
+      "motor_coast_kw": 61.9
+    },
+    {
+      "speed_kmh": 200,
+      "motor_rpm": 13873.3,
+      "coast_motor_nm": 170.4,
+      "wheel_force_N": 4455.4,
+      "deceleration_g": 0.187,
+      "motor_coast_kw": 247.5
+    },
+    {
+      "speed_kmh": 300,
+      "motor_rpm": 20810.0,
+      "coast_motor_nm": 255.6,
+      "wheel_force_N": 6683.1,
+      "deceleration_g": 0.28,
+      "motor_coast_kw": 556.9
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "checked_date": "2026-10-09",
+  "release": "0.2.11",
+  "download": "https://acstuff.club/patch/?get=0.2.11",
+  "github_sources": [
+    "https://github.com/ac-custom-shaders-patch/acc-lua-sdk/blob/main/ac_car_cphys.lua",
+    "https://github.com/ac-custom-shaders-patch/acc-lua-sdk/blob/main/common/ac_car_cphys_enums.lua",
+    "https://github.com/ac-custom-shaders-patch/acc-extension-config/wiki/Cars-%E2%80%93-Physics-scripts"
+  ],
+  "local_runtime": "No Assetto Corsa/CSP found in registered E:/Steam or D:/SteamLibrary; installed version unknown.",
+  "files": [
+    {
+      "file": "csp-0.2.11-ac_car_cphys-lib.lua",
+      "bytes": 456056,
+      "sha256": "7b04211153749024c8375c6ec4388d9714749d3a86ff92843a8a65f724348aad"
+    },
+    {
+      "file": "csp-0.2.11-ac_car_cphys-README.md",
+      "bytes": 279952,
+      "sha256": "65bdd217e8b3751ef0f1aa349a60e245d58a19735f7136640bcd8db7070b7653"
+    },
+    {
+      "file": "csp-0.2.11-physics-api-excerpts.lua",
+      "bytes": 25891,
+      "sha256": "5e5a2e08464a82f933a15cb2709727ac03b083869550627569939f5569b51c02"
+    },
+    {
+      "file": "official-physics-scripts.md",
+      "bytes": 4355,
+      "sha256": "e4c0fd0dafe11964dfc664a0996f4ae482d3c9f3bf345a1b87922a48ba2cd03e"
+    },
+    {
+      "file": "upstream-ac_car_cphys.lua",
+      "bytes": 5490,
+      "sha256": "6a4705bcf875bf87a84b4655585c17d9eb5fce95cacaaa01e44983dabfa7f7f4"
+    },
+    {
+      "file": "upstream-ac_car_cphys_enums.lua",
+      "bytes": 3572,
+      "sha256": "88e143e75d97639ec894714a780f49adeae20b9470554f8401891a33761b6ad1"
+    }
+  ]
+}

@@ -1,0 +1,1204 @@
+{
+  "metadata": {
+    "hardwareScope": {
+      "hardwareVariant": null,
+      "sourceModClassification": "single_fixed_suspension_unclassified",
+      "targetProfiles": [
+        "production_air",
+        "production_track_coilover"
+      ],
+      "hardwareProfilesApplied": false,
+      "suspensionDynamicsSimulated": false,
+      "expectedNativeSuspensionInGame": false,
+      "gameRuntimeVerified": false,
+      "suspensionModel": "not modeled",
+      "controlModeIsHardwareVariant": false,
+      "manifestSha256": "29953f7ee96ad19455ad26f17956fc5026cc48228e2b5db3c862ca20fdc77654",
+      "note": "Street/Sport/Track are experimental ECU settings. No validated air-versus-coilover performance comparison exists."
+    },
+    "purpose": "Auxiliary validation of an unchanged hypothetical longitudinal model against published road-test results; not AC telemetry or fitted vehicle physics.",
+    "sourceUrl": "https://www.autohome.com.cn/drive/202503/1304491.html",
+    "reportedTargets": {
+      "reportedBest0To100S": 2.36,
+      "reportedBest0To200S": 5.82,
+      "reportedSeparateVenue400mS": 9.13,
+      "reportedSeparateVenue400mTerminalKmh": 253.25,
+      "reported100To0AsphaltM": 33.98,
+      "reported100To0ConcreteM": 35.67
+    },
+    "sourceSessionPolicy": "Reported 0–100 and 0–200 are best figures, not proven same run. Published launch test uses 96% SOC/straight racing mode with stability retained. 400 m used another venue with SOC unknown; braking SOC and tire model unknown. All simulations use 96% SOC only as a scenario assumption.",
+    "reportedBrakeLabel": "reported 100–0 km/h",
+    "muPolicy": "0.95 and 1.20 are diagnostic plant assumptions, not fitted or measured real tire friction coefficients; controller grip estimates remain unchanged.",
+    "plantParams": {
+      "mass": 2435.0,
+      "wheelbase": 3.0,
+      "track_front": 1.672,
+      "track_rear": 1.649,
+      "cg_height": 0.4,
+      "efficiency": 1.0,
+      "discharge_efficiency": 0.94,
+      "charge_efficiency": 0.9,
+      "battery_kwh": 93.7,
+      "gear": 9.205,
+      "air_density": 1.225,
+      "cd_area": 0.63,
+      "rolling_coefficient": 0.012,
+      "tire_kappa_gain": 9.0,
+      "tire_alpha_gain": 11.0,
+      "lateral_load_front_share": 0.56,
+      "control_dt": 0.003,
+      "plant_dt": 0.0005
+    },
+    "maxPhaseDurationS": 15.0,
+    "timerPolicy": "Time zero is full pedal command from standstill; no rollout, hardware input delay, thermal/aero upgrade or launch-control precharge.",
+    "crossingPolicy": "First crossing linearly interpolated between adjacent 0.5 ms plant steps. Distance is trapezoidal integration of nonnegative longitudinal velocity; straight-only.",
+    "brakePolicy": "Independent fresh 100 km/h initialization and full pedal; cut at 0.5 km/h with residual kinetic energy and optional last-deceleration estimate. Not complete-stop distance.",
+    "powertrainPolicy": "Original MAP_1 plus same source equivalent torque budget; experiment also uses public motor envelope and unchanged guessed ratios/TC caps. No target fitting.",
+    "referenceLaunchCouplingCaveat": "The fixed-split reference uses a mean-wheel-speed shaft budget with independently integrated wheels, rather than the native AC transmission/differential constraints. Large launch slip can make weighted wheel power exceed the real motor envelope; do not identify these reference launch numbers as original AC mod measurements or predictions.",
+    "units": "Internal SI, reported speed km/h. Planar warm constant-mu plant, no tire temperature, pitch/roll/active suspension, complete aerodynamics or AC solver.",
+    "luaRuntime": "LuaJIT 2.1 via Lupa 2.6, core only",
+    "sourceHashesSha256": {
+      "plantAndHarness": "2922f3602423594e8ecd6161581ee8eecb92485c30e48e4bb9ebfe881d79720a",
+      "controller": "6324f324e2d15985d4c2a697a2be4c47787e28eb122d8fa15faaac53f13fba94",
+      "config": "0d83b4e07fa92e1bf7b969851399563a25d8b3d9e91e3a4ec0d84034673368da",
+      "validation": "9fed8e984dcd117d1a868f2edf3618978690be4a868d41e1c5776f95461e7fcb",
+      "sourcePowerLut": "4d0a700c0af4d94a47d8aee8c750905084667ea38a8c2bc4192554f9d47776ad",
+      "sourceMap1Lut": "4376c0a97cf23f8cdb661e67ba844d293afc2d437111c147e70702a4c0397efb"
+    },
+    "wallTimeS": 38.828000000008615
+  },
+  "selfChecks": {
+    "passed": 5,
+    "checks": [
+      "Constant-acceleration speed crossing time agrees with analytic target.",
+      "Constant-speed distance crossing finds exact time and speed.",
+      "Descending speed crossing and uncrossed-target exclusion behave correctly.",
+      "Distance integration is monotonic and exact for constant acceleration.",
+      "Brake cutoff retains nonzero residual speed and kinetic energy."
+    ]
+  },
+  "results": [
+    {
+      "controller": "reference_fixed_split",
+      "phase": "launch",
+      "muDiagnosticAssumption": 0.95,
+      "initialSocAssumption": 0.96,
+      "input": "step full throttle",
+      "steerRoadWheelRad": 0.0,
+      "mode": "track (2); default initial ramp states retained",
+      "durationCompletedS": 10.9305,
+      "termination": "Completed speed and 400 m thresholds",
+      "forwardValiditySatisfied": true,
+      "finalSpeedKmh": 237.77101060108362,
+      "distanceQuadratureM": 400.0071322541771,
+      "plantXEndM": 400.0236441299132,
+      "plantXMinusDistanceQuadratureM": 0.01651187573605739,
+      "distanceMonotonic": true,
+      "peakActualDrivePowerKW": 1401.8286883530034,
+      "peakActualRegenPowerKW": 0.0,
+      "peakAbsWheelSlipRatio": 17.444670366790422,
+      "peakLongitudinalAccelerationG": 0.9043772822860858,
+      "minimumTcFactor": 0.0016422930730837998,
+      "minimumAbsFactor": 1.0,
+      "finalSoc": 0.9365750589250026,
+      "crossingsSI": {
+        "speed100": {
+          "t": 3.938210746484886,
+          "speed": 27.77777777777778,
+          "distance": 55.01193438018657
+        },
+        "speed200": {
+          "t": 8.338817784290999,
+          "speed": 55.55555555555556,
+          "distance": 241.7892602680592
+        },
+        "distance400": {
+          "t": 10.93039201180665,
+          "speed": 66.0471175796578,
+          "distance": 400.0
+        }
+      },
+      "checkpointsSI": [
+        {
+          "t": 0.0,
+          "speed": 0.0,
+          "distance": 0.0
+        },
+        {
+          "t": 0.501,
+          "speed": 4.067370347298427,
+          "distance": 1.0568860848959667,
+          "soc": 0.958844385507065
+        },
+        {
+          "t": 1.002,
+          "speed": 7.036421210215952,
+          "distance": 3.792041039006001,
+          "soc": 0.9587094530091318
+        },
+        {
+          "t": 1.5030000000000001,
+          "speed": 10.600548459263173,
+          "distance": 8.210207880422399,
+          "soc": 0.9583732188547048
+        },
+        {
+          "t": 2.004,
+          "speed": 14.159062987813023,
+          "distance": 14.412787221933254,
+          "soc": 0.957899830762605
+        },
+        {
+          "t": 2.505,
+          "speed": 17.709132090320967,
+          "distance": 22.39618165493558,
+          "soc": 0.9572890770197702
+        },
+        {
+          "t": 3.0060000000000002,
+          "speed": 21.24728057448409,
+          "distance": 32.15536922178062,
+          "soc": 0.9565423866757957
+        },
+        {
+          "t": 3.507,
+          "speed": 24.766076620268553,
+          "distance": 43.682584873024645,
+          "soc": 0.9556696152086084
+        },
+        {
+          "t": 4.008,
+          "speed": 28.2635195671339,
+          "distance": 56.96747721921252,
+          "soc": 0.9546766612260652
+        },
+        {
+          "t": 4.509,
+          "speed": 31.73651814968072,
+          "distance": 71.99855857757815,
+          "soc": 0.9535678243083187
+        },
+        {
+          "t": 5.01,
+          "speed": 35.181127845237484,
+          "distance": 88.76268817141859,
+          "soc": 0.9523482824777308
+        },
+        {
+          "t": 5.511,
+          "speed": 38.59271779087818,
+          "distance": 107.24450005659821,
+          "soc": 0.95102428935997
+        },
+        {
+          "t": 6.0120000000000005,
+          "speed": 41.96734204151589,
+          "distance": 127.42647475199195,
+          "soc": 0.9496006828813974
+        },
+        {
+          "t": 6.513,
+          "speed": 45.27093519204181,
+          "distance": 149.28497738415203,
+          "soc": 0.9481265843949179
+        },
+        {
+          "t": 7.014,
+          "speed": 48.39531765817286,
+          "distance": 172.7577332032904,
+          "soc": 0.9466819319611909
+        },
+        {
+          "t": 7.515000000000001,
+          "speed": 51.28819660339059,
+          "distance": 197.73802040457386,
+          "soc": 0.9452705659790923
+        },
+        {
+          "t": 8.016,
+          "speed": 53.95488961331667,
+          "distance": 224.11090751122865,
+          "soc": 0.9438979420225748
+        },
+        {
+          "t": 8.517,
+          "speed": 56.40172582026167,
+          "distance": 251.76404305956592,
+          "soc": 0.9425714431360347
+        },
+        {
+          "t": 9.018,
+          "speed": 58.64615464195963,
+          "distance": 280.59163691596814,
+          "soc": 0.9412922716572315
+        },
+        {
+          "t": 9.519,
+          "speed": 60.70542462676867,
+          "distance": 310.496574659077,
+          "soc": 0.9400605361985586
+        },
+        {
+          "t": 10.02,
+          "speed": 62.65060536137148,
+          "distance": 341.3991381889634,
+          "soc": 0.9388369382837525
+        },
+        {
+          "t": 10.521,
+          "speed": 64.54968035865102,
+          "distance": 373.2648991243158,
+          "soc": 0.937591940451006
+        },
+        {
+          "t": 10.9305,
+          "speed": 66.04750294474545,
+          "distance": 400.0071322541771,
+          "soc": 0.9365750589250026
+        }
+      ],
+      "metrics": {
+        "zeroTo100S": 3.938210746484886,
+        "zeroTo200S": 8.338817784290999,
+        "distance400TimeS": 10.93039201180665,
+        "distance400SpeedKmh": 237.76962328676805
+      },
+      "differenceFromReportedBestOrSeparateSession": {
+        "zeroTo100S": 1.5782107464848862,
+        "zeroTo200S": 2.5188177842909987,
+        "distance400TimeS": 1.8003920118066485,
+        "distance400SpeedKmh": -15.480376713231948
+      }
+    },
+    {
+      "controller": "reference_fixed_split",
+      "phase": "brake",
+      "muDiagnosticAssumption": 0.95,
+      "initialSocAssumption": 0.96,
+      "input": "step full brake",
+      "steerRoadWheelRad": 0.0,
+      "mode": "track (2); default initial ramp states retained",
+      "durationCompletedS": 3.3080000000000003,
+      "termination": "Reached 0.5 km/h brake cutoff; complete stop not simulated",
+      "forwardValiditySatisfied": true,
+      "finalSpeedKmh": 0.4878424221018255,
+      "distanceQuadratureM": 46.0088662409218,
+      "plantXEndM": 46.00195567442393,
+      "plantXMinusDistanceQuadratureM": -0.006910566497865034,
+      "distanceMonotonic": true,
+      "peakActualDrivePowerKW": 0.0,
+      "peakActualRegenPowerKW": 0.0,
+      "peakAbsWheelSlipRatio": 0.20647867101661194,
+      "peakLongitudinalAccelerationG": 0.0,
+      "minimumTcFactor": 1.0,
+      "minimumAbsFactor": 0.6347166254094058,
+      "finalSoc": 0.96,
+      "crossingsSI": {
+        "speed0p5": {
+          "t": 3.307573272622148,
+          "speed": 0.1388888888888889,
+          "distance": 46.008807570057336
+        }
+      },
+      "checkpointsSI": [
+        {
+          "t": 0.0,
+          "speed": 27.77777777777778,
+          "distance": 0.0
+        },
+        {
+          "t": 0.501,
+          "speed": 23.58567620597879,
+          "distance": 12.8836565333113,
+          "soc": 0.96
+        },
+        {
+          "t": 1.002,
+          "speed": 19.346762721400992,
+          "distance": 23.637116066102397,
+          "soc": 0.96
+        },
+        {
+          "t": 1.5030000000000001,
+          "speed": 15.133295171445349,
+          "distance": 32.27336146490854,
+          "soc": 0.96
+        },
+        {
+          "t": 2.004,
+          "speed": 10.942745036564418,
+          "distance": 38.80450475466222,
+          "soc": 0.96
+        },
+        {
+          "t": 2.505,
+          "speed": 6.772637878562232,
+          "distance": 43.24140572021695,
+          "soc": 0.96
+        },
+        {
+          "t": 3.0060000000000002,
+          "speed": 2.6206187190608508,
+          "distance": 45.59370039699828,
+          "soc": 0.96
+        },
+        {
+          "t": 3.3080000000000003,
+          "speed": 0.13551178391717375,
+          "distance": 46.0088662409218,
+          "soc": 0.96
+        }
+      ],
+      "metrics": {
+        "hundredTo0p5KmhDistanceM": 46.008807570057336,
+        "hundredTo0p5KmhTimeS": 3.307573272622148,
+        "residualSpeedKmh": 0.5,
+        "residualKineticEnergyJ": 23.485725308641978,
+        "constantLastDecelerationResidualDistanceEstimateM": 0.0012187397001430865,
+        "residualEstimatePolicy": "Last-deceleration extrapolation only; not a simulated complete stop."
+      },
+      "distanceDifferenceFromReported100To0M": {
+        "asphalt": 12.028807570057339,
+        "concrete": 10.338807570057334,
+        "caution": "Simulated 100→0.5 km/h compared with reported 100→0; no zero-speed claim."
+      }
+    },
+    {
+      "controller": "experimental_track",
+      "phase": "launch",
+      "muDiagnosticAssumption": 0.95,
+      "initialSocAssumption": 0.96,
+      "input": "step full throttle",
+      "steerRoadWheelRad": 0.0,
+      "mode": "track (2); default initial ramp states retained",
+      "durationCompletedS": 10.7715,
+      "termination": "Completed speed and 400 m thresholds",
+      "forwardValiditySatisfied": true,
+      "finalSpeedKmh": 237.47859964923663,
+      "distanceQuadratureM": 400.01265352028105,
+      "plantXEndM": 400.0291450897001,
+      "plantXMinusDistanceQuadratureM": 0.016491569419031293,
+      "distanceMonotonic": true,
+      "peakActualDrivePowerKW": 877.4859052195957,
+      "peakActualRegenPowerKW": 0.0,
+      "peakAbsWheelSlipRatio": 1.443089450832181,
+      "peakLongitudinalAccelerationG": 0.9348165270372872,
+      "minimumTcFactor": 0.481361188258703,
+      "minimumAbsFactor": 1.0,
+      "finalSoc": 0.938874368160653,
+      "crossingsSI": {
+        "speed100": {
+          "t": 3.642988865908116,
+          "speed": 27.77777777777778,
+          "distance": 49.414333474578726
+        },
+        "speed200": {
+          "t": 8.208475390037469,
+          "speed": 55.55555555555556,
+          "distance": 243.65607055263965
+        },
+        "distance400": {
+          "t": 10.771308179380105,
+          "speed": 65.96558969746361,
+          "distance": 400.0
+        }
+      },
+      "checkpointsSI": [
+        {
+          "t": 0.0,
+          "speed": 0.0,
+          "distance": 0.0
+        },
+        {
+          "t": 0.501,
+          "speed": 3.2821806460955685,
+          "distance": 0.7209465226272276,
+          "soc": 0.9599471611877829
+        },
+        {
+          "t": 1.002,
+          "speed": 7.106159962298672,
+          "distance": 3.3207927906386954,
+          "soc": 0.9597621613374042
+        },
+        {
+          "t": 1.5030000000000001,
+          "speed": 10.9850669797649,
+          "distance": 7.850455435132406,
+          "soc": 0.9594341914914195
+        },
+        {
+          "t": 2.004,
+          "speed": 14.913314654666813,
+          "distance": 14.336047977764128,
+          "soc": 0.9589564277068638
+        },
+        {
+          "t": 2.505,
+          "speed": 18.885524793742913,
+          "distance": 22.801007238752177,
+          "soc": 0.958322103030241
+        },
+        {
+          "t": 3.0060000000000002,
+          "speed": 22.8782816249045,
+          "distance": 33.26333990157302,
+          "soc": 0.9575305902070812
+        },
+        {
+          "t": 3.507,
+          "speed": 26.759137789097448,
+          "distance": 45.70597373847885,
+          "soc": 0.9566219379833812
+        },
+        {
+          "t": 4.008,
+          "speed": 30.444933449511595,
+          "distance": 60.04327384840351,
+          "soc": 0.9556294158068709
+        },
+        {
+          "t": 4.509,
+          "speed": 33.9606413747982,
+          "distance": 76.18314782863678,
+          "soc": 0.9545609101138947
+        },
+        {
+          "t": 5.01,
+          "speed": 37.277376411270815,
+          "distance": 94.0396817269299,
+          "soc": 0.9534510483729438
+        },
+        {
+          "t": 5.511,
+          "speed": 40.41623276080392,
+          "distance": 113.50686666303277,
+          "soc": 0.9522983633734436
+        },
+        {
+          "t": 6.0120000000000005,
+          "speed": 43.44662691535863,
+          "distance": 134.51861315760286,
+          "soc": 0.9510884975714395
+        },
+        {
+          "t": 6.513,
+          "speed": 46.38242298623154,
+          "distance": 157.02449621324416,
+          "soc": 0.9498231047356938
+        },
+        {
+          "t": 7.014,
+          "speed": 49.23141567347161,
+          "distance": 180.9793471020086,
+          "soc": 0.9485048478476695
+        },
+        {
+          "t": 7.515000000000001,
+          "speed": 51.994740667116126,
+          "distance": 206.3400658768158,
+          "soc": 0.9471387868302826
+        },
+        {
+          "t": 8.016,
+          "speed": 54.609323230819925,
+          "distance": 233.05355064221732,
+          "soc": 0.9457787074768278
+        },
+        {
+          "t": 8.517,
+          "speed": 57.00806326938228,
+          "distance": 261.0223894321951,
+          "soc": 0.9444645590653413
+        },
+        {
+          "t": 9.018,
+          "speed": 59.20735840140114,
+          "distance": 290.1423081458328,
+          "soc": 0.9431976556267783
+        },
+        {
+          "t": 9.519,
+          "speed": 61.2280955988188,
+          "distance": 320.31795887223217,
+          "soc": 0.9419746960153468
+        },
+        {
+          "t": 10.02,
+          "speed": 63.16553956596747,
+          "distance": 351.4803681292397,
+          "soc": 0.9407442210110749
+        },
+        {
+          "t": 10.521,
+          "speed": 65.05398169610507,
+          "distance": 383.60178520372676,
+          "soc": 0.9394954900070643
+        },
+        {
+          "t": 10.7715,
+          "speed": 65.96627768034351,
+          "distance": 400.01265352028105,
+          "soc": 0.938874368160653
+        }
+      ],
+      "metrics": {
+        "zeroTo100S": 3.642988865908116,
+        "zeroTo200S": 8.208475390037469,
+        "distance400TimeS": 10.771308179380105,
+        "distance400SpeedKmh": 237.476122910869
+      },
+      "differenceFromReportedBestOrSeparateSession": {
+        "zeroTo100S": 1.2829888659081163,
+        "zeroTo200S": 2.3884753900374687,
+        "distance400TimeS": 1.641308179380104,
+        "distance400SpeedKmh": -15.773877089130991
+      }
+    },
+    {
+      "controller": "experimental_track",
+      "phase": "brake",
+      "muDiagnosticAssumption": 0.95,
+      "initialSocAssumption": 0.96,
+      "input": "step full brake",
+      "steerRoadWheelRad": 0.0,
+      "mode": "track (2); default initial ramp states retained",
+      "durationCompletedS": 4.034,
+      "termination": "Reached 0.5 km/h brake cutoff; complete stop not simulated",
+      "forwardValiditySatisfied": true,
+      "finalSpeedKmh": 0.4919145810431821,
+      "distanceQuadratureM": 56.2317418236115,
+      "plantXEndM": 56.224831539901466,
+      "plantXMinusDistanceQuadratureM": -0.006910283710034548,
+      "distanceMonotonic": true,
+      "peakActualDrivePowerKW": 0.0,
+      "peakActualRegenPowerKW": 254.28888732074142,
+      "peakAbsWheelSlipRatio": 0.29954222754599497,
+      "peakLongitudinalAccelerationG": 0.0,
+      "minimumTcFactor": 1.0,
+      "minimumAbsFactor": 0.48468638449955703,
+      "finalSoc": 0.9608968815461337,
+      "crossingsSI": {
+        "speed0p5": {
+          "t": 4.0337179271429076,
+          "speed": 0.1388888888888889,
+          "distance": 56.231702718859815
+        }
+      },
+      "checkpointsSI": [
+        {
+          "t": 0.0,
+          "speed": 27.77777777777778,
+          "distance": 0.0
+        },
+        {
+          "t": 0.501,
+          "speed": 24.109636671459526,
+          "distance": 12.964041704684911,
+          "soc": 0.9602112004948283
+        },
+        {
+          "t": 1.002,
+          "speed": 20.73106670702289,
+          "distance": 24.19613994097562,
+          "soc": 0.9603913608139976
+        },
+        {
+          "t": 1.5030000000000001,
+          "speed": 17.363255799024095,
+          "distance": 33.738358403980776,
+          "soc": 0.9605437760309287
+        },
+        {
+          "t": 2.004,
+          "speed": 14.00437154973991,
+          "distance": 41.59561290131366,
+          "soc": 0.9606688365481367
+        },
+        {
+          "t": 2.505,
+          "speed": 10.652669931055748,
+          "distance": 47.77193811414638,
+          "soc": 0.9607668621875732
+        },
+        {
+          "t": 3.0060000000000002,
+          "speed": 7.306421765287807,
+          "distance": 52.270498836096785,
+          "soc": 0.9608381027662607
+        },
+        {
+          "t": 3.507,
+          "speed": 3.9639151682868845,
+          "distance": 55.0935969571548,
+          "soc": 0.9608827389207911
+        },
+        {
+          "t": 4.008,
+          "speed": 0.36375373398792815,
+          "distance": 56.22525318512734,
+          "soc": 0.9608968780760342
+        },
+        {
+          "t": 4.034,
+          "speed": 0.1366429391786617,
+          "distance": 56.2317418236115,
+          "soc": 0.9608968815461337
+        }
+      ],
+      "metrics": {
+        "hundredTo0p5KmhDistanceM": 56.231702718859815,
+        "hundredTo0p5KmhTimeS": 4.0337179271429076,
+        "residualSpeedKmh": 0.5,
+        "residualKineticEnergyJ": 23.485725308641978,
+        "constantLastDecelerationResidualDistanceEstimateM": 0.0012113406218206546,
+        "residualEstimatePolicy": "Last-deceleration extrapolation only; not a simulated complete stop."
+      },
+      "distanceDifferenceFromReported100To0M": {
+        "asphalt": 22.251702718859818,
+        "concrete": 20.561702718859813,
+        "caution": "Simulated 100→0.5 km/h compared with reported 100→0; no zero-speed claim."
+      }
+    },
+    {
+      "controller": "reference_fixed_split",
+      "phase": "launch",
+      "muDiagnosticAssumption": 1.2,
+      "initialSocAssumption": 0.96,
+      "input": "step full throttle",
+      "steerRoadWheelRad": 0.0,
+      "mode": "track (2); default initial ramp states retained",
+      "durationCompletedS": 9.923,
+      "termination": "Completed speed and 400 m thresholds",
+      "forwardValiditySatisfied": true,
+      "finalSpeedKmh": 244.76779834115223,
+      "distanceQuadratureM": 400.02420724623,
+      "plantXEndM": 400.04120501000557,
+      "plantXMinusDistanceQuadratureM": 0.016997763775577823,
+      "distanceMonotonic": true,
+      "peakActualDrivePowerKW": 966.2616007526145,
+      "peakActualRegenPowerKW": 0.0,
+      "peakAbsWheelSlipRatio": 6.418642560501173,
+      "peakLongitudinalAccelerationG": 1.0628640350958118,
+      "minimumTcFactor": 0.08099471081759296,
+      "minimumAbsFactor": 1.0,
+      "finalSoc": 0.9369153105392447,
+      "crossingsSI": {
+        "speed100": {
+          "t": 2.9693827314648864,
+          "speed": 27.77777777777778,
+          "distance": 41.19654024231098
+        },
+        "speed200": {
+          "t": 6.841623867400672,
+          "speed": 55.55555555555556,
+          "distance": 208.55295513985777
+        },
+        "distance400": {
+          "t": 9.92264395977583,
+          "speed": 67.98983802492036,
+          "distance": 400.0
+        }
+      },
+      "checkpointsSI": [
+        {
+          "t": 0.0,
+          "speed": 0.0,
+          "distance": 0.0
+        },
+        {
+          "t": 0.501,
+          "speed": 4.677167298161187,
+          "distance": 1.2486006811509736,
+          "soc": 0.959596280311596
+        },
+        {
+          "t": 1.002,
+          "speed": 9.261199653176682,
+          "distance": 4.70349928127662,
+          "soc": 0.9592655151878966
+        },
+        {
+          "t": 1.5030000000000001,
+          "speed": 14.00284202126656,
+          "distance": 10.531399591722444,
+          "soc": 0.958688402904942
+        },
+        {
+          "t": 2.004,
+          "speed": 18.735549927460674,
+          "distance": 18.732874718159263,
+          "soc": 0.9578723826368606
+        },
+        {
+          "t": 2.505,
+          "speed": 23.44707766404383,
+          "distance": 29.301090918233037,
+          "soc": 0.9568255324618666
+        },
+        {
+          "t": 3.0060000000000002,
+          "speed": 28.117506291036502,
+          "distance": 42.21990723923054,
+          "soc": 0.9555745814753387
+        },
+        {
+          "t": 3.507,
+          "speed": 32.73562116971926,
+          "distance": 57.466039254446855,
+          "soc": 0.9541344070063068
+        },
+        {
+          "t": 4.008,
+          "speed": 37.16604823920577,
+          "distance": 74.99201728360462,
+          "soc": 0.9526224305658566
+        },
+        {
+          "t": 4.509,
+          "speed": 41.15757982638061,
+          "distance": 94.63082974304793,
+          "soc": 0.9511466102527955
+        },
+        {
+          "t": 5.01,
+          "speed": 44.76088756799794,
+          "distance": 116.16766851708249,
+          "soc": 0.9496950189116246
+        },
+        {
+          "t": 5.511,
+          "speed": 48.05415149913616,
+          "distance": 139.42946392739154,
+          "soc": 0.9482615350732899
+        },
+        {
+          "t": 6.0120000000000005,
+          "speed": 51.08105070492647,
+          "distance": 164.27354565699517,
+          "soc": 0.9468491573567055
+        },
+        {
+          "t": 6.513,
+          "speed": 53.861676702813405,
+          "distance": 190.57161532251305,
+          "soc": 0.9454668606985309
+        },
+        {
+          "t": 7.014,
+          "speed": 56.40439677206886,
+          "distance": 218.20294734510756,
+          "soc": 0.9441269140307582
+        },
+        {
+          "t": 7.515000000000001,
+          "speed": 58.72682799570561,
+          "distance": 247.05207362199104,
+          "soc": 0.9428339301612724
+        },
+        {
+          "t": 8.016,
+          "speed": 60.849564706706204,
+          "distance": 277.0138746250355,
+          "soc": 0.9415890442966202
+        },
+        {
+          "t": 8.517,
+          "speed": 62.813978403713755,
+          "distance": 307.99542077528554,
+          "soc": 0.9403767576965382
+        },
+        {
+          "t": 9.018,
+          "speed": 64.72391831940769,
+          "distance": 339.9456023725497,
+          "soc": 0.9391453967712772
+        },
+        {
+          "t": 9.519,
+          "speed": 66.57475596229206,
+          "distance": 372.83951460488476,
+          "soc": 0.9379031675299336
+        },
+        {
+          "t": 9.923,
+          "speed": 67.9910550947645,
+          "distance": 400.02420724623,
+          "soc": 0.9369153105392447
+        }
+      ],
+      "metrics": {
+        "zeroTo100S": 2.9693827314648864,
+        "zeroTo200S": 6.841623867400672,
+        "distance400TimeS": 9.92264395977583,
+        "distance400SpeedKmh": 244.7634168897133
+      },
+      "differenceFromReportedBestOrSeparateSession": {
+        "zeroTo100S": 0.6093827314648865,
+        "zeroTo200S": 1.0216238674006721,
+        "distance400TimeS": 0.7926439597758286,
+        "distance400SpeedKmh": -8.486583110286688
+      }
+    },
+    {
+      "controller": "reference_fixed_split",
+      "phase": "brake",
+      "muDiagnosticAssumption": 1.2,
+      "initialSocAssumption": 0.96,
+      "input": "step full brake",
+      "steerRoadWheelRad": 0.0,
+      "mode": "track (2); default initial ramp states retained",
+      "durationCompletedS": 2.7855,
+      "termination": "Reached 0.5 km/h brake cutoff; complete stop not simulated",
+      "forwardValiditySatisfied": true,
+      "finalSpeedKmh": 0.4962501087417196,
+      "distanceQuadratureM": 38.764628069191204,
+      "plantXEndM": 38.75771808655974,
+      "plantXMinusDistanceQuadratureM": -0.006909982631462697,
+      "distanceMonotonic": true,
+      "peakActualDrivePowerKW": 0.0,
+      "peakActualRegenPowerKW": 0.0,
+      "peakAbsWheelSlipRatio": 0.15248100812033671,
+      "peakLongitudinalAccelerationG": 0.0,
+      "minimumTcFactor": 1.0,
+      "minimumAbsFactor": 0.8602995016442762,
+      "finalSoc": 0.96,
+      "crossingsSI": {
+        "speed0p5": {
+          "t": 2.7853923295142766,
+          "speed": 0.1388888888888889,
+          "distance": 38.76461296670146
+        }
+      },
+      "checkpointsSI": [
+        {
+          "t": 0.0,
+          "speed": 27.77777777777778,
+          "distance": 0.0
+        },
+        {
+          "t": 0.501,
+          "speed": 22.804736754045585,
+          "distance": 12.692908192784639,
+          "soc": 0.96
+        },
+        {
+          "t": 1.002,
+          "speed": 17.773126371977575,
+          "distance": 22.856089531154463,
+          "soc": 0.96
+        },
+        {
+          "t": 1.5030000000000001,
+          "speed": 12.777442631665476,
+          "distance": 30.507579999537676,
+          "soc": 0.96
+        },
+        {
+          "t": 2.004,
+          "speed": 7.814222508661171,
+          "distance": 35.66450809310396,
+          "soc": 0.96
+        },
+        {
+          "t": 2.505,
+          "speed": 2.8801098760831754,
+          "distance": 38.34228723293938,
+          "soc": 0.96
+        },
+        {
+          "t": 2.7855,
+          "speed": 0.13784725242825543,
+          "distance": 38.764628069191204,
+          "soc": 0.96
+        }
+      ],
+      "metrics": {
+        "hundredTo0p5KmhDistanceM": 38.76461296670146,
+        "hundredTo0p5KmhTimeS": 2.7853923295142766,
+        "residualSpeedKmh": 0.5,
+        "residualKineticEnergyJ": 23.485725308641978,
+        "constantLastDecelerationResidualDistanceEstimateM": 0.0009969778520403831,
+        "residualEstimatePolicy": "Last-deceleration extrapolation only; not a simulated complete stop."
+      },
+      "distanceDifferenceFromReported100To0M": {
+        "asphalt": 4.7846129667014665,
+        "concrete": 3.0946129667014617,
+        "caution": "Simulated 100→0.5 km/h compared with reported 100→0; no zero-speed claim."
+      }
+    },
+    {
+      "controller": "experimental_track",
+      "phase": "launch",
+      "muDiagnosticAssumption": 1.2,
+      "initialSocAssumption": 0.96,
+      "input": "step full throttle",
+      "steerRoadWheelRad": 0.0,
+      "mode": "track (2); default initial ramp states retained",
+      "durationCompletedS": 10.0345,
+      "termination": "Completed speed and 400 m thresholds",
+      "forwardValiditySatisfied": true,
+      "finalSpeedKmh": 244.3548999102657,
+      "distanceQuadratureM": 400.00960365268224,
+      "plantXEndM": 400.0265727429557,
+      "plantXMinusDistanceQuadratureM": 0.016969090273448728,
+      "distanceMonotonic": true,
+      "peakActualDrivePowerKW": 923.086031456192,
+      "peakActualRegenPowerKW": 0.0,
+      "peakAbsWheelSlipRatio": 0.6734155842271073,
+      "peakLongitudinalAccelerationG": 1.0957033639536544,
+      "minimumTcFactor": 0.7819175102296083,
+      "minimumAbsFactor": 1.0,
+      "finalSoc": 0.9379695503721199,
+      "crossingsSI": {
+        "speed100": {
+          "t": 3.0337321630525134,
+          "speed": 27.77777777777778,
+          "distance": 40.923693071824005
+        },
+        "speed200": {
+          "t": 6.992861016283901,
+          "speed": 55.55555555555556,
+          "distance": 211.20212333961632
+        },
+        "distance400": {
+          "t": 10.034358510765646,
+          "speed": 67.87587437197334,
+          "distance": 400.0
+        }
+      },
+      "checkpointsSI": [
+        {
+          "t": 0.0,
+          "speed": 0.0,
+          "distance": 0.0
+        },
+        {
+          "t": 0.501,
+          "speed": 3.94007984549966,
+          "distance": 0.8430962975795718,
+          "soc": 0.9599263450024181
+        },
+        {
+          "t": 1.002,
+          "speed": 8.570341149302818,
+          "distance": 3.973911606547156,
+          "soc": 0.9596586082968851
+        },
+        {
+          "t": 1.5030000000000001,
+          "speed": 13.271841221568122,
+          "distance": 9.442533796003909,
+          "soc": 0.9591827950114193
+        },
+        {
+          "t": 2.004,
+          "speed": 18.038835080108917,
+          "distance": 17.283230930206106,
+          "soc": 0.9584886921501558
+        },
+        {
+          "t": 2.505,
+          "speed": 22.85043867979672,
+          "distance": 27.525602855295283,
+          "soc": 0.9575702281038521
+        },
+        {
+          "t": 3.0060000000000002,
+          "speed": 27.52697352089363,
+          "distance": 40.15683086432615,
+          "soc": 0.9564714256260229
+        },
+        {
+          "t": 3.507,
+          "speed": 31.94366955226867,
+          "distance": 55.06415907156867,
+          "soc": 0.9552442988711157
+        },
+        {
+          "t": 4.008,
+          "speed": 36.08777873089176,
+          "distance": 72.12184700754197,
+          "soc": 0.953931308377816
+        },
+        {
+          "t": 4.509,
+          "speed": 39.97875019471364,
+          "distance": 91.18292440747396,
+          "soc": 0.9525468601177639
+        },
+        {
+          "t": 5.01,
+          "speed": 43.680488556825445,
+          "distance": 112.15116094653189,
+          "soc": 0.951096445987441
+        },
+        {
+          "t": 5.511,
+          "speed": 47.070081177546136,
+          "distance": 134.89659208205572,
+          "soc": 0.9496586107450996
+        },
+        {
+          "t": 6.0120000000000005,
+          "speed": 50.182792194196985,
+          "distance": 159.26941695088115,
+          "soc": 0.9482387429327094
+        },
+        {
+          "t": 6.513,
+          "speed": 53.04218693185174,
+          "distance": 185.13738369517105,
+          "soc": 0.9468459191826191
+        },
+        {
+          "t": 7.014,
+          "speed": 55.66128696810251,
+          "distance": 212.37762944142798,
+          "soc": 0.9454913262155185
+        },
+        {
+          "t": 7.515000000000001,
+          "speed": 58.052317677459854,
+          "distance": 240.8719215906723,
+          "soc": 0.9441830949812446
+        },
+        {
+          "t": 8.016,
+          "speed": 60.236850280829145,
+          "distance": 270.5115541487147,
+          "soc": 0.9429227624266855
+        },
+        {
+          "t": 8.517,
+          "speed": 62.24043451627065,
+          "distance": 301.1983987097396,
+          "soc": 0.9417058875812313
+        },
+        {
+          "t": 9.018,
+          "speed": 64.16780743180576,
+          "distance": 332.8654834200075,
+          "soc": 0.9404795124251467
+        },
+        {
+          "t": 9.519,
+          "speed": 66.04488347553146,
+          "distance": 365.4863451544154,
+          "soc": 0.9392356480864341
+        },
+        {
+          "t": 10.02,
+          "speed": 67.82643837213173,
+          "distance": 399.0257582476232,
+          "soc": 0.9380048308534064
+        },
+        {
+          "t": 10.0345,
+          "speed": 67.87636108618491,
+          "distance": 400.00960365268224,
+          "soc": 0.9379695503721199
+        }
+      ],
+      "metrics": {
+        "zeroTo100S": 3.0337321630525134,
+        "zeroTo200S": 6.992861016283901,
+        "distance400TimeS": 10.034358510765646,
+        "distance400SpeedKmh": 244.35314773910403
+      },
+      "differenceFromReportedBestOrSeparateSession": {
+        "zeroTo100S": 0.6737321630525135,
+        "zeroTo200S": 1.1728610162839006,
+        "distance400TimeS": 0.9043585107656451,
+        "distance400SpeedKmh": -8.896852260895969
+      }
+    },
+    {
+      "controller": "experimental_track",
+      "phase": "brake",
+      "muDiagnosticAssumption": 1.2,
+      "initialSocAssumption": 0.96,
+      "input": "step full brake",
+      "steerRoadWheelRad": 0.0,
+      "mode": "track (2); default initial ramp states retained",
+      "durationCompletedS": 2.9115,
+      "termination": "Reached 0.5 km/h brake cutoff; complete stop not simulated",
+      "forwardValiditySatisfied": true,
+      "finalSpeedKmh": 0.4883022700922222,
+      "distanceQuadratureM": 40.66239637172395,
+      "plantXEndM": 40.65548583715927,
+      "plantXMinusDistanceQuadratureM": -0.006910534564681825,
+      "distanceMonotonic": true,
+      "peakActualDrivePowerKW": 0.0,
+      "peakActualRegenPowerKW": 254.28888732074142,
+      "peakAbsWheelSlipRatio": 0.1877819822810058,
+      "peakLongitudinalAccelerationG": 0.0,
+      "minimumTcFactor": 1.0,
+      "minimumAbsFactor": 0.7753730935000914,
+      "finalSoc": 0.9607664063821383,
+      "crossingsSI": {
+        "speed0p5": {
+          "t": 2.9111743283765183,
+          "speed": 0.1388888888888889,
+          "distance": 40.66235138543908
+        }
+      },
+      "checkpointsSI": [
+        {
+          "t": 0.0,
+          "speed": 27.77777777777778,
+          "distance": 0.0
+        },
+        {
+          "t": 0.501,
+          "speed": 22.95113530706048,
+          "distance": 12.707665126611184,
+          "soc": 0.9602450826782768
+        },
+        {
+          "t": 1.002,
+          "speed": 18.21819577754376,
+          "distance": 23.019748889100576,
+          "soc": 0.9604394906391824
+        },
+        {
+          "t": 1.5030000000000001,
+          "speed": 13.501291840823084,
+          "distance": 30.96492070158985,
+          "soc": 0.9605885764312831
+        },
+        {
+          "t": 2.004,
+          "speed": 8.795802757747627,
+          "distance": 36.54994923849634,
+          "soc": 0.960693012191789
+        },
+        {
+          "t": 2.505,
+          "speed": 4.0977738404010315,
+          "distance": 39.77956037416983,
+          "soc": 0.96075325983185
+        },
+        {
+          "t": 2.9115,
+          "speed": 0.13563951947006173,
+          "distance": 40.66239637172395,
+          "soc": 0.9607664063821383
+        }
+      ],
+      "metrics": {
+        "hundredTo0p5KmhDistanceM": 40.66235138543908,
+        "hundredTo0p5KmhTimeS": 2.9111743283765183,
+        "residualSpeedKmh": 0.5,
+        "residualKineticEnergyJ": 23.485725308641978,
+        "constantLastDecelerationResidualDistanceEstimateM": 0.0009666869188426872,
+        "residualEstimatePolicy": "Last-deceleration extrapolation only; not a simulated complete stop."
+      },
+      "distanceDifferenceFromReported100To0M": {
+        "asphalt": 6.682351385439084,
+        "concrete": 4.992351385439079,
+        "caution": "Simulated 100→0.5 km/h compared with reported 100→0; no zero-speed claim."
+      }
+    }
+  ]
+}

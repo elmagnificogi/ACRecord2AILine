@@ -19,3 +19,6 @@
 *.ini_
 *.zip
 *.cmd
+
+# Local donor mods are inputs, not source code.
+/tools/car/

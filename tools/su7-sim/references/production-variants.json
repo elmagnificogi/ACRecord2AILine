@@ -1,0 +1,135 @@
+{
+  "schemaVersion": 1,
+  "checkedDate": "2026-10-09",
+  "scope": "Separate production hardware targets. This is a source/parameter manifest, not two implemented or calibrated vehicle physics packages.",
+  "sources": {
+    "xiaomi_product_live": {
+      "url": "https://www.xiaomiev.com/ultra",
+      "date": null,
+      "scope": "Current hardware descriptions; do not assume current software/trim equals 2025 launch calibration."
+    },
+    "xiaomi_track_release_20250626": {
+      "url": "https://prtimes.jp/main/html/rd/p/000000173.000098799.html",
+      "date": "2025-06-30",
+      "eventDate": "2025-06-26",
+      "publisher": "Xiaomi Technology Japan",
+      "scope": "Manufacturer release distinguishes base, optional track package and limited edition."
+    },
+    "xiaomi_nurburgring_20250401": {
+      "url": "https://www.xiaomiauto.com/global/prototype",
+      "eventDate": "2025-04-01",
+      "scope": "Production record configuration only; prototype figures on same page excluded."
+    }
+  },
+  "sharedPowertrainSource": "public-parameters.json",
+  "sharedPowertrainPolicy": "Use evidence-backed three-motor architecture and limits. No evidence that ordinary track package adds motor power or independently proves different ECU gains.",
+  "targetProfiles": {
+    "production_air": {
+      "labelZh": "量产普通空悬版",
+      "hardware": {
+        "spring": "closed dual-chamber air",
+        "damper": "adaptive",
+        "trackCoiloverInstalled": false
+      },
+      "physicsParameters": {
+        "wheelRatesNm": null,
+        "damperForceVelocityCurves": null,
+        "springForceTravelCurves": null,
+        "rideHeightsM": null,
+        "wheelTravelAndBumpstopsM": null,
+        "alignmentByMode": null,
+        "antiRollWheelRatesNm": null,
+        "massAndCGByEquipment": null,
+        "aeroMapsByEquipment": null,
+        "brakePadTemperatureCurves": null
+      },
+      "physicsValidated": false,
+      "tyrePolicy": "Record actual tyre separately; suspension type does not identify tyre compound."
+    },
+    "production_track_coilover": {
+      "labelZh": "量产赛道专业套装绞牙版",
+      "hardware": {
+        "springDamper": "Bilstein EVO R for Ultra coilovers",
+        "compressionReboundAdjustment": "10-stage per official description; exact per-axle curve unknown",
+        "brakePad": "ENDLESS MA45B",
+        "wheels": "21-inch forged",
+        "includedTyres": [
+          "P ZERO 5",
+          "additional same-size Trofeo RS set"
+        ]
+      },
+      "physicsParameters": {
+        "wheelRatesNm": null,
+        "damperForceVelocityCurves": null,
+        "springForceTravelCurves": null,
+        "rideHeightsM": null,
+        "wheelTravelAndBumpstopsM": null,
+        "alignmentByMode": null,
+        "antiRollWheelRatesNm": null,
+        "massAndCGByEquipment": null,
+        "aeroMapsByEquipment": null,
+        "brakePadTemperatureCurves": null
+      },
+      "physicsValidated": false,
+      "semiSlickFactoryPreinstalled": false,
+      "publishedEnvelopeOnly": {
+        "maximumSpringRateNPerMm": 300,
+        "maximumDamperForceN": 9000,
+        "use": "Bounds only, not measured front/rear wheel rate or N*s/m damper coefficient."
+      },
+      "tyrePolicy": "Package includes two tyre types; record which is mounted and its temperature."
+    }
+  },
+  "excludedConfigurations": {
+    "nurburgring_record_car": "Track package plus dual-vent carbon hood, aero underbody and certified safety modifications. Do not treat it as either ordinary baseline.",
+    "nurburgring_limited_edition": "Separate production equipment. Published 30 kg reduction is not an ordinary track-package mass delta.",
+    "prototype": "Different car; do not copy its slick tyres, springs, mass or downforce to production targets."
+  },
+  "sourceMod": {
+    "folder": "msk_stw_xiaomi_su7_ultra - 2.0",
+    "hardwareVariant": null,
+    "classification": "single_fixed_suspension_unclassified",
+    "separateAirCoiloverPhysicsFound": false,
+    "airChamberLevelingAdaptiveDamperLogicFound": false,
+    "geometryApproximation": "DWB front/rear",
+    "fixedSuspensionParameters": {
+      "FRONT": {
+        "wheelRateNm": 89759.0,
+        "progressiveRateNm2": 18000.0,
+        "slowBumpNsM": 13455.0,
+        "slowReboundNsM": 13990.0,
+        "rodLengthM": 0.072
+      },
+      "REAR": {
+        "wheelRateNm": 77649.0,
+        "progressiveRateNm2": 60000.0,
+        "slowBumpNsM": 7527.0,
+        "slowReboundNsM": 13631.0,
+        "rodLengthM": 0.085
+      }
+    },
+    "setupSuspensionAdjustmentsFound": false,
+    "defaultTyre": "Trofeo RS",
+    "defaultTyreIndex": 1,
+    "winglessSkins": "Hide mesh nodes; no separate aero physics found.",
+    "sourceHashesSha256": {
+      "suspensions.ini": "b9b7773bc54c6d2d71d55825182c349985f57cdd98ccba35fe86df4e76aae1fa",
+      "setup.ini": "6d26291a080ac800936f9e27e416b60a88f1a4cbc1a9927ea495156c34ac341a",
+      "script.lua": "ae98a54925718432b80825466c5f3603ba251eb4d93558157f0dd67749a3f241",
+      "tyres.ini": "ed0cbaedb640fddba6363c5970932baa2faa3922578e18e2565953f2c8164f37",
+      "aero.ini": "2349c49a0cb5cfcbc45a117c9630a22d9bab78e22601d6d5e9df786ee13683d1"
+    }
+  },
+  "existingExperiment": {
+    "hardwareVariant": null,
+    "hardwareProfilesApplied": false,
+    "suspensionDynamicsSimulated": false,
+    "controlModes": [
+      "street",
+      "sport",
+      "track"
+    ],
+    "controlModePolicy": "ECU experiment modes do not select air suspension or track coilover hardware.",
+    "validUse": "Controller comparisons on a hypothetical planar plant; no validated air-versus-coilover handling or lap-time prediction."
+  }
+}

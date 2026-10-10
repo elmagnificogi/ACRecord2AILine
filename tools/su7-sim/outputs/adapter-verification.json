@@ -1,0 +1,19 @@
+{
+  "status": "passed",
+  "scope": "Mock wiring only, NOT CSP actuator unit or sign calibration",
+  "checks": [
+    "Shadow never calls engine/electric/brake/ABS actuators",
+    "Shadow preserves original 360km/h cut",
+    "Reset clears observer history without actuator calls",
+    "Active writes ALL 4 electric/friction actuators each frame",
+    "One front motor uses equal left/right wheel torque",
+    "Braking sends negative electric torque and rear-only handbrake",
+    "Native TC default 8 maps to enabled mode 9; ESC/TVC remain predictions",
+    "All nine custom TC levels map to nonzero native modes 1..9",
+    "Native TC keeps unchanged mode and restores an accidental native OFF",
+    "Minimum interventions are positive; reversed TVC reaches 0.300 at level 3",
+    "Invalid or missing setup refs fall back to safe experimental defaults",
+    "Runtime setup values clamp and floor to integer ranges",
+    "Reset resynchronizes native TC without experimental torque or brake calls"
+  ]
+}

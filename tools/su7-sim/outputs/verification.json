@@ -1,0 +1,235 @@
+{
+  "checks": [
+    {
+      "name": "Straight symmetry, no unrequested yaw",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Left turn increases outer RR drive",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Left/right mirror",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Sideslip correction sign -1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Sideslip correction sign 1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Full SOC prevents regen, retains friction",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Empty SOC no positive drive",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Forward-only reverse guard",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Standstill no regen/no NaN",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TC responds to driven-wheel spin",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "ABS reduces both electric and friction lock demand",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "No false TC from normal outside-wheel speed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Selected initial/reset profile has no false mode ramp; pedal ramp retained",
+      "passed": true,
+      "detail": [
+        {
+          "mode": 0,
+          "dt": 1e-05,
+          "firstPowerScale": 0.82,
+          "resetPowerScale": 0.82
+        },
+        {
+          "mode": 0,
+          "dt": 0.003,
+          "firstPowerScale": 0.82,
+          "resetPowerScale": 0.82
+        },
+        {
+          "mode": 0,
+          "dt": 0.04,
+          "firstPowerScale": 0.82,
+          "resetPowerScale": 0.82
+        },
+        {
+          "mode": 1,
+          "dt": 1e-05,
+          "firstPowerScale": 0.94,
+          "resetPowerScale": 0.94
+        },
+        {
+          "mode": 1,
+          "dt": 0.003,
+          "firstPowerScale": 0.94,
+          "resetPowerScale": 0.94
+        },
+        {
+          "mode": 1,
+          "dt": 0.04,
+          "firstPowerScale": 0.94,
+          "resetPowerScale": 0.94
+        },
+        {
+          "mode": 2,
+          "dt": 1e-05,
+          "firstPowerScale": 1,
+          "resetPowerScale": 1
+        },
+        {
+          "mode": 2,
+          "dt": 0.003,
+          "firstPowerScale": 1,
+          "resetPowerScale": 1
+        },
+        {
+          "mode": 2,
+          "dt": 0.04,
+          "firstPowerScale": 1,
+          "resetPowerScale": 1
+        }
+      ]
+    },
+    {
+      "name": "Live mode switches smooth pedal and power in both directions",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Omitted levels exactly equal explicit ESC4 TC8 TVC0",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Runtime levels floor/clamp; invalid or nonfinite input uses ESC4 TC8 TVC0",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TC0..8 strictly increases slip intervention; TC0 retains positive control",
+      "passed": true,
+      "detail": [
+        0.034199999999999786,
+        0.04702500000000054,
+        0.05985000000000018,
+        0.07267499999999982,
+        0.08550000000000058,
+        0.09832500000000022,
+        0.11114999999999986,
+        0.12397500000000061,
+        0.13680000000000025
+      ]
+    },
+    {
+      "name": "ESC0..4 strictly increases selective braking; ESC0 retains positive control",
+      "passed": true,
+      "detail": [
+        101.55119127528218,
+        203.10238255056436,
+        304.6535738258466,
+        406.2047651011287,
+        507.7559563764109
+      ]
+    },
+    {
+      "name": "TVC0..3 strictly decreases rear drive difference; TVC3 retains positive control",
+      "passed": true,
+      "detail": [
+        313.4622291315909,
+        253.90537574976634,
+        194.34852236794222,
+        134.7916689861172
+      ]
+    },
+    {
+      "name": "Changing ESC leaves TC factors and rear TVC request independent",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Changing TVC leaves TC factors and common yaw request independent",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Changing TC leaves the yaw target and ESC/TVC gains independent",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Numeric zero retains every channel; TVC0 is its strongest setting",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Minimum intervention retains ABS, SOC and independent motor overspeed limits",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Separate stability-disable flag immediately gates ESC/TVC while retaining TC",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "700 mixed states: finite, motor/shared-front caps, force budget, regen power",
+      "passed": true,
+      "detail": {
+        "maxDriveKW": 417.5894878478886,
+        "maxRegenKW": 398.12674287550647
+      }
+    },
+    {
+      "name": "Friction fills regen to requested brake force",
+      "passed": true,
+      "detail": 14327.51565
+    },
+    {
+      "name": "Full-power state reaches and respects three-motor ceiling",
+      "passed": true,
+      "detail": 1069720
+    },
+    {
+      "name": "Conservative modeled SOC20 discharge ceiling",
+      "passed": true,
+      "detail": 752000
+    },
+    {
+      "name": "One overspeed rear motor independently cuts drive",
+      "passed": true,
+      "detail": null
+    }
+  ],
+  "count": 30,
+  "status": "passed"
+}

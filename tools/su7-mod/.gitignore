@@ -1,0 +1,4 @@
+/dist/
+/__pycache__/
+/verification-*.json
+!/Configure_SU7.cmd

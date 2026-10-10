@@ -1,0 +1,58 @@
+{
+  "status": "passed",
+  "version": "0.2.0-dev",
+  "hardwareWingTyreCombinations": 12,
+  "extremeSettingsRuns": 2,
+  "runs": [
+    {
+      "wing": "active",
+      "tyre": "pz5",
+      "report": "verification-active-pz5.json",
+      "status": "passed"
+    },
+    {
+      "wing": "active",
+      "tyre": "trofeo_rs",
+      "report": "verification-active-trofeo_rs.json",
+      "status": "passed"
+    },
+    {
+      "wing": "active",
+      "tyre": "pt01",
+      "report": "verification-active-pt01.json",
+      "status": "passed"
+    },
+    {
+      "wing": "fixed",
+      "tyre": "pz5",
+      "report": "verification-fixed-pz5.json",
+      "status": "passed"
+    },
+    {
+      "wing": "fixed",
+      "tyre": "trofeo_rs",
+      "report": "verification-fixed-trofeo_rs.json",
+      "status": "passed"
+    },
+    {
+      "wing": "fixed",
+      "tyre": "pt01",
+      "report": "verification-fixed-pt01.json",
+      "status": "passed"
+    },
+    {
+      "damperClick": 1,
+      "heightMm": -10,
+      "report": "verification-damper1-height-10.json",
+      "status": "passed"
+    },
+    {
+      "damperClick": 10,
+      "heightMm": 10,
+      "report": "verification-damper10-height10.json",
+      "status": "passed"
+    }
+  ],
+  "defaultsRestored": true,
+  "gameRuntimeTested": false
+}

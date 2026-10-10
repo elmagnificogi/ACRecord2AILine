@@ -1,0 +1,14 @@
+{
+  "verified": false,
+  "wheel_order_verified": false,
+  "body_basis_verified": false,
+  "wheel_heading_verified": false,
+  "torque_unit_and_sign_verified": false,
+  "legacy_brakes_verified": false,
+  "driveline_isolation_verified": false,
+  "omegaSigns": [1, 1, 1, 1],
+  "torqueSigns": [1, 1, 1, 1],
+  "torqueUnitsPerNm": 1.0,
+  "radiiM": [0.355, 0.355, 0.352, 0.352],
+  "note": "Fill from actual CSP probe/actuator measurements, not by checking boxes."
+}
